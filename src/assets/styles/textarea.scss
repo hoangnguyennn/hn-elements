@@ -1,0 +1,45 @@
+@use 'spacing' as *;
+@use 'color' as *;
+@use 'radius' as *;
+@use 'mixins' as *;
+
+.hn-textarea {
+  .hn-textarea--wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid $color-spacer-light;
+    border-radius: $radius-xSmall;
+
+    &:where([data-focus='true']) {
+      border-color: $color-primary;
+    }
+
+    .hn-textarea--input {
+      flex: 1;
+      padding: $space-large;
+      @include body-xs;
+      background-color: transparent;
+      color: $color-black;
+      border: none;
+      outline: none;
+      resize: vertical;
+
+      &:has(+ .hn-icon) {
+        padding-inline-end: 0;
+      }
+
+      &:disabled {
+        resize: none;
+      }
+    }
+
+    .hn-textarea--clear {
+      padding: $space-large;
+    }
+  }
+
+  .hn-textarea--counter {
+    @include body-xs;
+    color: $color-border;
+  }
+}
