@@ -1,0 +1,84 @@
+@use 'spacing' as *;
+@use 'color' as *;
+@use 'radius' as *;
+@use 'mixins' as *;
+
+.hn-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-small;
+
+  .hn-input--label {
+    @include body-s-regular;
+  }
+
+  .hn-input--wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid $color-spacer-light;
+    border-radius: $radius-xSmall;
+
+    &[data-focus='true'] {
+      border: 1px solid $color-primary;
+    }
+
+    input {
+      flex: 1;
+      padding: $space-large;
+      @include body-xs;
+      background-color: transparent;
+      color: $color-black;
+      border: none;
+      outline: none;
+
+      &:has(+ .hn-icon) {
+        padding-inline-end: 0;
+      }
+    }
+
+    .hn-input--clear {
+      padding: $space-large;
+    }
+  }
+
+  .hn-input--details {
+    display: flex;
+    justify-content: space-between;
+
+    .hn-input--error {
+      @include body-xs;
+      color: $color-error;
+    }
+
+    .hn-input--hint {
+      @include body-xs;
+      color: $color-hint-text;
+    }
+  }
+
+  &[data-size='small'] {
+    .hn-input--wrapper {
+      input {
+        padding-block: $space-medium;
+      }
+    }
+  }
+
+  &[data-error='true'] {
+    .hn-input--wrapper {
+      border-color: $color-error;
+    }
+  }
+
+  &[data-disabled='true'] {
+    .hn-input--wrapper {
+      background-color: $color-disabled;
+      cursor: not-allowed;
+    }
+
+    input {
+      color: $color-disabled;
+    }
+  }
+}

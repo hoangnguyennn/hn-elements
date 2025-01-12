@@ -1,0 +1,11 @@
+@use 'spacing' as *;
+
+.hn-icon {
+  padding: $space-medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
