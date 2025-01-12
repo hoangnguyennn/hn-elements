@@ -1,0 +1,93 @@
+@use 'spacing' as *;
+@use 'color' as *;
+@use 'radius' as *;
+@use 'mixins' as *;
+
+.hn-button {
+  padding-inline: 52px;
+  @include body-m-regular;
+  background-clip: padding-box;
+  border-radius: $radius-small;
+  cursor: pointer;
+
+  &[data-has-icon='true'] {
+    display: flex;
+    align-items: center;
+    gap: $space-medium;
+  }
+
+  &[data-size='large'] {
+    padding-block: $space-large;
+  }
+
+  &[data-size='medium'] {
+    padding-block: $space-medium;
+  }
+
+  &[data-size='small'] {
+    padding-block: $space-small;
+  }
+
+  &[data-variant='primary'] {
+    background-color: $color-primary;
+    color: $color-white;
+    border: 1px solid $color-primary;
+
+    &:hover {
+      background-color: $color-primary-hover;
+      border-color: $color-primary-hover;
+    }
+
+    &:active {
+      background-color: $color-primary-active;
+      border-color: $color-primary-active;
+    }
+
+    &[data-disabled='true'],
+    &[disabled] {
+      background-color: $color-disabled;
+      border-color: $color-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  &[data-variant='secondary'] {
+    background-color: $color-white;
+    color: $color-primary;
+    border: 1px solid currentColor;
+
+    &:hover {
+      color: $color-primary-hover;
+    }
+
+    &:active {
+      color: $color-primary-active;
+    }
+
+    &[data-disabled='true'],
+    &[disabled] {
+      color: $color-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  &[data-variant='text'] {
+    background-color: $color-white;
+    color: $color-primary;
+    border: 1px solid transparent;
+
+    &:hover {
+      color: $color-primary-hover;
+    }
+
+    &:active {
+      color: $color-primary-active;
+    }
+
+    &[data-disabled='true'],
+    &[disabled] {
+      color: $color-disabled;
+      cursor: not-allowed;
+    }
+  }
+}
