@@ -1,17 +1,14 @@
 <template>
-  <div
+  <hn-field
     class="hn-input"
-    :data-size="size"
-    :data-error="!!error || !!$slots.error"
-    :data-disabled="disabled"
+    :label="label"
+    :size="size"
+    :hint="hint"
+    :error="error"
+    :disabled="disabled"
   >
-    <template v-if="label || !!$slots.label">
-      <label v-if="label" class="hn-input--label">{{ label }}</label>
-      <slot v-else name="label"></slot>
-    </template>
-
     <div
-      class="hn-input--wrapper"
+      class="hn-field--wrapper hn-input--wrapper"
       :data-focus="focus"
       :data-clear="clearable"
       @mouseenter="hover = true"
@@ -20,6 +17,7 @@
       <input
         v-bind="$attrs"
         v-model="modelValue"
+        class="hn-field--input hn-input--input"
         :type="inputType"
         :disabled="disabled"
         @change="$emit('change', ($event.target as HTMLInputElement)!.value)"
@@ -45,34 +43,24 @@
         <ico-eye-open v-else />
       </hn-icon>
     </div>
-
-    <div class="hn-input--details" v-if="error || hint || !!$slots.error">
-      <span v-if="error" class="hn-input--error">{{ error }}</span>
-      <span v-else-if="!!$slots.error" class="hn-input--error">
-        <slot name="error"></slot>
-      </span>
-      <span v-else-if="hint" class="hn-input--hint">{{ hint }}</span>
-    </div>
-  </div>
+  </hn-field>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import HnIcon from '../icon'
+import HnField from '../field'
 import { IcoClear, IcoEyeClosed, IcoEyeOpen } from '../../assets/icons'
 import { NOOP } from '../../utils'
-import { InputSlots, InputEmits, InputProps } from './input'
+import { InputEmits, InputProps } from './input'
 
-defineOptions({ name: 'HnInput' })
+defineOptions({ name: 'HnInput', inheritAttrs: false })
 
-defineSlots<InputSlots>()
 const emit = defineEmits<InputEmits>()
 
 const modelValue = defineModel<string>()
 
-const props = withDefaults(defineProps<InputProps>(), {
-  size: 'normal'
-})
+const props = withDefaults(defineProps<InputProps>(), {})
 
 const focus = ref(false)
 const hover = ref(false)

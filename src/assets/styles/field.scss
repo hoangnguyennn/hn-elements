@@ -1,0 +1,55 @@
+@use 'spacing' as *;
+@use 'color' as *;
+@use 'mixins' as *;
+
+.hn-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-small;
+
+  .hn-field--label {
+    @include body-s-regular;
+  }
+
+  .hn-field--details {
+    display: flex;
+    justify-content: space-between;
+
+    .hn-field--error {
+      @include body-xs;
+      color: $color-error;
+    }
+
+    .hn-field--hint {
+      @include body-xs;
+      color: $color-hint-text;
+    }
+  }
+
+  &[data-size='small'] {
+    .hn-field--wrapper {
+      .hn-field--input {
+        padding-block: $space-medium;
+      }
+    }
+  }
+
+  &[data-error='true'] {
+    .hn-field--wrapper {
+      border-color: $color-error;
+    }
+  }
+
+  &[data-disabled='true'] {
+    .hn-field--wrapper {
+      background-color: $color-disabled;
+      cursor: not-allowed;
+    }
+
+    .hn-field--input {
+      color: $color-disabled;
+      cursor: not-allowed;
+    }
+  }
+}
