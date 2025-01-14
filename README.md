@@ -1,5 +1,17 @@
-# Vue 3 + TypeScript + Vite
+## HnElements
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Các element của Hn
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+### Tạo component mới
+
+```bash
+# Chạy lệnh sau để tạo component mới
+node tools/create-component/index.js -n COMPONENT_NAME
+
+#
+# Sau khi chạy xong, trong folder `src/components`
+# sẽ có một folder tương ứng với tên component được truyền vào lệnh ở trên
+#
+# Ví dụ: node tools/create-component/index.js -n button
+#
+```

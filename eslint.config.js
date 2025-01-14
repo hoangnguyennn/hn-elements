@@ -15,5 +15,6 @@ export default [
     files: ['**/*.vue'],
     languageOptions: { parserOptions: { parser: tseslint.parser } }
   },
-  eslintPluginPrettierRecommended
+  eslintPluginPrettierRecommended,
+  { ignores: ['tools/**/*'] }
 ]
