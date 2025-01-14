@@ -12,7 +12,6 @@
         v-model="modelValue"
         type="checkbox"
         class="hn-checkbox--input"
-        data-1
         :indeterminate="indeterminate"
         :disabled="disabled"
         :true-value="trueValue ?? true"
@@ -24,7 +23,6 @@
         v-bind="$attrs"
         v-model="modelValue"
         type="checkbox"
-        data-2
         class="hn-checkbox--input"
         :indeterminate="indeterminate"
         :disabled="disabled"
