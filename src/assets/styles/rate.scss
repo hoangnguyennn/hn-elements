@@ -1,0 +1,14 @@
+@use 'spacing' as *;
+
+.hn-rate {
+  display: flex;
+  width: fit-content;
+
+  .hn-rate--star {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-inline-end: $space-medium;
+  }
+}
