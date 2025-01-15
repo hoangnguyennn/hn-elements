@@ -29,34 +29,35 @@ const componentFileTemplate = './component'
 const componentFile = `./${name}`
 
 const sourcePrefix = path.resolve(__dirname, 'template')
-const destinationPrefix = path.resolve(__dirname, '../../src/components')
+const componentPrefix = path.resolve(__dirname, '../../src/components')
 
 try {
   // Tạo folder component
-  if (!fs.existsSync(`${destinationPrefix}/${name}`)) {
-    fs.mkdirSync(`${destinationPrefix}/${name}`)
+  if (!fs.existsSync(`${componentPrefix}/${name}`)) {
+    fs.mkdirSync(`${componentPrefix}/${name}`)
   }
 
-  // Tạo file component
-  fs.copyFileSync(
-    `${sourcePrefix}/component.vue`,
-    `${destinationPrefix}/${name}/${name}.vue`
-  )
-  // Tạo file component type
-  fs.copyFileSync(
-    `${sourcePrefix}/component.ts`,
-    `${destinationPrefix}/${name}/${name}.ts`
-  )
-  // Tạo file index
-  fs.copyFileSync(
-    `${sourcePrefix}/index.ts`,
-    `${destinationPrefix}/${name}/index.ts`
-  )
+  const componentPaths = [
+    {
+      source: `${sourcePrefix}/component.vue`,
+      target: `${componentPrefix}/${name}/${name}.vue`
+    },
+    {
+      source: `${sourcePrefix}/component.ts`,
+      target: `${componentPrefix}/${name}/${name}.ts`
+    },
+    {
+      source: `${sourcePrefix}/index.ts`,
+      target: `${componentPrefix}/${name}/index.ts`
+    }
+  ]
 
-  fs.readFile(
-    `${destinationPrefix}/${name}/${name}.vue`,
-    'utf-8',
-    (error, data) => {
+  componentPaths.map(file => {
+    // Sao chép file
+    fs.copyFileSync(file.source, file.target)
+
+    // Đọc file
+    fs.readFile(file.target, 'utf-8', (error, data) => {
       if (error) {
         console.log('Đã có lỗi trong quá trình đọc file component')
         return
@@ -64,49 +65,13 @@ try {
 
       // Đổi tên component
       data = data.replaceAll(componentNameTemplate, componentName)
+      // Đổi đường dẫn
       data = data.replaceAll(componentFileTemplate, componentFile)
 
-      fs.writeFileSync(
-        `${destinationPrefix}/${name}/${name}.vue`,
-        data,
-        'utf-8'
-      )
-    }
-  )
-
-  fs.readFile(
-    `${destinationPrefix}/${name}/${name}.ts`,
-    'utf-8',
-    (error, data) => {
-      if (error) {
-        console.log('Đã có lỗi trong quá trình đọc file component')
-        return
-      }
-
-      // Đổi tên component
-      data = data.replaceAll(componentNameTemplate, componentName)
-      data = data.replaceAll(componentFileTemplate, componentFile)
-
-      fs.writeFileSync(`${destinationPrefix}/${name}/${name}.ts`, data, 'utf-8')
-    }
-  )
-
-  fs.readFile(
-    `${destinationPrefix}/${name}/index.ts`,
-    'utf-8',
-    (error, data) => {
-      if (error) {
-        console.log('Đã có lỗi trong quá trình đọc file component')
-        return
-      }
-
-      // Đổi tên component
-      data = data.replaceAll(componentNameTemplate, componentName)
-      data = data.replaceAll(componentFileTemplate, componentFile)
-
-      fs.writeFileSync(`${destinationPrefix}/${name}/index.ts`, data, 'utf-8')
-    }
-  )
+      // Ghi lại vào file
+      fs.writeFileSync(file.target, data, 'utf-8')
+    })
+  })
 } catch (error) {
   console.log('Đã có lỗi trong quá trình tạo component')
   console.error(error)
