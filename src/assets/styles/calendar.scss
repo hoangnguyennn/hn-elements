@@ -1,0 +1,184 @@
+@use 'mixins' as *;
+@use 'color' as *;
+@use 'spacing' as *;
+@use 'radius' as *;
+@use 'shadow' as *;
+
+.hn-calendar {
+  padding: 32px;
+  width: 346px;
+  border: 1px solid $color-spacer-light;
+  border-radius: $radius-small;
+  box-shadow: $shadow-small;
+
+  .hn-calendar--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: $space-large;
+
+    .hn-calendar--header-action {
+      display: flex;
+      align-items: center;
+      padding: $space-large;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($color-purple, 0.2);
+        border-radius: $radius-small;
+      }
+    }
+
+    .hn-calendar--header-content {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      @include body-m;
+      padding: $space-medium;
+
+      &:hover {
+        background-color: rgba($color-purple, 0.2);
+        border-radius: $radius-small;
+      }
+    }
+  }
+
+  .hn-calendar--date-pane {
+    .hn-calendar--weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+
+      .hn-calendar--date-item {
+        @include body-s-regular;
+        color: $color-border;
+        width: 40px;
+        text-align: center;
+      }
+    }
+
+    .hn-calendar--divider {
+      border: none;
+      border-top: 1px solid $color-spacer-light;
+      margin-block-start: $space-medium;
+      margin-block-end: $space-large;
+    }
+
+    .hn-calendar--dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+
+      .hn-calendar--date-item {
+        width: 40px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        color: $color-black;
+        @include body-s-regular;
+        border: none;
+        border-radius: $radius-small;
+        cursor: pointer;
+
+        &.prev,
+        &.next {
+          color: $color-border;
+        }
+
+        &:hover {
+          background-color: rgba($color-purple, 0.2);
+        }
+
+        &.active {
+          background-color: $color-purple;
+          color: $color-white;
+        }
+
+        &.disabled {
+          color: $color-disabled;
+          cursor: not-allowed;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .hn-calendar--month-pane {
+    .hn-calendar--divider {
+      border: none;
+      border-top: 1px solid $color-spacer-light;
+      margin-block-start: 16px;
+      margin-block-end: $space-large;
+    }
+
+    .hn-calendar--months {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-medium;
+
+      .hn-calendar--month {
+        padding: 8px 6px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        @include body-s-regular;
+        border: none;
+        border-radius: $radius-small;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($color-purple, 0.2);
+        }
+
+        &.active {
+          background-color: $color-purple;
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  .hn-calendar--year-pane {
+    .hn-calendar--divider {
+      border: none;
+      border-top: 1px solid $color-spacer-light;
+      margin-block-start: 16px;
+      margin-block-end: $space-large;
+    }
+
+    .hn-calendar--years {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-medium;
+
+      .hn-calendar--year {
+        padding: 8px 6px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        @include body-s-regular;
+        border: none;
+        border-radius: $radius-small;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($color-purple, 0.2);
+        }
+
+        &.active {
+          background-color: $color-purple;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
