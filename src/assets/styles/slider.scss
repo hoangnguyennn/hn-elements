@@ -1,0 +1,55 @@
+@use 'color' as *;
+@use 'shadow' as *;
+@use 'mixins' as *;
+
+.hn-slider {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 10px;
+
+  .hn-slider--wrapper {
+    flex-grow: 1;
+    position: relative;
+    height: 8px;
+    background-color: $color-spacer-light;
+    border-radius: 9999px;
+    cursor: pointer;
+  }
+
+  .hn-slider--track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 8px;
+    background-color: $color-primary;
+    border-radius: 9999px;
+  }
+
+  .hn-slider--control {
+    appearance: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: $color-primary;
+    border: 5px solid $color-white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 0 rgba(#13384d, 20%);
+    cursor: pointer;
+
+    &::-webkit-slider-runnable-track {
+      display: none;
+    }
+  }
+
+  .hn-slider--labels {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    @include body-xs;
+    color: $color-hint-text;
+  }
+}
