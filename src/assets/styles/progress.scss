@@ -1,0 +1,95 @@
+@use 'color' as *;
+@use 'spacing' as *;
+@use 'mixins' as *;
+@use 'radius' as *;
+
+.hn-progress {
+  .hn-progress--bar {
+    display: flex;
+    align-items: center;
+
+    .hn-progress--bar-wrapper {
+      flex: 1;
+      background-color: $color-spacer-light;
+      border-radius: $radius-full;
+
+      .hn-progress--bar-inner {
+        height: 8px;
+        background-color: $color-primary;
+        border-radius: $radius-full;
+        width: 0px;
+        transition: width 0.5s ease;
+      }
+    }
+
+    .hn-progress--bar-percentage {
+      width: 35px;
+      @include body-xs;
+      text-align: right;
+    }
+  }
+
+  .hn-progress--circle {
+    /* Kích thước vòng tròn */
+    --size: 140px;
+    /* Bán kính vòng tròn */
+    --radius: calc(var(--size) / 2 * 0.9);
+    /* Chu vi vòng tròn (2 * PI * r)  */
+    --perimeter: calc(2 * pi * var(--radius));
+
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+
+    circle {
+      width: 100%;
+      height: 100%;
+      fill: none;
+    }
+
+    .hn-progress--circle-background {
+      /* Mẫu sắc đường viền */
+      stroke: $color-spacer-light;
+      /* Độ dày của đường viền */
+      stroke-width: 4;
+    }
+
+    .hn-progress--circle-current {
+      /* Mẫu sắc đường viền */
+      stroke: $color-primary;
+      /* Độ dày của đường viền */
+      stroke-width: 6;
+      /* Chu vi của vòng tròn (2 * PI * r)  */
+      stroke-dasharray: var(--perimeter);
+      /* Bo góc các đầu của đường viền */
+      stroke-linecap: round;
+      /* Tạo animation khi phần trăm thay đổi */
+      transition: stroke-dashoffset 0.5s ease;
+      /* Xoay vòng tròn để tiến trình bắt đầu từ trên */
+      transform: rotate(-90deg);
+      /* Đảm bảo vòng tròn xoay từ giữa */
+      transform-origin: 50% 50%;
+    }
+
+    .hn-progress--circle-percentage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  &[data-size='small'] {
+    .hn-progress--bar {
+      .hn-progress--bar-inner {
+        height: 4px;
+      }
+    }
+
+    .hn-progress--circle {
+      --size: 84px;
+    }
+  }
+}
