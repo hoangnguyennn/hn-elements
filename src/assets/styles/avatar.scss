@@ -1,0 +1,38 @@
+@use 'radius' as *;
+@use 'color' as *;
+@use 'mixins' as *;
+
+.hn-avatar {
+  --size: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  background-color: $color-primary;
+  color: $color-white;
+  text-transform: uppercase;
+  border-radius: $radius-full;
+  overflow: hidden;
+
+  .hn-avatar--image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &[data-size='small'] {
+    --size: 32px;
+    @include body-xs;
+  }
+
+  &[data-size='medium'] {
+    --size: 62px;
+    @include body-l;
+  }
+
+  &[data-size='large'] {
+    --size: 86px;
+    @include body-l;
+  }
+}
