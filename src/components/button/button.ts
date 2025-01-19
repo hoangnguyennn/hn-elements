@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'vue'
+import type { ButtonHTMLAttributes, VNode } from 'vue'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'text'
 
@@ -15,9 +15,9 @@ export type ButtonProps = {
 
 export type ButtonSlots = {
   /** Nội dung của button */
-  default(): any
+  default?(): VNode
   /** Icon ở phía trước của button */
-  leadingIcon(): any
+  leadingIcon?(): VNode
   /** Icon ở phía sau của button */
-  trailingIcon(): any
+  trailingIcon?(): VNode
 }

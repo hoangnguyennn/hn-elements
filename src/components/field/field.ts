@@ -1,3 +1,5 @@
+import type { VNode } from 'vue'
+
 export type FieldSize = 'normal' | 'small'
 
 export type FieldProps = {
@@ -15,7 +17,7 @@ export type FieldProps = {
 
 export type FieldSlots = {
   /** Nội dung chính của field */
-  default(): any
+  default(): VNode
   /** Nội dung chi tiết bên phải */
-  detailRight(): any
+  detailRight(): VNode
 }
