@@ -1,8 +1,8 @@
-import { reactive, Ref, toRefs, watch } from 'vue'
+import { reactive, ShallowRef, toRefs, watch } from 'vue'
 
 type UseDragArgs = {
   /** Phần từ liên kết với sự kiện drag */
-  elementRef: Ref<HTMLElement | undefined>
+  elementRef: ShallowRef<HTMLElement | null>
 }
 
 type UseDragState = {

@@ -1,8 +1,8 @@
-import { Ref } from 'vue'
+import { ShallowRef } from 'vue'
 
 type UseSliderValueArgs = {
   /** Ref của track */
-  trackRef: Ref<HTMLElement | undefined>
+  trackRef: ShallowRef<HTMLElement | null>
 }
 
 export const useSliderValue = ({ trackRef }: UseSliderValueArgs) => {

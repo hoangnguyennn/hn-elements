@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { useTemplateRef, watch } from 'vue'
 import { useDrag } from '../../composables/useDrag'
 import { useSliderValue } from './useSliderValue'
 import type { SliderProps } from './slider'
@@ -31,8 +31,8 @@ const modelValue = defineModel<number>({ default: 0 })
 
 withDefaults(defineProps<SliderProps>(), {})
 
-const trackRef = ref<HTMLDivElement>()
-const controlRef = ref<HTMLInputElement>()
+const trackRef = useTemplateRef('trackRef')
+const controlRef = useTemplateRef('controlRef')
 
 const { x } = useDrag({ elementRef: controlRef })
 
