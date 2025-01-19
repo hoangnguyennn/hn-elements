@@ -1,0 +1,46 @@
+@use 'color' as *;
+@use 'mixins' as *;
+@use 'radius' as *;
+
+.hn-tab-group {
+  padding-inline: 16px;
+  display: flex;
+  gap: 16px;
+  background-color: $color-spacer-light;
+  border-radius: $radius-small $radius-small 0 0;
+  overflow: auto;
+  white-space: nowrap;
+
+  .hn-tab {
+    padding: 20px 24px;
+    background-color: transparent;
+    @include body-m;
+    color: $color-black;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+
+    &.active {
+      border-color: $color-primary;
+    }
+  }
+
+  &[data-direction='vertical'] {
+    flex-direction: column;
+    width: fit-content;
+    padding-inline: 0;
+    padding-block: 16px;
+
+    .hn-tab {
+      padding: 12px 20px;
+      text-align: left;
+      border: none;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+
+      &.active {
+        border-left-color: $color-primary;
+      }
+    }
+  }
+}
