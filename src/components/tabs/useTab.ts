@@ -1,12 +1,10 @@
 import { computed, inject, ref } from 'vue'
 import { TabGroupContext, TAB_GROUP_KEY } from './tab-group'
 
-type GroupContext = TabGroupContext | undefined
-
 export const useTab = () => {
-  const tabGroup = inject<GroupContext>(TAB_GROUP_KEY, undefined)
+  const tabGroupContext = inject<TabGroupContext>(TAB_GROUP_KEY)
 
-  if (!tabGroup) {
+  if (!tabGroupContext) {
     throw new Error('hn-tab phải được sử dụng bên trong hn-tab-group')
   }
 
@@ -14,17 +12,17 @@ export const useTab = () => {
 
   const index = computed(() =>
     currentElement.value
-      ? tabGroup.elements.value.get(currentElement.value)
+      ? tabGroupContext.elements.value.get(currentElement.value)
       : -1
   )
 
   const elementRef = (element: HTMLElement | null) => {
     currentElement.value = element
-    if (element) tabGroup.register(element)
+    if (element) tabGroupContext.register(element)
   }
 
   return {
-    modelValue: tabGroup.modelValue,
+    modelValue: tabGroupContext.modelValue,
     index,
     elementRef
   }

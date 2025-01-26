@@ -10,23 +10,23 @@ type UseCheckboxOptions = {
   emit: ReturnType<typeof defineEmits>
 }
 
-type GroupContext = CheckboxGroupContext | undefined
-
 export const useCheckbox = (
   props: CheckboxProps,
   { emit }: UseCheckboxOptions
 ) => {
-  const checkboxGroup = inject<GroupContext>(CHECKBOX_GROUP_KEY, undefined)
+  const checkboxGroupContext = inject<CheckboxGroupContext>(CHECKBOX_GROUP_KEY)
 
-  const isGroup = computed(() => checkboxGroup !== undefined)
+  const isGroup = computed(() => checkboxGroupContext !== undefined)
 
   const modelValue = computed({
     get() {
-      return isGroup.value ? checkboxGroup!.modelValue.value : props.modelValue
+      return isGroup.value
+        ? checkboxGroupContext!.modelValue.value
+        : props.modelValue
     },
     set(value) {
       if (isGroup.value) {
-        checkboxGroup!.modelValue.value = value as CheckboxGroupValue
+        checkboxGroupContext!.modelValue.value = value as CheckboxGroupValue
       } else {
         emit('update:modelValue', value)
 
