@@ -11,7 +11,7 @@ export type FieldProps = {
   hint?: string
   /** Nội dung lỗi */
   error?: string
-  /** Chỉ ra field có bị disable hay không */
+  /** Chỉ ra rằng field có bị disable hay không */
   disabled?: boolean
 }
 

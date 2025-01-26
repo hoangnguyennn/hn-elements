@@ -22,10 +22,10 @@ export type CheckboxProps = {
   falseValue?: CheckboxValue
   /** Giá trị của checkbox khi chọn */
   value?: CheckboxValue
-  /** Chỉ ra field có ở trạng thái indeterminate hay không */
+  /** Chỉ ra rằng field có ở trạng thái indeterminate hay không */
   indeterminate?: boolean
-  /** Chỉ ra field có bị lỗi hay không */
+  /** Chỉ ra rằng field có bị lỗi hay không */
   error?: boolean
-  /** Chỉ ra field có bị disable hay không */
+  /** Chỉ ra rằng field có bị disable hay không */
   disabled?: boolean
 } & /* @vue-ignore */ Omit<InputHTMLAttributes, 'onChange'>
