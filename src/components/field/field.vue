@@ -5,9 +5,7 @@
     :data-error="!!error"
     :data-disabled="disabled"
   >
-    <template v-if="label">
-      <label class="hn-field--label">{{ label }}</label>
-    </template>
+    <label v-if="label" class="hn-field--label">{{ label }}</label>
 
     <slot></slot>
 
