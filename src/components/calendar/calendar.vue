@@ -61,8 +61,12 @@ const props = withDefaults(defineProps<CalendarProps>(), {})
 const today = dayjs().startOf('day')
 
 const modelValue = computed({
-  get: () => dayjs(props.modelValue).startOf('day'),
-  set: value => emit('update:modelValue', value.toDate())
+  get: () => {
+    return props.modelValue && dayjs(props.modelValue).startOf('day')
+  },
+  set: value => {
+    emit('update:modelValue', value?.toDate())
+  }
 })
 
 const internalMinDate = computed(() => {
@@ -152,7 +156,7 @@ const handleTitleClick = () => {
 }
 
 const handleChangeDate = () => {
-  emit('change', modelValue.value.toDate())
+  emit('change', modelValue.value?.toDate())
 }
 
 const handleChangeMonth = () => {
