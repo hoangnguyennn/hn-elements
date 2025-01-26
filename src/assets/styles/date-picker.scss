@@ -1,0 +1,33 @@
+@use 'spacing' as *;
+@use 'color' as *;
+@use 'mixins' as *;
+@use 'radius' as *;
+
+.hn-date-field {
+  .hn-date-field--wrapper {
+    display: flex;
+    align-items: center;
+    gap: $space-medium;
+    border: 1px solid $color-spacer-light;
+    border-radius: $radius-xSmall;
+
+    &:where([data-focus='true']) {
+      border-color: $color-primary;
+    }
+
+    .hn-date--input {
+      flex: 1;
+      padding: $space-large;
+      @include body-xs;
+      background-color: transparent;
+      color: $color-black;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:has(+ .hn-icon) {
+        padding-inline-end: 0;
+      }
+    }
+  }
+}
