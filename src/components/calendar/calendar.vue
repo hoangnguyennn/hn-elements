@@ -22,8 +22,8 @@
       v-if="activePane === 'day'"
       v-model="modelValue"
       v-model:active-date="activeDate"
-      :min-date="minDate"
-      :max-date="maxDate"
+      :min-date="internalMinDate"
+      :max-date="internalMaxDate"
       @change="handleChangeDate"
     />
 
@@ -45,12 +45,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import type {
-  CalendarEmits,
-  CalendarPane,
-  CalendarProps,
-  CalendarValue
-} from './calendar'
+import type { CalendarEmits, CalendarPane, CalendarProps } from './calendar'
 import dayjs from 'dayjs'
 import HnDatePane from './date-pane.vue'
 import HnMonthPane from './month-pane.vue'
@@ -61,16 +56,27 @@ defineOptions({ name: 'HnCalendar' })
 
 const emit = defineEmits<CalendarEmits>()
 
-const modelValue = defineModel<CalendarValue>()
-
 const props = withDefaults(defineProps<CalendarProps>(), {})
 
 const today = dayjs().startOf('day')
 
-const baseDate = modelValue.value ?? props.minDate ?? props.maxDate ?? today
+const modelValue = computed({
+  get: () => dayjs(props.modelValue).startOf('day'),
+  set: value => emit('update:modelValue', value.toDate())
+})
+
+const internalMinDate = computed(() => {
+  return props.minDate && dayjs(props.minDate).startOf('day')
+})
+
+const internalMaxDate = computed(() => {
+  return props.maxDate && dayjs(props.maxDate).startOf('day')
+})
 
 /** Ngày được sử dụng để hiển thị bảng chọn ngày - tháng - năm */
-const activeDate = ref<dayjs.Dayjs>(baseDate)
+const activeDate = ref<dayjs.Dayjs>(
+  modelValue.value ?? internalMinDate.value ?? internalMaxDate.value ?? today
+)
 
 /** Bảng chọn ngày - tháng - năm hiện tại */
 const activePane = ref<CalendarPane>('day')
@@ -146,7 +152,7 @@ const handleTitleClick = () => {
 }
 
 const handleChangeDate = () => {
-  emit('change', modelValue.value)
+  emit('change', modelValue.value.toDate())
 }
 
 const handleChangeMonth = () => {

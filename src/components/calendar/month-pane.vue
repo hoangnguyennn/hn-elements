@@ -17,13 +17,12 @@
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
-import { CalendarValue } from './calendar'
 import { MonthPaneEmits } from './month-pane'
 import { computed } from 'vue'
 
 defineOptions({ name: 'HnMonthPane' })
 
-const modelValue = defineModel<CalendarValue>()
+const modelValue = defineModel<dayjs.Dayjs>()
 const activeDate = defineModel<dayjs.Dayjs>('activeDate')
 
 const emit = defineEmits<MonthPaneEmits>()

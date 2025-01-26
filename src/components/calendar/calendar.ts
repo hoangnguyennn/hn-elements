@@ -1,18 +1,19 @@
-import dayjs from 'dayjs'
-import { DatePaneValue } from './date-pane'
-
 export type CalendarEmits = {
   /** Kích hoạt khi thay đổi ngày  */
-  change: [DatePaneValue]
+  'update:modelValue': [CalendarValue]
+  /** Kích hoạt khi thay đổi ngày  */
+  change: [CalendarValue]
 }
 
-export type CalendarValue = DatePaneValue
+export type CalendarValue = Date | undefined
 
 export type CalendarPane = 'day' | 'month' | 'year'
 
 export type CalendarProps = {
+  /** Giá trị ngày được chọn hiện tại */
+  modelValue?: Date
   /** Giới hạn ngày nhỏ nhất */
-  minDate?: dayjs.Dayjs
+  minDate?: Date
   /** Giới hạn ngày lớn nhất */
-  maxDate?: dayjs.Dayjs
+  maxDate?: Date
 }

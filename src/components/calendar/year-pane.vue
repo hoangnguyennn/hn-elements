@@ -17,7 +17,6 @@
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
-import { CalendarValue } from './calendar'
 import { range } from '../../utils'
 import { computed } from 'vue'
 import { YearPaneEmits } from './year-pane'
@@ -26,7 +25,7 @@ defineOptions({ name: 'HnYearPane' })
 
 const emit = defineEmits<YearPaneEmits>()
 
-const modelValue = defineModel<CalendarValue>()
+const modelValue = defineModel<dayjs.Dayjs>()
 const activeDate = defineModel<dayjs.Dayjs>('activeDate', {
   default: () => dayjs()
 })
