@@ -9,21 +9,26 @@ type UseClickOutsideArgs = {
 }
 
 export const useClickOutside = ({ refs, callback }: UseClickOutsideArgs) => {
-  const isClickOutside = (element: HTMLElement | null, event: MouseEvent) => {
+  const isClickOutside = (element: HTMLElement | null, target: Node) => {
     if (!element) return false
-    return !element.contains(event.target as HTMLElement)
+    return !element.contains(target)
   }
 
   const onClick = (event: MouseEvent) => {
+    const target = event.target as Node
+
+    // không làm gì khi target bị gỡ khỏi DOM
+    if (!target || !target.isConnected) return
+
     if (isArray(refs)) {
-      if (refs.every(ref => isClickOutside(ref.value, event))) {
+      if (refs.every(ref => isClickOutside(ref.value, target))) {
         callback(event)
       }
 
       return
     }
 
-    if (isClickOutside(refs.value, event)) {
+    if (isClickOutside(refs.value, target)) {
       callback(event)
     }
   }
