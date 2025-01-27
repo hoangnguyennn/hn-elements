@@ -1,4 +1,15 @@
 {
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-jsdoc"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "options": {
+        "jsdocSeparateReturnsFromParams": true,
+        "jsdocSeparateTagGroups": true,
+        "jsdocDescriptionWithDot": true
+      }
+    }
+  ],
   "singleQuote": true,
   "useTabs": false,
   "tabWidth": 2,

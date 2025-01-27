@@ -1,7 +1,13 @@
-import { computed, inject, ref } from 'vue'
-import { TabGroupContext, TAB_GROUP_KEY } from './tab-group'
+import { computed, ComputedRef, inject, ref } from 'vue'
+import { TAB_GROUP_KEY, TabGroupContext } from './tab-group'
 
-export const useTab = () => {
+type ReturnValue = {
+  modelValue: TabGroupContext['modelValue']
+  index: ComputedRef<number | undefined>
+  elementRef: (element: HTMLElement | null) => void
+}
+
+export const useTab = (): ReturnValue => {
   const tabGroupContext = inject<TabGroupContext>(TAB_GROUP_KEY)
 
   if (!tabGroupContext) {
@@ -16,7 +22,7 @@ export const useTab = () => {
       : -1
   )
 
-  const elementRef = (element: HTMLElement | null) => {
+  const elementRef = (element: HTMLElement | null): void => {
     currentElement.value = element
     if (element) tabGroupContext.register(element)
   }

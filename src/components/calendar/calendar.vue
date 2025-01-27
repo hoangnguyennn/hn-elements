@@ -44,13 +44,13 @@
 </template>
 
 <script setup lang="ts">
+import { IcoArrowLeft, IcoArrowRight } from '@hn/assets/icons'
+import dayjs from 'dayjs'
 import { computed, ref } from 'vue'
 import type { CalendarEmits, CalendarPane, CalendarProps } from './calendar'
-import dayjs from 'dayjs'
 import HnDatePane from './date-pane.vue'
 import HnMonthPane from './month-pane.vue'
 import HnYearPane from './year-pane.vue'
-import { IcoArrowLeft, IcoArrowRight } from '@hn/assets/icons'
 
 defineOptions({ name: 'HnCalendar' })
 
@@ -107,7 +107,7 @@ const activePaneTitle = computed(() => {
   return `${prev} - ${next}`
 })
 
-const handlePrevClick = () => {
+const handlePrevClick = (): void => {
   if (activePane.value === 'day') {
     activeDate.value = activeDate.value.subtract(1, 'month')
     return
@@ -123,7 +123,7 @@ const handlePrevClick = () => {
   }
 }
 
-const handleNextClick = () => {
+const handleNextClick = (): void => {
   if (activePane.value === 'day') {
     activeDate.value = activeDate.value.add(1, 'month')
     return
@@ -139,7 +139,7 @@ const handleNextClick = () => {
   }
 }
 
-const handleTitleClick = () => {
+const handleTitleClick = (): void => {
   if (activePane.value === 'day') {
     activePane.value = 'month'
     return
@@ -155,15 +155,15 @@ const handleTitleClick = () => {
   }
 }
 
-const handleChangeDate = () => {
+const handleChangeDate = (): void => {
   emit('change', modelValue.value?.toDate())
 }
 
-const handleChangeMonth = () => {
+const handleChangeMonth = (): void => {
   activePane.value = 'day'
 }
 
-const handleChangeYear = () => {
+const handleChangeYear = (): void => {
   activePane.value = 'month'
 }
 </script>

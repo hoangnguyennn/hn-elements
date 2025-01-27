@@ -34,8 +34,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import HnField from '@hn/components/field'
+import { ref } from 'vue'
 import { TextareaEmits, TextareaProps } from './textarea'
 
 defineOptions({ name: 'HnTextarea', inheritAttrs: false })

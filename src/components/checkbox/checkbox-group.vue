@@ -7,10 +7,10 @@
 <script setup lang="ts">
 import { provide, watch } from 'vue'
 import {
-  type CheckboxGroupProps,
   type CheckboxGroupContext,
-  type CheckboxGroupValue,
   type CheckboxGroupEmits,
+  type CheckboxGroupProps,
+  type CheckboxGroupValue,
   CHECKBOX_GROUP_KEY
 } from './checkbox-group'
 

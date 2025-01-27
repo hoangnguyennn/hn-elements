@@ -16,8 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
 import { range } from '@hn/utils'
+import dayjs from 'dayjs'
 import { computed } from 'vue'
 import { YearPaneEmits } from './year-pane'
 
@@ -44,11 +44,11 @@ const years = computed(() => {
   }
 })
 
-const isActive = (year: number) => {
+const isActive = (year: number): boolean => {
   return modelValue.value?.year() === year
 }
 
-const handleChangeYear = (year: number) => {
+const handleChangeYear = (year: number): void => {
   if (!isActive(year)) {
     modelValue.value = undefined
     activeDate.value = dayjs(activeDate.value).year(year)

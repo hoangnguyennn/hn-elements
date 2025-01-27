@@ -16,7 +16,7 @@ defineOptions({ name: 'HnTab' })
 
 const { modelValue, index, elementRef } = useTab()
 
-const onTabClick = () => {
+const onTabClick = (): void => {
   modelValue.value = index.value
 }
 </script>

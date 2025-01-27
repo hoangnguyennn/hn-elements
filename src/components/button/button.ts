@@ -5,19 +5,19 @@ export type ButtonVariant = 'primary' | 'secondary' | 'text'
 export type ButtonSize = 'small' | 'medium' | 'large'
 
 export type ButtonProps = {
-  /** Chỉ ra rằng button có bị disable hay không */
+  /** Chỉ ra rằng button có bị disable hay không. */
   disabled?: boolean
-  /** Biến thể của button */
+  /** Biến thể của button. */
   variant?: ButtonVariant
-  /** Kích thước của button */
+  /** Kích thước của button. */
   size?: ButtonSize
-} & /* @vue-ignore */ ButtonHTMLAttributes
+} & /** @vue-ignore */ ButtonHTMLAttributes
 
 export type ButtonSlots = {
-  /** Nội dung của button */
+  /** Nội dung của button. */
   default?(): VNode
-  /** Icon ở phía trước của button */
+  /** Icon ở phía trước của button. */
   leadingIcon?(): VNode
-  /** Icon ở phía sau của button */
+  /** Icon ở phía sau của button. */
   trailingIcon?(): VNode
 }

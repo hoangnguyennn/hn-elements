@@ -1,3 +1,3 @@
-export type { FieldSize, FieldProps, FieldSlots } from './field'
+export type { FieldProps, FieldSize, FieldSlots } from './field'
 
 export { default } from './field.vue'

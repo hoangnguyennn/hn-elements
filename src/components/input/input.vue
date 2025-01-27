@@ -47,11 +47,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import HnIcon from '@hn/components/icon'
-import HnField from '@hn/components/field'
 import { IcoClear, IcoEyeClosed, IcoEyeOpen } from '@hn/assets/icons'
+import HnField from '@hn/components/field'
+import HnIcon from '@hn/components/icon'
 import { NOOP } from '@hn/utils'
+import { computed, ref } from 'vue'
 import { InputEmits, InputProps } from './input'
 
 defineOptions({ name: 'HnInput', inheritAttrs: false })
@@ -70,7 +70,7 @@ const inputType = computed(() =>
   props.password && showPassword.value ? 'password' : 'text'
 )
 
-const handleClear = () => {
+const handleClear = (): void => {
   modelValue.value = ''
   emit('clear')
   emit('change', '')

@@ -20,10 +20,10 @@
 </template>
 
 <script setup lang="ts">
-import { useTemplateRef, watch } from 'vue'
 import { useDrag } from '@hn/composables/useDrag'
-import { useSliderValue } from './useSliderValue'
+import { useTemplateRef, watch } from 'vue'
 import type { SliderProps } from './slider'
+import { useSliderValue } from './useSliderValue'
 
 defineOptions({ name: 'HnSlider' })
 
@@ -42,7 +42,7 @@ watch(x, newValue => {
   modelValue.value = getValue(newValue)
 })
 
-const onTrackClick = (event: MouseEvent) => {
+const onTrackClick = (event: MouseEvent): void => {
   modelValue.value = getValue(event.pageX)
 }
 </script>

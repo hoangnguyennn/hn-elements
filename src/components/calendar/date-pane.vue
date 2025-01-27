@@ -95,18 +95,18 @@ const dates = computed(() => {
   return results
 })
 
-const isActive = (date: dayjs.Dayjs) => {
-  return modelValue.value?.isSame(date)
+const isActive = (date: dayjs.Dayjs): boolean => {
+  return modelValue.value?.isSame(date) ?? false
 }
 
-const isDisabled = (date: dayjs.Dayjs) => {
+const isDisabled = (date: dayjs.Dayjs): boolean => {
   return (
-    (props.minDate && date.isBefore(props.minDate)) ||
-    (props.maxDate && date.isAfter(props.maxDate))
+    Boolean(props.minDate && date.isBefore(props.minDate)) ||
+    Boolean(props.maxDate && date.isAfter(props.maxDate))
   )
 }
 
-const handleChangeDate = (date: dayjs.Dayjs) => {
+const handleChangeDate = (date: dayjs.Dayjs): void => {
   modelValue.value = date
   activeDate.value = date
 

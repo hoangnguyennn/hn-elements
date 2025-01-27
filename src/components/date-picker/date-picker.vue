@@ -15,10 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import HnPopper from '@hn/components/popper'
 import HnCalendar, { CalendarValue } from '@hn/components/calendar'
-import HnDateField from './date-field.vue'
+import HnPopper from '@hn/components/popper'
 import { ref } from 'vue'
+import HnDateField from './date-field.vue'
 import { DatePickerProps } from './date-picker'
 
 const modelValue = defineModel<CalendarValue>()
@@ -29,7 +29,7 @@ withDefaults(defineProps<DatePickerProps>(), {})
 
 const open = ref(false)
 
-const onClose = () => {
+const onClose = (): void => {
   open.value = false
 }
 </script>

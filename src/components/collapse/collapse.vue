@@ -5,14 +5,14 @@
 </template>
 
 <script setup lang="ts">
+import { useList } from '@hn/composables/useList'
 import { provide } from 'vue'
 import {
-  type CollapseValue,
   type CollapseContext,
   type CollapseProps,
+  type CollapseValue,
   COLLAPSE_KEY
 } from './collapse'
-import { useList } from '@hn/composables/useList'
 
 defineOptions({ name: 'HnCollapse' })
 
@@ -22,7 +22,7 @@ const modelValue = defineModel<CollapseValue>({ default: [] })
 
 const { register, unregister, map } = useList()
 
-const onTrigger = (index: number) => {
+const onTrigger = (index: number): void => {
   if (props.accordion) {
     if (modelValue.value.includes(index)) {
       modelValue.value = []

@@ -43,8 +43,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { IcoCheck, IcoIndeterminate } from '@hn/assets/icons'
+import { computed } from 'vue'
 import { type CheckboxEmits, type CheckboxProps } from './checkbox'
 import { useCheckbox } from './useCheckbox'
 
@@ -75,7 +75,7 @@ const checked = computed(() => {
   return !!modelValue.value
 })
 
-const handleChange = (event: Event) => {
+const handleChange = (event: Event): void => {
   emit('change', (event.target as HTMLInputElement).checked)
 }
 </script>

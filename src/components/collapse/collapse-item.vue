@@ -18,9 +18,9 @@
 </template>
 
 <script setup lang="ts">
-import HnIcon from '@hn/components/icon'
 import { IcoArrowForward } from '@hn/assets/icons'
-import type { CollapseItemSlots, CollapseItemProps } from './collapse-item'
+import HnIcon from '@hn/components/icon'
+import type { CollapseItemProps, CollapseItemSlots } from './collapse-item'
 import { useCollapseItem } from './useCollapseItem'
 
 defineOptions({ name: 'HnCollapseItem' })

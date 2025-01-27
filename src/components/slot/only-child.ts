@@ -1,4 +1,10 @@
 import {
+  FORWARD_REF_KEY,
+  ForwardRefContext,
+  useForwardRefDireactive
+} from '@hn/composables/useForwardRef'
+import { isObject, NOOP } from '@hn/utils'
+import {
   cloneVNode,
   defineComponent,
   Fragment,
@@ -7,12 +13,6 @@ import {
   VNode,
   withDirectives
 } from 'vue'
-import {
-  FORWARD_REF_KEY,
-  ForwardRefContext,
-  useForwardRefDireactive
-} from '@hn/composables/useForwardRef'
-import { isObject, NOOP } from '@hn/utils'
 
 export const OnlyChild = defineComponent({
   name: 'HnOnlyChild',
@@ -40,6 +40,13 @@ export const OnlyChild = defineComponent({
   }
 })
 
+/**
+ * Tìm ra node con hợp lệ của một node.
+ *
+ * @param node Node cha.
+ *
+ * @returns Node con.
+ */
 function firstValidChild(node: VNode[] | undefined): VNode | null {
   if (!node) return null
   const children = node as VNode[]
@@ -61,6 +68,13 @@ function firstValidChild(node: VNode[] | undefined): VNode | null {
   return null
 }
 
-function wrapTextContent(string: string | VNode) {
+/**
+ * Tạo VNode từ string.
+ *
+ * @param string String.
+ *
+ * @returns VNode.
+ */
+function wrapTextContent(string: string | VNode): VNode {
   return h('span', {}, string)
 }

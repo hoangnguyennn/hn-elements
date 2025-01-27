@@ -49,9 +49,9 @@
 </template>
 
 <script setup lang="ts">
-import type { HnRateProps } from './rate'
-import { IcoStarEmpty, IcoStarFull } from '../../assets/icons'
 import { ref } from 'vue'
+import { IcoStarEmpty, IcoStarFull } from '../../assets/icons'
+import type { HnRateProps } from './rate'
 
 defineOptions({ name: 'HnRate' })
 
@@ -63,7 +63,7 @@ const props = withDefaults(defineProps<HnRateProps>(), {
 
 const hoverValue = ref(0)
 
-const handleChange = (value: number) => {
+const handleChange = (value: number): void => {
   if (props.clearable && value === modelValue.value) {
     modelValue.value = 0
     return

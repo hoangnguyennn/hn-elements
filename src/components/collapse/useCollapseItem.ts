@@ -1,8 +1,15 @@
-import { computed, inject, ref } from 'vue'
-import { type CollapseContext, COLLAPSE_KEY } from './collapse'
 import { isNumber } from '@hn/utils'
+import { computed, ComputedRef, inject, ref } from 'vue'
+import { type CollapseContext, COLLAPSE_KEY } from './collapse'
 
-export const useCollapseItem = () => {
+type ReturnValue = {
+  index: ComputedRef<number>
+  isActive: ComputedRef<boolean>
+  elementRef: (element: HTMLElement | null) => void
+  onTrigger: (index: number) => void
+}
+
+export const useCollapseItem = (): ReturnValue => {
   const collapseContext = inject<CollapseContext>(COLLAPSE_KEY)
 
   if (!collapseContext) {
@@ -24,7 +31,7 @@ export const useCollapseItem = () => {
     return false
   })
 
-  const elementRef = (element: HTMLElement | null) => {
+  const elementRef = (element: HTMLElement | null): void => {
     currentElement.value = element
     if (element) collapseContext.register(element)
   }

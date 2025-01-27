@@ -1,6 +1,12 @@
-import { ref, computed } from 'vue'
+import { computed, ComputedRef, ref } from 'vue'
 
-export const useList = () => {
+type ReturnValue = {
+  register: (element: HTMLElement) => void
+  unregister: (element: HTMLElement) => void
+  map: ComputedRef<Map<HTMLElement, number>>
+}
+
+export const useList = (): ReturnValue => {
   const uniqueElements = ref(new Set<HTMLElement>())
   const elements = ref<HTMLElement[]>([])
 
@@ -8,12 +14,12 @@ export const useList = () => {
     return new Map(elements.value.map((element, index) => [element, index]))
   })
 
-  const register = (element: HTMLElement) => {
+  const register = (element: HTMLElement): void => {
     uniqueElements.value.add(element)
     elements.value = Array.from(uniqueElements.value)
   }
 
-  const unregister = (element: HTMLElement) => {
+  const unregister = (element: HTMLElement): void => {
     uniqueElements.value.delete(element)
     elements.value = Array.from(uniqueElements.value)
   }

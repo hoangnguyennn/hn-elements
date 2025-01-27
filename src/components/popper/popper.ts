@@ -4,7 +4,7 @@ import { Ref } from 'vue'
 export const POPPER_KEY = Symbol('popper')
 
 export type PopperContext = {
-  /** The anchor element */
+  /** The anchor element. */
   anchorRef: Ref<HTMLElement | null>
 }
 
@@ -12,13 +12,13 @@ export type PopperTrigger = 'click' | 'hover' | 'focus' | 'contextmenu'
 
 export type PopperProps = {
   /**
-   * Chỉ định vị trí xuất hiện của content
+   * Chỉ định vị trí xuất hiện của content.
    *
    * @default 'bottom-start'
    */
   placement?: Placement
   /**
-   * Chỉ định cách thức bật content
+   * Chỉ định cách thức bật content.
    *
    * @default 'hover'
    */

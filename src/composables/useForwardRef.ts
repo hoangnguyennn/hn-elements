@@ -5,12 +5,12 @@ export const FORWARD_REF_KEY = Symbol('forwardRef')
 type ForwardRefSetter = <T>(element: T) => void
 
 export type ForwardRefContext = {
-  /** Hàm set giá trị cho ref */
+  /** Hàm set giá trị cho ref. */
   setForwardRef: ForwardRefSetter
 }
 
-export const useForwardRef = <T>(forwardRef: Ref<T | null>) => {
-  const setForwardRef = (element: T) => {
+export const useForwardRef = <T>(forwardRef: Ref<T | null>): void => {
+  const setForwardRef = (element: T): void => {
     forwardRef.value = element
   }
 

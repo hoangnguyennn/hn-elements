@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { FieldSlots, FieldProps } from './field'
+import { FieldProps, FieldSlots } from './field'
 
 defineOptions({ name: 'HnField' })
 

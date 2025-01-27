@@ -24,10 +24,10 @@
 
 <script setup lang="ts">
 import { autoUpdate, flip, shift, useFloating } from '@floating-ui/vue'
-import HnPopperAnchor from './popper-anchor.vue'
 import { useClickOutside } from '@hn/composables/useClickOutside'
+import { provide, ref } from 'vue'
 import { POPPER_KEY, PopperContext, PopperProps, PopperTrigger } from './popper'
-import { ref, provide } from 'vue'
+import HnPopperAnchor from './popper-anchor.vue'
 
 defineOptions({ name: 'HnPopper' })
 
@@ -41,11 +41,11 @@ const props = withDefaults(defineProps<PopperProps>(), {
 const anchorRef = ref<HTMLElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
 
-const onTrigger = (event: PopperTrigger, value = true) => {
+const onTrigger = (event: PopperTrigger, value = true): void => {
   if (event === props.trigger) open.value = value
 }
 
-const onClose = () => {
+const onClose = (): void => {
   open.value = false
 }
 

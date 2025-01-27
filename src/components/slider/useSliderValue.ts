@@ -1,12 +1,16 @@
 import { ShallowRef } from 'vue'
 
-type UseSliderValueArgs = {
-  /** Ref của track */
+type Args = {
+  /** Ref của track. */
   trackRef: ShallowRef<HTMLElement | null>
 }
 
-export const useSliderValue = ({ trackRef }: UseSliderValueArgs) => {
-  const getValue = (x: number) => {
+type ReturnValue = {
+  getValue: (x: number) => number
+}
+
+export const useSliderValue = ({ trackRef }: Args): ReturnValue => {
+  const getValue = (x: number): number => {
     const trackElement = trackRef.value
     const trankRect = trackElement?.getBoundingClientRect()
 

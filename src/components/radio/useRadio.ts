@@ -1,12 +1,21 @@
-import { computed, inject } from 'vue'
+import { computed, ComputedRef, inject } from 'vue'
+import { RadioProps, RadioValue } from './radio'
 import { RADIO_GROUP_KEY, RadioGroupContext } from './radio-group'
-import { RadioProps } from './radio'
 
 type UseRadioOptions = {
   emit: ReturnType<typeof defineEmits>
 }
 
-export const useRadio = (props: RadioProps, { emit }: UseRadioOptions) => {
+type ReturnValue = {
+  modelValue: ComputedRef<RadioValue>
+  isGroup: ComputedRef<boolean>
+  radioGroup?: RadioGroupContext
+}
+
+export const useRadio = (
+  props: RadioProps,
+  { emit }: UseRadioOptions
+): ReturnValue => {
   const radioGroupContext = inject<RadioGroupContext>(RADIO_GROUP_KEY)
 
   const isGroup = computed(() => radioGroupContext !== undefined)

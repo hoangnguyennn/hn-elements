@@ -17,8 +17,8 @@
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
-import { MonthPaneEmits } from './month-pane'
 import { computed } from 'vue'
+import { MonthPaneEmits } from './month-pane'
 
 defineOptions({ name: 'HnMonthPane' })
 
@@ -37,12 +37,12 @@ const isSameYear = computed(() => {
   return modelValue.value.isSame(activeDate.value, 'year')
 })
 
-const isActive = (month: string) => {
+const isActive = (month: string): boolean => {
   const isSameMonth = modelValue.value?.format('MMMM') === month
   return isSameYear.value && isSameMonth
 }
 
-const handleChangeMonth = (month: string) => {
+const handleChangeMonth = (month: string): void => {
   const monthIndex = months.indexOf(month)
   if (monthIndex === -1) return
 

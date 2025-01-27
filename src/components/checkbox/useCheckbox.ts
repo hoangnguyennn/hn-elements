@@ -1,19 +1,24 @@
-import { computed, inject } from 'vue'
+import { computed, ComputedRef, inject } from 'vue'
+import { CheckboxValue, type CheckboxProps } from './checkbox'
 import {
+  CHECKBOX_GROUP_KEY,
   type CheckboxGroupContext,
-  type CheckboxGroupValue,
-  CHECKBOX_GROUP_KEY
+  type CheckboxGroupValue
 } from './checkbox-group'
-import { type CheckboxProps } from './checkbox'
 
 type UseCheckboxOptions = {
   emit: ReturnType<typeof defineEmits>
 }
 
+type ReturnValue = {
+  modelValue: ComputedRef<CheckboxGroupValue | CheckboxValue>
+  isGroup: ComputedRef<boolean>
+}
+
 export const useCheckbox = (
   props: CheckboxProps,
   { emit }: UseCheckboxOptions
-) => {
+): ReturnValue => {
   const checkboxGroupContext = inject<CheckboxGroupContext>(CHECKBOX_GROUP_KEY)
 
   const isGroup = computed(() => checkboxGroupContext !== undefined)
