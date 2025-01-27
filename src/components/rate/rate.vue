@@ -1,56 +1,22 @@
 <template>
   <div class="hn-rate" :data-hover-value="hoverValue">
     <span
+      v-for="i in 5"
+      :key="`star-${i}`"
       class="hn-rate--star"
-      @click="handleChange(1)"
-      @mouseenter="hoverValue = 1"
+      @click="handleChange(i)"
+      @mouseenter="hoverValue = i"
       @mouseleave="hoverValue = 0"
     >
-      <ico-star-full v-if="modelValue >= 1 || hoverValue >= 1" />
-      <ico-star-empty v-else />
-    </span>
-    <span
-      class="hn-rate--star"
-      @click="handleChange(2)"
-      @mouseenter="hoverValue = 2"
-      @mouseleave="hoverValue = 0"
-    >
-      <ico-star-full v-if="modelValue >= 2 || hoverValue >= 2" />
-      <ico-star-empty v-else />
-    </span>
-    <span
-      class="hn-rate--star"
-      @click="handleChange(3)"
-      @mouseenter="hoverValue = 3"
-      @mouseleave="hoverValue = 0"
-    >
-      <ico-star-full v-if="modelValue >= 3 || hoverValue >= 3" />
-      <ico-star-empty v-else />
-    </span>
-    <span
-      class="hn-rate--star"
-      @click="handleChange(4)"
-      @mouseenter="hoverValue = 4"
-      @mouseleave="hoverValue = 0"
-    >
-      <ico-star-full v-if="modelValue >= 4 || hoverValue >= 4" />
-      <ico-star-empty v-else />
-    </span>
-    <span
-      class="hn-rate--star"
-      @click="handleChange(5)"
-      @mouseenter="hoverValue = 5"
-      @mouseleave="hoverValue = 0"
-    >
-      <ico-star-full v-if="modelValue >= 5 || hoverValue >= 5" />
+      <ico-star-full v-if="modelValue >= i || hoverValue >= i" />
       <ico-star-empty v-else />
     </span>
   </div>
 </template>
 
 <script setup lang="ts">
+import { IcoStarEmpty, IcoStarFull } from '@hn/assets/icons'
 import { ref } from 'vue'
-import { IcoStarEmpty, IcoStarFull } from '../../assets/icons'
 import type { HnRateProps } from './rate'
 
 defineOptions({ name: 'HnRate' })
