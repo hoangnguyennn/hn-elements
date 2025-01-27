@@ -1,5 +1,5 @@
-import { computed, ComputedRef, inject, ref } from 'vue'
-import { TAB_GROUP_KEY, TabGroupContext } from './tab-group'
+import { computed, inject, ref, type ComputedRef } from 'vue'
+import { TAB_GROUP_KEY, type TabGroupContext } from './tab-group'
 
 type ReturnValue = {
   modelValue: TabGroupContext['modelValue']

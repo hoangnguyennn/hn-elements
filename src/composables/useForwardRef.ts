@@ -1,4 +1,4 @@
-import { ObjectDirective, provide, Ref } from 'vue'
+import { provide, type ObjectDirective, type Ref } from 'vue'
 
 export const FORWARD_REF_KEY = Symbol('forwardRef')
 

@@ -1,4 +1,4 @@
-import { VNode } from 'vue'
+import type { VNode } from 'vue'
 
 export type CollapseItemProps = {
   /** Tiêu đề của collapse item. Có thể sử dụng slot `title` thay thế. */

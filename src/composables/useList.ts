@@ -1,4 +1,4 @@
-import { computed, ComputedRef, ref } from 'vue'
+import { computed, ref, type ComputedRef } from 'vue'
 
 type ReturnValue = {
   register: (element: HTMLElement) => void

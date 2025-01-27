@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { AvatarProps } from './avatar'
+import type { AvatarProps } from './avatar'
 
 defineOptions({ name: 'HnAvatar' })
 

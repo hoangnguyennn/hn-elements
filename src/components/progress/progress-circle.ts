@@ -1,3 +1,3 @@
-import { ProgressProps } from './progress'
+import type { ProgressProps } from './progress'
 
 export type ProgressCircleProps = Omit<ProgressProps, 'variant'>

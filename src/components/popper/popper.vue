@@ -26,7 +26,12 @@
 import { autoUpdate, flip, shift, useFloating } from '@floating-ui/vue'
 import { useClickOutside } from '@hn/composables/useClickOutside'
 import { provide, ref } from 'vue'
-import { POPPER_KEY, PopperContext, PopperProps, PopperTrigger } from './popper'
+import {
+  POPPER_KEY,
+  type PopperContext,
+  type PopperProps,
+  type PopperTrigger
+} from './popper'
 import HnPopperAnchor from './popper-anchor.vue'
 
 defineOptions({ name: 'HnPopper' })

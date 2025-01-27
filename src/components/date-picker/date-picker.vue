@@ -15,11 +15,11 @@
 </template>
 
 <script setup lang="ts">
-import HnCalendar, { CalendarValue } from '@hn/components/calendar'
+import HnCalendar, { type CalendarValue } from '@hn/components/calendar'
 import HnPopper from '@hn/components/popper'
 import { ref } from 'vue'
 import HnDateField from './date-field.vue'
-import { DatePickerProps } from './date-picker'
+import type { DatePickerProps } from './date-picker'
 
 const modelValue = defineModel<CalendarValue>()
 

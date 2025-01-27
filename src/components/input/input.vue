@@ -52,7 +52,7 @@ import HnField from '@hn/components/field'
 import HnIcon from '@hn/components/icon'
 import { NOOP } from '@hn/utils'
 import { computed, ref } from 'vue'
-import { InputEmits, InputProps } from './input'
+import type { InputEmits, InputProps } from './input'
 
 defineOptions({ name: 'HnInput', inheritAttrs: false })
 

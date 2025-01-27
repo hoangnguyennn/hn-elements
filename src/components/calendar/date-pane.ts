@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import type dayjs from 'dayjs'
 
 export type DateItem = {
   /** Ngày hiển thị. */

@@ -1,4 +1,4 @@
-import { ComputedRef, ModelRef } from 'vue'
+import type { ComputedRef, ModelRef } from 'vue'
 
 export const COLLAPSE_KEY = Symbol('collapse')
 

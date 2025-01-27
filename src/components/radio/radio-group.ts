@@ -1,5 +1,5 @@
 import type { CheckboxGroupDirection } from '@hn/components/checkbox'
-import { ModelRef } from 'vue'
+import type { ModelRef } from 'vue'
 import type { RadioValue } from './radio'
 
 export const RADIO_GROUP_KEY = Symbol('radioGroup')

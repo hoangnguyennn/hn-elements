@@ -1,4 +1,4 @@
-import { ComputedRef, ModelRef } from 'vue'
+import type { ComputedRef, ModelRef } from 'vue'
 
 export const TAB_GROUP_KEY = Symbol('tabGroup')
 

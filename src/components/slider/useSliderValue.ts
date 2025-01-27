@@ -1,4 +1,4 @@
-import { ShallowRef } from 'vue'
+import type { ShallowRef } from 'vue'
 
 type Args = {
   /** Ref của track. */

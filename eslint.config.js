@@ -42,7 +42,8 @@ export default [
           allowHigherOrderFunctions: true,
           allowDirectConstAssertionInArrowFunctions: true
         }
-      ]
+      ],
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   }
 ]

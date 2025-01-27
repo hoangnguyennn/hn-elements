@@ -1,4 +1,4 @@
-import { reactive, Ref, ShallowRef, toRefs, watch } from 'vue'
+import { reactive, toRefs, watch, type Ref, type ShallowRef } from 'vue'
 
 type UseDragArgs = {
   /** Phần từ liên kết với sự kiện drag. */

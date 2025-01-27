@@ -1,4 +1,4 @@
-import { ModelRef } from 'vue'
+import type { ModelRef } from 'vue'
 import { type CheckboxValue } from './checkbox'
 
 export const CHECKBOX_GROUP_KEY = Symbol('checkboxGroup')

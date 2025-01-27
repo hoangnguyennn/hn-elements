@@ -1,6 +1,6 @@
-import { computed, ComputedRef, inject } from 'vue'
-import { RadioProps, RadioValue } from './radio'
-import { RADIO_GROUP_KEY, RadioGroupContext } from './radio-group'
+import { computed, inject, type ComputedRef } from 'vue'
+import type { RadioProps, RadioValue } from './radio'
+import { RADIO_GROUP_KEY, type RadioGroupContext } from './radio-group'
 
 type UseRadioOptions = {
   emit: ReturnType<typeof defineEmits>

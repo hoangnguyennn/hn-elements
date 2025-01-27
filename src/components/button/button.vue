@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonProps, ButtonSlots } from './button'
+import type { ButtonProps, ButtonSlots } from './button'
 
 defineOptions({ name: 'HnButton' })
 

@@ -1,6 +1,6 @@
 import { isNumber } from '@hn/utils'
-import { computed, ComputedRef, inject, ref } from 'vue'
-import { type CollapseContext, COLLAPSE_KEY } from './collapse'
+import { computed, inject, ref, type ComputedRef } from 'vue'
+import { COLLAPSE_KEY, type CollapseContext } from './collapse'
 
 type ReturnValue = {
   index: ComputedRef<number>

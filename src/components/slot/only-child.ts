@@ -1,7 +1,7 @@
 import {
   FORWARD_REF_KEY,
-  ForwardRefContext,
-  useForwardRefDireactive
+  useForwardRefDireactive,
+  type ForwardRefContext
 } from '@hn/composables/useForwardRef'
 import { isObject, NOOP } from '@hn/utils'
 import {
@@ -10,8 +10,8 @@ import {
   Fragment,
   h,
   inject,
-  VNode,
-  withDirectives
+  withDirectives,
+  type VNode
 } from 'vue'
 
 export const OnlyChild = defineComponent({

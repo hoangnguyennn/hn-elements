@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { ProgressProps } from './progress'
+import type { ProgressProps } from './progress'
 import HnProgressBar from './progress-bar.vue'
 import HnProgressCircle from './progress-circle.vue'
 

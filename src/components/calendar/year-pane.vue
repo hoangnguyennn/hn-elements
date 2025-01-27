@@ -19,7 +19,7 @@
 import { range } from '@hn/utils'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
-import { YearPaneEmits } from './year-pane'
+import type { YearPaneEmits } from './year-pane'
 
 defineOptions({ name: 'HnYearPane' })
 

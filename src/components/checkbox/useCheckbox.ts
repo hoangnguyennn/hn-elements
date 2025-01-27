@@ -1,5 +1,7 @@
-import { computed, ComputedRef, inject } from 'vue'
-import { CheckboxValue, type CheckboxProps } from './checkbox'
+import type { ComputedRef } from 'vue'
+import { computed, inject } from 'vue'
+import type { CheckboxProps, CheckboxValue } from './checkbox'
+
 import {
   CHECKBOX_GROUP_KEY,
   type CheckboxGroupContext,

@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import HnField from '@hn/components/field'
 import { ref } from 'vue'
-import { TextareaEmits, TextareaProps } from './textarea'
+import type { TextareaEmits, TextareaProps } from './textarea'
 
 defineOptions({ name: 'HnTextarea', inheritAttrs: false })
 

@@ -8,8 +8,8 @@
 import { OnlyChild } from '@hn/components/slot/only-child'
 import { useForwardRef } from '@hn/composables/useForwardRef'
 import { inject } from 'vue'
-import { POPPER_KEY, PopperContext } from './popper'
-import { PopperAnchor } from './popper-anchor'
+import { POPPER_KEY, type PopperContext } from './popper'
+import type { PopperAnchor } from './popper-anchor'
 
 defineOptions({ name: 'HnPopperAnchor' })
 

@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import { computed } from 'vue'
-import { MonthPaneEmits } from './month-pane'
+import type { MonthPaneEmits } from './month-pane'
 
 defineOptions({ name: 'HnMonthPane' })
 
