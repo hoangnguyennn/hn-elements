@@ -5,13 +5,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, ref, watch } from 'vue'
+import { provide, watch } from 'vue'
 import {
   TAB_GROUP_KEY,
   type TabGroupEmits,
   type TabGroupContext,
   type TabGroupProps
 } from './tab-group'
+import { useList } from '../../composables/useList'
 
 defineOptions({ name: 'HnTabGroup' })
 
@@ -25,22 +26,7 @@ withDefaults(defineProps<TabGroupProps>(), {
 
 watch(modelValue, modelValue => emit('change', modelValue))
 
-const uniqueElements = ref(new Set<HTMLElement>())
-const elements = ref<HTMLElement[]>([])
-
-const map = computed(() => {
-  return new Map(elements.value.map((element, index) => [element, index]))
-})
-
-const register = (element: HTMLElement) => {
-  uniqueElements.value.add(element)
-  elements.value = Array.from(uniqueElements.value)
-}
-
-const unregister = (element: HTMLElement) => {
-  uniqueElements.value.delete(element)
-  elements.value = Array.from(uniqueElements.value)
-}
+const { register, unregister, map } = useList()
 
 provide<TabGroupContext>(TAB_GROUP_KEY, {
   modelValue,
