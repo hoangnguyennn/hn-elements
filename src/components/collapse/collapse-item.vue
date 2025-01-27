@@ -1,0 +1,33 @@
+<template>
+  <div
+    :ref="el => elementRef(el as HTMLDivElement)"
+    class="hn-collapse--item"
+    :data-open="isActive"
+  >
+    <div class="hn-collapse--trigger" @click.prevent="onTrigger(index)">
+      <div v-if="title" class="hn-collapse--title">{{ title }}</div>
+      <slot v-else name="title"></slot>
+      <hn-icon class="hn-collapse--icon">
+        <ico-arrow-forward />
+      </hn-icon>
+    </div>
+    <div class="hn-collapse--content">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import HnIcon from '../icon'
+import { IcoArrowForward } from '../../assets/icons'
+import type { CollapseItemSlots, CollapseItemProps } from './collapse-item'
+import { useCollapseItem } from './useCollapseItem'
+
+defineOptions({ name: 'HnCollapseItem' })
+
+defineSlots<CollapseItemSlots>()
+
+withDefaults(defineProps<CollapseItemProps>(), {})
+
+const { isActive, index, elementRef, onTrigger } = useCollapseItem()
+</script>
