@@ -12,7 +12,7 @@ import {
   type TabGroupContext,
   type TabGroupProps
 } from './tab-group'
-import { useList } from '../../composables/useList'
+import { useList } from '@hn/composables/useList'
 
 defineOptions({ name: 'HnTabGroup' })
 

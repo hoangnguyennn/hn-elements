@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'vue'
-import { FieldProps } from '../field'
+import { FieldProps } from '@hn/components/field'
 
 export type InputProps = FieldProps & {
   /** Chỉ ra rằng input có chức năng clear hay không */

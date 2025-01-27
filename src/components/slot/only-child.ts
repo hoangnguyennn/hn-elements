@@ -11,8 +11,8 @@ import {
   FORWARD_REF_KEY,
   ForwardRefContext,
   useForwardRefDireactive
-} from '../../composables/useForwardRef'
-import { isObject, NOOP } from '../../utils'
+} from '@hn/composables/useForwardRef'
+import { isObject, NOOP } from '@hn/utils'
 
 export const OnlyChild = defineComponent({
   name: 'HnOnlyChild',

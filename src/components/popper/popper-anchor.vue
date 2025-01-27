@@ -6,9 +6,9 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
-import { OnlyChild } from '../slot/only-child'
+import { OnlyChild } from '@hn/components/slot/only-child'
 import { POPPER_KEY, PopperContext } from './popper'
-import { useForwardRef } from '../../composables/useForwardRef'
+import { useForwardRef } from '@hn/composables/useForwardRef'
 import { PopperAnchor } from './popper-anchor'
 
 defineOptions({ name: 'HnPopperAnchor' })

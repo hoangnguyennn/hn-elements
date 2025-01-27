@@ -1,5 +1,5 @@
 import { TextareaHTMLAttributes } from 'vue'
-import { FieldProps } from '../field'
+import { FieldProps } from '@hn/components/field'
 
 export type TextareaEmits = {
   /** Kích hoạt khi giá trị textarea thay đổi */

@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
-import { range } from '../../utils'
+import { range } from '@hn/utils'
 import { computed } from 'vue'
 import { YearPaneEmits } from './year-pane'
 

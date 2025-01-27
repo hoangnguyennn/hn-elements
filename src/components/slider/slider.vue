@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { useTemplateRef, watch } from 'vue'
-import { useDrag } from '../../composables/useDrag'
+import { useDrag } from '@hn/composables/useDrag'
 import { useSliderValue } from './useSliderValue'
 import type { SliderProps } from './slider'
 

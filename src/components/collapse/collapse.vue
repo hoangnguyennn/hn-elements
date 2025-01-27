@@ -12,7 +12,7 @@ import {
   type CollapseProps,
   COLLAPSE_KEY
 } from './collapse'
-import { useList } from '../../composables/useList'
+import { useList } from '@hn/composables/useList'
 
 defineOptions({ name: 'HnCollapse' })
 

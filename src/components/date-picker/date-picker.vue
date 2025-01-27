@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import HnPopper from '../popper'
-import HnCalendar, { CalendarValue } from '../calendar'
+import HnPopper from '@hn/components/popper'
+import HnCalendar, { CalendarValue } from '@hn/components/calendar'
 import HnDateField from './date-field.vue'
 import { ref } from 'vue'
 import { DatePickerProps } from './date-picker'

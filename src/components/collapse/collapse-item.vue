@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import HnIcon from '../icon'
-import { IcoArrowForward } from '../../assets/icons'
+import HnIcon from '@hn/components/icon'
+import { IcoArrowForward } from '@hn/assets/icons'
 import type { CollapseItemSlots, CollapseItemProps } from './collapse-item'
 import { useCollapseItem } from './useCollapseItem'
 

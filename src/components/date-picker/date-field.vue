@@ -10,10 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import HnField from '../field'
-import HnIcon from '../icon'
-import { IcoCalendar } from '../../assets/icons'
-import type { CalendarValue } from '../calendar'
+import HnField from '@hn/components/field'
+import HnIcon from '@hn/components/icon'
+import { IcoCalendar } from '@hn/assets/icons'
+import type { CalendarValue } from '@hn/components/calendar'
 import { computed } from 'vue'
 import dayjs from 'dayjs'
 import type { DateFieldProps } from './date-field'

@@ -1,6 +1,6 @@
 import { computed, inject, ref } from 'vue'
 import { type CollapseContext, COLLAPSE_KEY } from './collapse'
-import { isNumber } from '../../utils'
+import { isNumber } from '@hn/utils'
 
 export const useCollapseItem = () => {
   const collapseContext = inject<CollapseContext>(COLLAPSE_KEY)

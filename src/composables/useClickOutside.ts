@@ -1,5 +1,5 @@
 import { onBeforeUnmount, onMounted, Ref } from 'vue'
-import { isArray } from '../utils'
+import { isArray } from '@hn/utils'
 
 type UseClickOutsideArgs = {
   /** Phần tử kiểm tra */

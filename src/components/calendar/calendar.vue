@@ -50,7 +50,7 @@ import dayjs from 'dayjs'
 import HnDatePane from './date-pane.vue'
 import HnMonthPane from './month-pane.vue'
 import HnYearPane from './year-pane.vue'
-import { IcoArrowLeft, IcoArrowRight } from '../../assets/icons'
+import { IcoArrowLeft, IcoArrowRight } from '@hn/assets/icons'
 
 defineOptions({ name: 'HnCalendar' })
 

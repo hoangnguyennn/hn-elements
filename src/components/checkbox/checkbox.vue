@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { IcoCheck, IcoIndeterminate } from '../../assets/icons'
+import { IcoCheck, IcoIndeterminate } from '@hn/assets/icons'
 import { type CheckboxEmits, type CheckboxProps } from './checkbox'
 import { useCheckbox } from './useCheckbox'
 

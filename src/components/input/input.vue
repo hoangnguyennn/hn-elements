@@ -48,10 +48,10 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import HnIcon from '../icon'
-import HnField from '../field'
-import { IcoClear, IcoEyeClosed, IcoEyeOpen } from '../../assets/icons'
-import { NOOP } from '../../utils'
+import HnIcon from '@hn/components/icon'
+import HnField from '@hn/components/field'
+import { IcoClear, IcoEyeClosed, IcoEyeOpen } from '@hn/assets/icons'
+import { NOOP } from '@hn/utils'
 import { InputEmits, InputProps } from './input'
 
 defineOptions({ name: 'HnInput', inheritAttrs: false })
