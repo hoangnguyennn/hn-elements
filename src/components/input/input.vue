@@ -25,23 +25,20 @@
         @blur="focus = false"
       />
 
-      <hn-icon
+      <hn-icon-button
         v-if="clearable && !disabled && (hover || focus) && modelValue"
+        :as="IcoClear"
         class="hn-input--clear"
         @click="handleClear"
         @mousedown.prevent="NOOP"
-      >
-        <ico-clear />
-      </hn-icon>
+      />
 
-      <hn-icon
+      <hn-icon-button
         v-if="password"
+        :as="passwordIcon"
         @click="showPassword = !showPassword"
         @mousedown.prevent="NOOP"
-      >
-        <ico-eye-closed v-if="showPassword" />
-        <ico-eye-open v-else />
-      </hn-icon>
+      />
     </div>
   </hn-field>
 </template>
@@ -49,7 +46,7 @@
 <script setup lang="ts">
 import { IcoClear, IcoEyeClosed, IcoEyeOpen } from '@hn/assets/icons'
 import HnField from '@hn/components/field'
-import HnIcon from '@hn/components/icon'
+import HnIconButton from '@hn/components/icon-button'
 import { NOOP } from '@hn/utils'
 import { computed, ref } from 'vue'
 import type { InputEmits, InputProps } from './input'
@@ -68,6 +65,10 @@ const showPassword = ref(true)
 
 const inputType = computed(() =>
   props.password && showPassword.value ? 'password' : 'text'
+)
+
+const passwordIcon = computed(() =>
+  showPassword.value ? IcoEyeClosed : IcoEyeOpen
 )
 
 const handleClear = (): void => {

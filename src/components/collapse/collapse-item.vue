@@ -7,9 +7,7 @@
     <div class="hn-collapse--trigger" @click.prevent="onTrigger(index)">
       <div v-if="title" class="hn-collapse--title">{{ title }}</div>
       <slot v-else name="title"></slot>
-      <hn-icon class="hn-collapse--icon">
-        <ico-arrow-forward />
-      </hn-icon>
+      <hn-icon-button :as="IcoArrowForward" class="hn-collapse--icon" />
     </div>
     <div class="hn-collapse--content">
       <slot></slot>
@@ -19,7 +17,7 @@
 
 <script setup lang="ts">
 import { IcoArrowForward } from '@hn/assets/icons'
-import HnIcon from '@hn/components/icon'
+import HnIconButton from '@hn/components/icon-button'
 import type { CollapseItemProps, CollapseItemSlots } from './collapse-item'
 import { useCollapseItem } from './useCollapseItem'
 
