@@ -25,7 +25,8 @@
     "baseUrl": "./",
     "paths": {
       "@hn/*": ["./src/*"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
 import path from 'path'
@@ -10,5 +10,8 @@ export default defineConfig({
     alias: {
       '@hn': path.resolve(__dirname, './src')
     }
-  }
+  },
+  test: {
+    globals: true,
+  },
 })
