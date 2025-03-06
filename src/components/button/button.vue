@@ -5,11 +5,10 @@
     :data-variant="variant"
     :data-size="size"
     :data-disabled="disabled"
-    :data-has-icon="!!$slots.leadingIcon || !!$slots.trailingIcon"
   >
-    <slot name="leadingIcon"></slot>
+    <slot name="leading"></slot>
     <slot></slot>
-    <slot name="trailingIcon"></slot>
+    <slot name="trailing"></slot>
   </button>
 </template>
 

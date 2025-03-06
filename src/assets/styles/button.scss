@@ -8,13 +8,10 @@
   @include body-m-regular;
   background-clip: padding-box;
   border-radius: $radius-small;
+  display: flex;
+  align-items: center;
+  gap: $space-medium;
   cursor: pointer;
-
-  &[data-has-icon='true'] {
-    display: flex;
-    align-items: center;
-    gap: $space-medium;
-  }
 
   &[data-size='large'] {
     padding-block: $space-large;

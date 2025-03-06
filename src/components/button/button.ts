@@ -16,8 +16,8 @@ export type ButtonProps = {
 export type ButtonSlots = {
   /** Nội dung của button. */
   default?(): VNode
-  /** Icon ở phía trước của button. */
-  leadingIcon?(): VNode
-  /** Icon ở phía sau của button. */
-  trailingIcon?(): VNode
+  /** Slot ở phía trước nội dung của button. */
+  leading?(): VNode
+  /** Slot ở phía sau nội dung của button. */
+  trailing?(): VNode
 }
