@@ -1,0 +1,22 @@
+name: Yêu cầu tính năng
+description: Đề xuất một tính năng mới cho HnElements
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Cảm ơn bạn đã yêu cầu tính năng! Bạn có thể mô tả tính năng bằng **tiếng Việt hoặc tiếng Anh**
+  - type: textarea
+    attributes:
+      label: Tổng quan
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Giải pháp khả thi
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Ngữ cảnh
+    validations:
+      required: true
