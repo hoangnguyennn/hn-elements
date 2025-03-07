@@ -1,0 +1,38 @@
+name: Bug Report
+description: File a bug report
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Bạn có thể mô tả bug bằng **tiếng Việt hoặc tiếng Anh**
+  - type: textarea
+    attributes:
+      label: Tổng quan
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Các bước tái hiện
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Hành vi hiện tại
+      description: Thêm ảnh chụp màn hình hoặc các thông tin thêm để chúng tôi hiểu hơn về bug
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Hành vi mong đợi
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Ngữ cảnh
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Phiên bản
+    validations:
+      required: true
