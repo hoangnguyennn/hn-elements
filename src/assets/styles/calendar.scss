@@ -92,11 +92,6 @@
           background-color: rgba($color-purple, 0.2);
         }
 
-        &.active {
-          background-color: $color-purple;
-          color: $color-white;
-        }
-
         &.disabled {
           color: $color-disabled;
           cursor: not-allowed;
@@ -104,6 +99,12 @@
           &:hover {
             background-color: transparent;
           }
+        }
+
+        &.active,
+        &.active:hover {
+          background-color: $color-purple;
+          color: $color-white;
         }
       }
     }

@@ -22,6 +22,7 @@
             disabled: isDisabled(date)
           }
         ]"
+        :data-date="date.format('DD-MM-YYYY')"
         :disabled="isDisabled(date)"
         @click.prevent="handleChangeDate(date)"
       >
