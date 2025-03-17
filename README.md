@@ -42,12 +42,12 @@ node tools/create-component/index.js -n COMPONENT_NAME
 
 **Todo**
 
-- [] badge
-- [] breadcrumb
-- [] combobox
-- [] modal
-- [] notification
-- [] pagination
-- [] select
-- [] table
-- [] tooltip
+- [ ] badge
+- [ ] breadcrumb
+- [ ] combobox
+- [ ] modal
+- [ ] notification
+- [ ] pagination
+- [ ] select
+- [ ] table
+- [ ] tooltip
