@@ -7,9 +7,17 @@ export type ButtonSize = 'small' | 'medium' | 'large'
 export type ButtonProps = {
   /** Chỉ ra rằng button có bị disable hay không. */
   disabled?: boolean
-  /** Biến thể của button. */
+  /**
+   * Biến thể của button.
+   *
+   * @default 'primary'
+   */
   variant?: ButtonVariant
-  /** Kích thước của button. */
+  /**
+   * Kích thước của button.
+   *
+   * @default 'medium'
+   */
   size?: ButtonSize
 } & /** @vue-ignore */ ButtonHTMLAttributes
 
