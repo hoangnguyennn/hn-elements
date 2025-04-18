@@ -1,7 +1,7 @@
-import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
-import svgLoader from 'vite-svg-loader'
 import path from 'path'
+import svgLoader from 'vite-svg-loader'
+import { defineConfig } from 'vitest/config'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,6 +13,6 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'jsdom',
-  },
+    environment: 'jsdom'
+  }
 })
