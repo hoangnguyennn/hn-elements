@@ -13,8 +13,8 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit --skipLibCheck",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006 --docs",
+    "build-storybook": "storybook build --docs"
   },
   "dependencies": {
     "@floating-ui/vue": "1.1.6",
