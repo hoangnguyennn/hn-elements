@@ -8,8 +8,14 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    docs: {
+      canvas: {
+        sourceState: 'shown'
+      }
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default preview
