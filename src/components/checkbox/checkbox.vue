@@ -30,12 +30,8 @@
         @change="handleChange"
       />
       <i v-if="checked || indeterminate" class="hn-checkbox--mark">
-        <template v-if="checked">
-          <ico-check />
-        </template>
-        <template v-else-if="indeterminate">
-          <ico-indeterminate />
-        </template>
+        <ico-check v-if="checked" />
+        <ico-indeterminate v-else-if="indeterminate" />
       </i>
     </span>
     <span class="hn-checkbox--label" v-if="label">{{ label }}</span>

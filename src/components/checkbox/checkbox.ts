@@ -12,7 +12,7 @@ export type CheckboxEmits = {
 }
 
 export type CheckboxProps = {
-  /** Tiêu đề của checkbox. */
+  /** Nhãn của checkbox. */
   label?: string
   /** Giá trị của checkbox. */
   modelValue?: CheckboxValue
