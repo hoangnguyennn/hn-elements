@@ -1,3 +1,4 @@
+import { getAcronym } from '@hn/utils/string'
 import { mount } from '@vue/test-utils'
 import { default as HnAvatar } from '.'
 
@@ -43,7 +44,7 @@ describe('avatar', () => {
         const name = 'Hoang Nguyen'
         const wrapper = mount(HnAvatar, { props: { name } })
         expect(wrapper.find('.hn-avatar--name').exists()).toBe(true)
-        expect(wrapper.find('.hn-avatar--name').text()).toBe(name)
+        expect(wrapper.find('.hn-avatar--name').text()).toBe(getAcronym(name))
       })
 
       it('nếu truyền cả src và name thì src được sử dụng làm image và name là alt', () => {
