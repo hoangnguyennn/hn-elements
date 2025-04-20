@@ -29,7 +29,7 @@ export const Cover: Story = {
 
 const ALL_SIZES: AvatarSize[] = ['small', 'medium', 'large']
 
-/** Use the `size` prop of the `hn-avatar` to change the size of it. */
+/** Sử dụng thuộc tính `size` của `hn-avatar` để thay đổi kích thước của nó. */
 export const Size: Story = {
   args: {
     src: undefined

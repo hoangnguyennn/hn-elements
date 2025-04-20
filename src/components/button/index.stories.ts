@@ -21,11 +21,19 @@ export const Cover: Story = {
       return { args }
     },
     template: `<hn-button v-bind="args">Button</hn-button>`
-  })
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-button>Button</hn-button>`
+      }
+    }
+  }
 }
 
 const ALL_VARIANTS: ButtonVariant[] = ['primary', 'secondary', 'text']
 
+/** Sử dụng thuộc tính `variant` của `hn-button` để thay đổi màu sắc của nó. */
 export const Variant: Story = {
   argTypes: {
     variant: { control: false }
@@ -40,11 +48,23 @@ export const Variant: Story = {
         ${ALL_VARIANTS.map(variant => `<hn-button v-bind="args" variant="${variant}">Button</hn-button>`).join('\n')}
       </hn-stack>
     `
-  })
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-stack direction="horizontal">
+  <hn-button variant="primary">Button</hn-button>
+  <hn-button variant="secondary">Button</hn-button>
+  <hn-button variant="text">Button</hn-button>
+</hn-stack>`
+      }
+    }
+  }
 }
 
 const ALL_SIZES: ButtonSize[] = ['small', 'medium', 'large']
 
+/** Sử dụng thuộc tính `size` của `hn-button` để thay đổi kích thước của nó. */
 export const Size: Story = {
   render: args => ({
     components: { HnButton, HnStack },
@@ -56,9 +76,21 @@ export const Size: Story = {
         ${ALL_SIZES.map(size => `<hn-button v-bind="args" size="${size}">Button</hn-button>`).join('\n')}
       </hn-stack>
     `
-  })
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-stack direction="horizontal">
+  <hn-button size="small">Button</hn-button>
+  <hn-button size="medium">Button</hn-button>
+  <hn-button size="large">Button</hn-button>
+</hn-stack>`
+      }
+    }
+  }
 }
 
+/** Sử dụng thuộc tính `disabled` của `hn-button` để vô hiệu hoá nó. */
 export const Disabled: Story = {
   argTypes: {
     disabled: { control: false },
@@ -74,9 +106,21 @@ export const Disabled: Story = {
         ${ALL_VARIANTS.map(variant => `<hn-button v-bind="args" variant="${variant}" disabled>Button</hn-button>`).join('\n')}
       </hn-stack>
     `
-  })
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-stack direction="horizontal">
+  <hn-button variant="primary" disabled>Button</hn-button>
+  <hn-button variant="secondary" disabled>Button</hn-button>
+  <hn-button variant="text" disabled>Button</hn-button>
+</hn-stack>`
+      }
+    }
+  }
 }
 
+/** Sử dụng slot `leading` trong `hn-button`. */
 export const Leading: Story = {
   render: args => ({
     components: { HnButton, HnStack, HnIcon },
@@ -93,9 +137,24 @@ export const Leading: Story = {
         </hn-button>
       </hn-stack>
     `
-  })
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-stack direction="horizontal">
+  <hn-button variant="primary">
+    <template #leading>
+      <hn-icon :as="IcoSave" />
+    </template>
+    Button
+  </hn-button>
+</hn-stack>`
+      }
+    }
+  }
 }
 
+/** Sử dụng slot `trailing` trong `hn-button`. */
 export const Trailing: Story = {
   render: args => ({
     components: { HnButton, HnStack, HnIcon },
@@ -112,5 +171,19 @@ export const Trailing: Story = {
         </hn-button>
       </hn-stack>
     `
-  })
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-stack direction="horizontal">
+  <hn-button variant="primary">
+    Button
+    <template #trailing>
+      <hn-icon :as="IcoSave" />
+    </template>
+  </hn-button>
+</hn-stack>`
+      }
+    }
+  }
 }
