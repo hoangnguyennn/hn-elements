@@ -10,11 +10,12 @@
     "prepare": "husky",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test": "vitest",
+    "test": "concurrently -k -s first -n server,test \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && vitest\"",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit --skipLibCheck",
     "storybook": "storybook dev -p 6006 --docs",
-    "build-storybook": "storybook build --docs"
+    "build-storybook": "storybook build --docs",
+    "clean": "rm -rf storybook-static"
   },
   "dependencies": {
     "@floating-ui/vue": "1.1.6",
@@ -36,6 +37,7 @@
     "@vitest/browser": "3.1.1",
     "@vitest/coverage-v8": "3.1.1",
     "@vue/test-utils": "2.4.6",
+    "concurrently": "9.1.2",
     "eslint": "9.23.0",
     "eslint-config-prettier": "10.1.1",
     "eslint-plugin-jsdoc": "50.6.9",
@@ -43,6 +45,7 @@
     "eslint-plugin-storybook": "0.12.0",
     "eslint-plugin-vue": "9.32.0",
     "globals": "15.13.0",
+    "http-server": "14.1.1",
     "husky": "9.1.7",
     "jsdom": "26.0.0",
     "lint-staged": "15.5.0",
@@ -58,6 +61,7 @@
     "vite-svg-loader": "5.1.0",
     "vitest": "3.1.1",
     "vue-tsc": "2.2.8",
+    "wait-on": "8.0.3",
     "yargs": "17.7.2"
   },
   "lint-staged": {
