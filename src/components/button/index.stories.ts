@@ -1,9 +1,9 @@
 import { IcoSave } from '@hn/assets/icons'
 import type { Meta, StoryObj } from '@storybook/vue3'
-import HnStack from '../_stack'
-import HnIcon from '../icon'
+import { HnButton } from '.'
+import { HnStack } from '../_stack'
+import { HnIcon } from '../icon'
 import type { ButtonSize, ButtonVariant } from './button'
-import HnButton from './button.vue'
 
 const meta: Meta<typeof HnButton> = {
   title: 'HnButton',

@@ -1,3 +1,2 @@
 export type { FieldProps, FieldSize, FieldSlots } from './field'
-
-export { default } from './field.vue'
+export { default as HnField } from './field.vue'

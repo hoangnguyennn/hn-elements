@@ -1,2 +1,2 @@
 export type { InputProps } from './input'
-export { default } from './input.vue'
+export { default as HnInput } from './input.vue'

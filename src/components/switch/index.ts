@@ -1,3 +1,2 @@
 export type { HnSwitchProps } from './switch'
-
-export { default } from './switch.vue'
+export { default as HnSwitch } from './switch.vue'

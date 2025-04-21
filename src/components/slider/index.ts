@@ -1,3 +1,2 @@
 export type { SliderProps } from './slider'
-
-export { default } from './slider.vue'
+export { default as HnSlider } from './slider.vue'

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import HnCalendar from './calendar.vue'
+import { HnCalendar } from '.'
 
 const meta: Meta<typeof HnCalendar> = {
   title: 'HnCalendar',
