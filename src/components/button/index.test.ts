@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { default as HnButton } from '.'
+import { HnButton } from '.'
 
 describe('button', () => {
   it('component render thành công', () => {

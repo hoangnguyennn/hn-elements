@@ -1,3 +1,2 @@
 export type { AvatarProps } from './avatar'
-
-export { default } from './avatar.vue'
+export { default as HnAvatar } from './avatar.vue'

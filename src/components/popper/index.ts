@@ -1,3 +1,2 @@
 export { type PopperProps } from './popper'
-
-export { default } from './popper.vue'
+export { default as HnPopper } from './popper.vue'

@@ -1,3 +1,2 @@
 export type { HnRateProps } from './rate'
-
-export { default } from './rate.vue'
+export { default as HnRate } from './rate.vue'

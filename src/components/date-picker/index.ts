@@ -1,3 +1,2 @@
 export type { DatePickerProps } from './date-picker'
-
-export { default } from './date-picker.vue'
+export { default as HnDatePicker } from './date-picker.vue'

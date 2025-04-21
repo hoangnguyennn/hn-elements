@@ -1,6 +1,6 @@
 import { getAcronym } from '@hn/utils/string'
 import { mount } from '@vue/test-utils'
-import { default as HnAvatar } from '.'
+import { HnAvatar } from '.'
 
 describe('avatar', () => {
   it('component render thành công', () => {

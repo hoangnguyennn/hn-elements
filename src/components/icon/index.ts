@@ -1,3 +1,2 @@
 export type { IconProps } from './icon'
-
-export { default } from './icon.vue'
+export { default as HnIcon } from './icon.vue'

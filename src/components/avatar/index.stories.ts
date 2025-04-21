@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import HnStack from '../_stack'
+import { HnAvatar } from '.'
+import { HnStack } from '../_stack'
 import type { AvatarSize } from './avatar'
-import HnAvatar from './avatar.vue'
 
 const meta: Meta<typeof HnAvatar> = {
   title: 'HnAvatar',

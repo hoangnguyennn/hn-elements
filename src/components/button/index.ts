@@ -1,2 +1,2 @@
 export type { ButtonProps, ButtonSize, ButtonVariant } from './button'
-export { default } from './button.vue'
+export { default as HnButton } from './button.vue'
