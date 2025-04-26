@@ -12,7 +12,7 @@
     "lint:fix": "eslint src --fix",
     "test": "concurrently -k -s first -n server,test \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && vitest\"",
     "test:coverage": "vitest run --coverage",
-    "typecheck": "tsc --noEmit --skipLibCheck",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck --project tsconfig.app.json",
     "storybook": "storybook dev -p 6006 --docs",
     "build-storybook": "storybook build --docs",
     "clean": "rm -rf storybook-static"
@@ -66,8 +66,8 @@
   },
   "lint-staged": {
     "src/**/*": "prettier --write --ignore-unknown",
-    "src/*.{vue,ts}": "bun run lint",
-    "src/*.{test,spec}.ts": "bun run test"
+    "src/**/*.{vue,ts}": "bun run lint && bun run typecheck",
+    "src/**/*.{test,spec}.ts": "bun run test"
   },
   "eslintConfig": {
     "extends": [
