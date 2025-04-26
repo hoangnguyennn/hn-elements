@@ -10,7 +10,7 @@
     "prepare": "husky",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test": "concurrently -k -s first -n server,test \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && vitest\"",
+    "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "typecheck": "vue-tsc --noEmit --skipLibCheck --project tsconfig.app.json",
     "storybook": "storybook dev -p 6006 --docs",
