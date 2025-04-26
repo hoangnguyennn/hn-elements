@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import HnIcon from '@hn/components/icon'
+import { HnIcon } from '@hn/components/icon'
 import { computed } from 'vue'
 import type { IconButtonProps } from './icon-button'
 
