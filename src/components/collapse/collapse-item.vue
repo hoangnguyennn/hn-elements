@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { IcoArrowForward } from '@hn/assets/icons'
-import HnIconButton from '@hn/components/icon-button'
+import { HnIconButton } from '@hn/components/icon-button'
 import type { CollapseItemProps, CollapseItemSlots } from './collapse-item'
 import { useCollapseItem } from './useCollapseItem'
 
