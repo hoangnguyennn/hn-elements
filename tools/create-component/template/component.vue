@@ -4,8 +4,8 @@
 
 <script setup lang="ts">
 import type {
-  HnComponentProps,
   HnComponentEmits,
+  HnComponentProps,
   HnComponentSlots
 } from './component'
 defineOptions({ name: 'HnComponent' })

@@ -45,8 +45,8 @@
 
 <script setup lang="ts">
 import { IcoClear, IcoEyeClosed, IcoEyeOpen } from '@hn/assets/icons'
-import HnField from '@hn/components/field'
-import HnIconButton from '@hn/components/icon-button'
+import { HnField } from '@hn/components/field'
+import { HnIconButton } from '@hn/components/icon-button'
 import { NOOP } from '@hn/utils'
 import { computed, ref } from 'vue'
 import type { InputEmits, InputProps } from './input'
