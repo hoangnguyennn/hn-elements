@@ -1,4 +1,4 @@
-import"./vue.esm-bundler-DTmWGxf7.js";import{I as n}from"./ico_check-C3QKH8FM.js";import{_ as c}from"./icon-BcCFNny9.js";const d={title:"HnIcon",component:c},e={args:{as:n},render:a=>({components:{HnIcon:c},setup(){return{args:a}},template:'<HnIcon v-bind="args" />'}),parameters:{docs:{source:{code:"<HnIcon as={IcoCheck} />"}}}};var r,o,s;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`{
+import"./vue.esm-bundler-BuKhjVS6.js";import{I as n}from"./ico_check-D14QbrEw.js";import{_ as c}from"./icon-DLy5vlXc.js";const d={title:"HnIcon",component:c},e={args:{as:n},render:a=>({components:{HnIcon:c},setup(){return{args:a}},template:'<HnIcon v-bind="args" />'}),parameters:{docs:{source:{code:"<HnIcon as={IcoCheck} />"}}}};var r,o,s;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`{
   args: {
     as: IcoCheck
   },
