@@ -1,0 +1,1 @@
+import{r as s,b as n}from"./vue.esm-bundler-7hAwtJSs.js";const c=()=>{const r=s(new Set),t=s([]),a=n(()=>new Map(t.value.map((e,u)=>[e,u])));return{register:e=>{r.value.add(e),t.value=Array.from(r.value)},unregister:e=>{r.value.delete(e),t.value=Array.from(r.value)},map:a}};export{c as u};
