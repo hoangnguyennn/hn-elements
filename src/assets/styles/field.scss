@@ -26,6 +26,10 @@
       @include body-xs;
       color: $color-hint-text;
     }
+
+    &:has(:only-child) {
+      justify-content: flex-end;
+    }
   }
 
   &[data-size='small'] {
