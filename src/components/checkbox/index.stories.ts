@@ -17,7 +17,7 @@ export const Cover: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<hn-checkbox />`
+        code: `<hn-checkbox label="Label" />`
       }
     }
   }
@@ -31,7 +31,7 @@ export const Disabled: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<hn-checkbox disabled />`
+        code: `<hn-checkbox label="Label" disabled />`
       }
     }
   }
@@ -45,7 +45,7 @@ export const Error: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<hn-checkbox error />`
+        code: `<hn-checkbox label="Label" error />`
       }
     }
   }
@@ -59,7 +59,7 @@ export const Indeterminate: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<hn-checkbox indeterminate />`
+        code: `<hn-checkbox label="Label" indeterminate />`
       }
     }
   }
