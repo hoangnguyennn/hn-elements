@@ -21,4 +21,4 @@ import{c as l,o as n,a as u,g as x,s as q,v as E,r as B,H as $,I as M,l as m,u a
       }
     }
   }
-}`,...(b=(v=r.parameters)==null?void 0:v.docs)==null?void 0:b.source},description:{story:"Sử dụng thuộc tính `clearable` của `hn-rate` để cho phép xóa giá trị. Click\nvào ngôi sao hiện tại để xoá giá trị.",...(V=(k=r.parameters)==null?void 0:k.docs)==null?void 0:V.description}}};const j=["Cover","Clearable"];export{r as Clearable,o as Cover,j as __namedExportsOrder,K as default};
+}`,...(b=(v=r.parameters)==null?void 0:v.docs)==null?void 0:b.source},description:{story:"Sử dụng thuộc tính `clearable` của `hn-rate` để cho phép xóa giá trị. Click vào ngôi sao hiện tại để xoá giá trị.",...(V=(k=r.parameters)==null?void 0:k.docs)==null?void 0:V.description}}};const j=["Cover","Clearable"];export{r as Clearable,o as Cover,j as __namedExportsOrder,K as default};

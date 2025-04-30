@@ -1,4 +1,4 @@
-import{_ as v}from"./checkbox-DBidjJ99.js";import"./vue.esm-bundler-7hAwtJSs.js";import"./ico_check-C8Klcjcf.js";const D={title:"HnCheckbox",component:v,args:{label:"Label"}},o={parameters:{docs:{source:{code:"<hn-checkbox />"}}}},e={args:{disabled:!0},parameters:{docs:{source:{code:"<hn-checkbox disabled />"}}}},r={args:{error:!0},parameters:{docs:{source:{code:"<hn-checkbox error />"}}}},n={args:{indeterminate:!0},parameters:{docs:{source:{code:"<hn-checkbox indeterminate />"}}}};var s,c,a;o.parameters={...o.parameters,docs:{...(s=o.parameters)==null?void 0:s.docs,source:{originalSource:`{
+import{_ as v}from"./checkbox-CYpZW_hZ.js";import"./vue.esm-bundler-7hAwtJSs.js";import"./ico_check-C8Klcjcf.js";const D={title:"HnCheckbox",component:v,args:{label:"Label"}},o={parameters:{docs:{source:{code:"<hn-checkbox />"}}}},e={args:{disabled:!0},parameters:{docs:{source:{code:"<hn-checkbox disabled />"}}}},r={args:{error:!0},parameters:{docs:{source:{code:"<hn-checkbox error />"}}}},n={args:{indeterminate:!0},parameters:{docs:{source:{code:"<hn-checkbox indeterminate />"}}}};var s,c,a;o.parameters={...o.parameters,docs:{...(s=o.parameters)==null?void 0:s.docs,source:{originalSource:`{
   parameters: {
     docs: {
       source: {
@@ -39,4 +39,4 @@ import{_ as v}from"./checkbox-DBidjJ99.js";import"./vue.esm-bundler-7hAwtJSs.js"
       }
     }
   }
-}`,...(S=(k=n.parameters)==null?void 0:k.docs)==null?void 0:S.source},description:{story:"Sử dụng thuộc tính `indeterminate` của `hn-checkbox` để hiển thị trạng thái\nkhông xác định.",...(f=(_=n.parameters)==null?void 0:_.docs)==null?void 0:f.description}}};const I=["Cover","Disabled","Error","Indeterminate"];export{o as Cover,e as Disabled,r as Error,n as Indeterminate,I as __namedExportsOrder,D as default};
+}`,...(S=(k=n.parameters)==null?void 0:k.docs)==null?void 0:S.source},description:{story:"Sử dụng thuộc tính `indeterminate` của `hn-checkbox` để hiển thị trạng thái không xác định.",...(f=(_=n.parameters)==null?void 0:_.docs)==null?void 0:f.description}}};const I=["Cover","Disabled","Error","Indeterminate"];export{o as Cover,e as Disabled,r as Error,n as Indeterminate,I as __namedExportsOrder,D as default};
