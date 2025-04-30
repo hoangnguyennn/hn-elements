@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
   disabled: undefined
 })
 
-const { modelValue } = useCheckbox(props, { emit })
+const { modelValue, indeterminate } = useCheckbox(props, { emit })
 
 const checked = computed(() => {
   if (modelValue.value instanceof Array) {
