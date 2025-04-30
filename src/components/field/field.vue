@@ -9,7 +9,7 @@
 
     <slot></slot>
 
-    <div class="hn-field--details" v-if="error || hint">
+    <div class="hn-field--details">
       <span v-if="error" class="hn-field--error">{{ error }}</span>
       <span v-else-if="hint" class="hn-field--hint">{{ hint }}</span>
 

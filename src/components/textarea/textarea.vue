@@ -26,8 +26,8 @@
 
     <template #detailRight v-if="showCounter">
       <p class="hn-textarea--counter">
-        <span>{{ modelValue?.length }}</span>
-        <span>{{ maxLength ? `/${maxLength}` : '' }}</span>
+        <span>{{ modelValue?.length ?? 0 }}</span>
+        <span v-if="maxLength">{{ `/${maxLength}` }}</span>
       </p>
     </template>
   </hn-field>
@@ -45,6 +45,7 @@ const modelValue = defineModel<string>()
 defineEmits<TextareaEmits>()
 
 withDefaults(defineProps<TextareaProps>(), {
+  size: 'normal',
   minRows: 1
 })
 
