@@ -24,14 +24,5 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Install playwright
-        run: npx playwright install --with-deps
-
-      - name: Clean storybook dist
-        run: bun run clean
-
-      - name: Build storybook
-        run: bun run build-storybook
-
       - name: Run Test
         run: bun run test
