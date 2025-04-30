@@ -1,9 +1,5 @@
 <template>
-  <div
-    :ref="el => elementRef(el as HTMLDivElement)"
-    class="hn-collapse--item"
-    :data-open="isActive"
-  >
+  <div :ref="el => elementRef(el as HTMLDivElement)" class="hn-collapse--item" :data-open="isActive">
     <div class="hn-collapse--trigger" @click.prevent="onTrigger(index)">
       <div v-if="title" class="hn-collapse--title">{{ title }}</div>
       <slot v-else name="title"></slot>

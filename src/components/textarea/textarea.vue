@@ -1,12 +1,5 @@
 <template>
-  <hn-field
-    class="hn-textarea"
-    :label="label"
-    :size="size"
-    :hint="hint"
-    :error="error"
-    :disabled="disabled"
-  >
+  <hn-field class="hn-textarea" :label="label" :size="size" :hint="hint" :error="error" :disabled="disabled">
     <div class="hn-field--wrapper hn-textarea--wrapper" :data-focus="focus">
       <textarea
         v-bind="$attrs"

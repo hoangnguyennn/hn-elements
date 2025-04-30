@@ -1,11 +1,5 @@
 <template>
-  <button
-    class="hn-button"
-    :disabled="disabled"
-    :data-variant="variant"
-    :data-size="size"
-    :data-disabled="disabled"
-  >
+  <button class="hn-button" :disabled="disabled" :data-variant="variant" :data-size="size" :data-disabled="disabled">
     <slot name="leading"></slot>
     <slot></slot>
     <slot name="trailing"></slot>

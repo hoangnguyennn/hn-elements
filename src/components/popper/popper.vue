@@ -11,12 +11,7 @@
       <slot name="anchor"></slot>
     </hn-popper-anchor>
 
-    <div
-      v-if="open"
-      ref="contentRef"
-      class="hn-popper--content"
-      :style="floatingStyles"
-    >
+    <div v-if="open" ref="contentRef" class="hn-popper--content" :style="floatingStyles">
       <slot name="content"></slot>
     </div>
   </div>
@@ -26,12 +21,7 @@
 import { autoUpdate, flip, shift, useFloating } from '@floating-ui/vue'
 import { useClickOutside } from '@hn/composables/useClickOutside'
 import { provide, ref } from 'vue'
-import {
-  POPPER_KEY,
-  type PopperContext,
-  type PopperProps,
-  type PopperTrigger
-} from './popper'
+import { POPPER_KEY, type PopperContext, type PopperProps, type PopperTrigger } from './popper'
 import HnPopperAnchor from './popper-anchor.vue'
 
 defineOptions({ name: 'HnPopper' })

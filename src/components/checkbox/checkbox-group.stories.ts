@@ -39,10 +39,7 @@ export const Cover: Story = {
   }
 }
 
-/**
- * Sử dụng thuộc tính `direction` của `hn-checkbox-group` để thay đổi hướng của
- * nó.
- */
+/** Sử dụng thuộc tính `direction` của `hn-checkbox-group` để thay đổi hướng của nó. */
 export const Direction: Story = {
   render: args => ({
     components: { HnCheckboxGroup, HnCheckbox },

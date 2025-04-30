@@ -108,10 +108,7 @@ export const Disabled: Story = {
   }
 }
 
-/**
- * Sử dụng thuộc tính `showCounter` của `hn-textarea` để hiển thị counter của
- * nó.
- */
+/** Sử dụng thuộc tính `showCounter` của `hn-textarea` để hiển thị counter của nó. */
 export const Counter: Story = {
   args: {
     label: 'Label',

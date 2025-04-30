@@ -7,12 +7,7 @@
 <script setup lang="ts">
 import { provide, watch } from 'vue'
 import type { RadioValue } from './radio'
-import {
-  RADIO_GROUP_KEY,
-  type RadioGroupContext,
-  type RadioGroupEmits,
-  type RadioGroupProps
-} from './radio-group'
+import { RADIO_GROUP_KEY, type RadioGroupContext, type RadioGroupEmits, type RadioGroupProps } from './radio-group'
 
 defineOptions({ name: 'HnRadioGroup' })
 

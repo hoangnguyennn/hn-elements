@@ -1,19 +1,13 @@
 <template>
   <div class="hn-calendar">
     <div class="hn-calendar--header">
-      <button
-        class="hn-calendar--header-action left"
-        @click.prevent="handlePrevClick"
-      >
+      <button class="hn-calendar--header-action left" @click.prevent="handlePrevClick">
         <ico-arrow-left />
       </button>
       <button class="hn-calendar--header-content" @click="handleTitleClick">
         <span class="hn-calendar--header-title">{{ activePaneTitle }}</span>
       </button>
-      <button
-        class="hn-calendar--header-action right"
-        @click.prevent="handleNextClick"
-      >
+      <button class="hn-calendar--header-action right" @click.prevent="handleNextClick">
         <ico-arrow-right />
       </button>
     </div>
@@ -34,12 +28,7 @@
       @change="handleChangeMonth"
     />
 
-    <hn-year-pane
-      v-else
-      v-model="modelValue"
-      v-model:active-date="activeDate"
-      @change="handleChangeYear"
-    />
+    <hn-year-pane v-else v-model="modelValue" v-model:active-date="activeDate" @change="handleChangeYear" />
   </div>
 </template>
 
@@ -78,9 +67,7 @@ const internalMaxDate = computed(() => {
 })
 
 /** Ngày được sử dụng để hiển thị bảng chọn ngày - tháng - năm */
-const activeDate = ref<dayjs.Dayjs>(
-  modelValue.value ?? internalMinDate.value ?? internalMaxDate.value ?? today
-)
+const activeDate = ref<dayjs.Dayjs>(modelValue.value ?? internalMinDate.value ?? internalMaxDate.value ?? today)
 
 /** Bảng chọn ngày - tháng - năm hiện tại */
 const activePane = ref<CalendarPane>('day')

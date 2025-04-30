@@ -20,10 +20,7 @@ export const Cover: Story = {
   }
 }
 
-/**
- * Sử dụng prop `show-label` của `hn-switch` để hiển thị label của trạng thái
- * hiện tại.
- */
+/** Sử dụng prop `show-label` của `hn-switch` để hiển thị label của trạng thái hiện tại. */
 export const ShowLabel: Story = {
   args: {
     showLabel: true

@@ -19,9 +19,7 @@ export const useForwardRef = <T>(forwardRef: Ref<T | null>): void => {
   })
 }
 
-export const useForwardRefDireactive = (
-  setForwardRef: ForwardRefSetter
-): ObjectDirective => {
+export const useForwardRefDireactive = (setForwardRef: ForwardRefSetter): ObjectDirective => {
   return {
     mounted(element) {
       setForwardRef(element)

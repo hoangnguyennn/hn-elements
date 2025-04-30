@@ -1,12 +1,5 @@
 <template>
-  <hn-field
-    class="hn-input"
-    :label="label"
-    :size="size"
-    :hint="hint"
-    :error="error"
-    :disabled="disabled"
-  >
+  <hn-field class="hn-input" :label="label" :size="size" :hint="hint" :error="error" :disabled="disabled">
     <div
       class="hn-field--wrapper hn-input--wrapper"
       :data-focus="focus"
@@ -63,13 +56,9 @@ const focus = ref(false)
 const hover = ref(false)
 const showPassword = ref(true)
 
-const inputType = computed(() =>
-  props.password && showPassword.value ? 'password' : 'text'
-)
+const inputType = computed(() => (props.password && showPassword.value ? 'password' : 'text'))
 
-const passwordIcon = computed(() =>
-  showPassword.value ? IcoEyeClosed : IcoEyeOpen
-)
+const passwordIcon = computed(() => (showPassword.value ? IcoEyeClosed : IcoEyeOpen))
 
 const handleClear = (): void => {
   modelValue.value = ''

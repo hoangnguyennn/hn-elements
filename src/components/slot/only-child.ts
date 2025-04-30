@@ -1,27 +1,13 @@
-import {
-  FORWARD_REF_KEY,
-  useForwardRefDireactive,
-  type ForwardRefContext
-} from '@hn/composables/useForwardRef'
+import { FORWARD_REF_KEY, useForwardRefDireactive, type ForwardRefContext } from '@hn/composables/useForwardRef'
 import { isObject, NOOP } from '@hn/utils'
-import {
-  cloneVNode,
-  defineComponent,
-  Fragment,
-  h,
-  inject,
-  withDirectives,
-  type VNode
-} from 'vue'
+import { cloneVNode, defineComponent, Fragment, h, inject, withDirectives, type VNode } from 'vue'
 
 export const OnlyChild = defineComponent({
   name: 'HnOnlyChild',
   setup(_, { slots, attrs }) {
     return () => {
       const forwardRefContext = inject<ForwardRefContext>(FORWARD_REF_KEY)
-      const forwardRefDireactive = useForwardRefDireactive(
-        forwardRefContext?.setForwardRef ?? NOOP
-      )
+      const forwardRefDireactive = useForwardRefDireactive(forwardRefContext?.setForwardRef ?? NOOP)
 
       const defaultSlot = slots.default?.(attrs)
       if (!defaultSlot) return null
@@ -33,9 +19,7 @@ export const OnlyChild = defineComponent({
       const firstValidNode = firstValidChild(defaultSlot)
       if (!firstValidNode) return null
 
-      return withDirectives(cloneVNode(firstValidNode, attrs), [
-        [forwardRefDireactive]
-      ])
+      return withDirectives(cloneVNode(firstValidNode, attrs), [[forwardRefDireactive]])
     }
   }
 })

@@ -4,12 +4,7 @@
       <hn-date-field v-model="modelValue" :focus="open" />
     </template>
     <template #content>
-      <hn-calendar
-        v-model="modelValue"
-        :min-date="minDate"
-        :max-date="maxDate"
-        @change="onClose"
-      />
+      <hn-calendar v-model="modelValue" :min-date="minDate" :max-date="maxDate" @change="onClose" />
     </template>
   </hn-popper>
 </template>

@@ -1,12 +1,7 @@
 <template>
   <div class="hn-progress--circle">
     <svg :width="width" :height="width" :viewBox="`0 0 ${width} ${width}`">
-      <circle
-        class="hn-progress--circle-background"
-        :cx="centerOfCircle"
-        :cy="centerOfCircle"
-        :r="radius"
-      />
+      <circle class="hn-progress--circle-background" :cx="centerOfCircle" :cy="centerOfCircle" :r="radius" />
       <circle
         class="hn-progress--circle-current"
         :cx="centerOfCircle"
@@ -15,9 +10,7 @@
         :style="{ strokeDashoffset: strokeDashoffset }"
       />
     </svg>
-    <span v-if="showPercentage" class="hn-progress--circle-percentage">
-      {{ percentage }}%
-    </span>
+    <span v-if="showPercentage" class="hn-progress--circle-percentage"> {{ percentage }}% </span>
   </div>
 </template>
 

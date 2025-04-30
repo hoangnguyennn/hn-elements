@@ -19,9 +19,7 @@ export const useCollapseItem = (): ReturnValue => {
   const currentElement = ref<HTMLElement | null>(null)
 
   const index = computed(() =>
-    currentElement.value
-      ? (collapseContext.elements.value.get(currentElement.value) ?? -1)
-      : -1
+    currentElement.value ? (collapseContext.elements.value.get(currentElement.value) ?? -1) : -1
   )
 
   const isActive = computed(() => {
