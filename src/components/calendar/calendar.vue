@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import { IcoArrowLeft, IcoArrowRight } from '@hn/assets/icons'
 import dayjs from 'dayjs'
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { CalendarEmits, CalendarPane, CalendarProps } from './calendar'
 import HnDatePane from './date-pane.vue'
 import HnMonthPane from './month-pane.vue'
@@ -49,25 +49,15 @@ const props = withDefaults(defineProps<CalendarProps>(), {})
 
 const today = dayjs().startOf('day')
 
-const modelValue = computed({
-  get: () => {
-    return props.modelValue && dayjs(props.modelValue).startOf('day')
-  },
-  set: value => {
-    emit('update:modelValue', value?.toDate())
-  }
-})
+const modelValue = ref(props.modelValue && dayjs(props.modelValue).startOf('day'))
 
-const internalMinDate = computed(() => {
-  return props.minDate && dayjs(props.minDate).startOf('day')
-})
+watch(modelValue, value => emit('update:modelValue', value?.toDate()))
 
-const internalMaxDate = computed(() => {
-  return props.maxDate && dayjs(props.maxDate).startOf('day')
-})
+const internalMinDate = computed(() => props.minDate && dayjs(props.minDate).startOf('day'))
+const internalMaxDate = computed(() => props.maxDate && dayjs(props.maxDate).startOf('day'))
 
 /** Ngày được sử dụng để hiển thị bảng chọn ngày - tháng - năm */
-const activeDate = ref<dayjs.Dayjs>(modelValue.value ?? internalMinDate.value ?? internalMaxDate.value ?? today)
+const activeDate = ref(modelValue.value ?? internalMinDate.value ?? internalMaxDate.value ?? today)
 
 /** Bảng chọn ngày - tháng - năm hiện tại */
 const activePane = ref<CalendarPane>('day')
@@ -85,9 +75,7 @@ const activePaneTitle = computed(() => {
   const int = Math.floor(activeDate.value.year() / 10)
   const modulo = activeDate.value.year() % 10
 
-  if (modulo === 0) {
-    return `${(int - 1) * 10 + 1} - ${int * 10}`
-  }
+  if (modulo === 0) return `${(int - 1) * 10 + 1} - ${int * 10}`
 
   const prev = int * 10 + 1
   const next = prev + 9
@@ -127,19 +115,13 @@ const handleNextClick = (): void => {
 }
 
 const handleTitleClick = (): void => {
-  if (activePane.value === 'day') {
-    activePane.value = 'month'
-    return
+  const movingPaneMap: Record<CalendarPane, CalendarPane> = {
+    day: 'month',
+    month: 'year',
+    year: 'day'
   }
 
-  if (activePane.value === 'month') {
-    activePane.value = 'year'
-    return
-  }
-
-  if (activePane.value === 'year') {
-    activePane.value = 'month'
-  }
+  activePane.value = movingPaneMap[activePane.value]
 }
 
 const handleChangeDate = (): void => {
