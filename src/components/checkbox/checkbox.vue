@@ -1,10 +1,5 @@
 <template>
-  <label
-    class="hn-checkbox"
-    :data-inderminate="indeterminate"
-    :data-disabled="disabled"
-    :data-error="error"
-  >
+  <label class="hn-checkbox" :data-inderminate="indeterminate" :data-disabled="disabled" :data-error="error">
     <span class="hn-checkbox--wrapper">
       <input
         v-if="trueValue || falseValue"

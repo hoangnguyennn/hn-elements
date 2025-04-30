@@ -35,12 +35,7 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import { computed } from 'vue'
-import type {
-  DateItem,
-  DatePaneEmits,
-  DatePaneProps,
-  DatePaneValue
-} from './date-pane'
+import type { DateItem, DatePaneEmits, DatePaneProps, DatePaneValue } from './date-pane'
 
 defineOptions({ name: 'HnDatePane' })
 
@@ -101,10 +96,7 @@ const isActive = (date: dayjs.Dayjs): boolean => {
 }
 
 const isDisabled = (date: dayjs.Dayjs): boolean => {
-  return (
-    Boolean(props.minDate && date.isBefore(props.minDate)) ||
-    Boolean(props.maxDate && date.isAfter(props.maxDate))
-  )
+  return Boolean(props.minDate && date.isBefore(props.minDate)) || Boolean(props.maxDate && date.isAfter(props.maxDate))
 }
 
 const handleChangeDate = (date: dayjs.Dayjs): void => {

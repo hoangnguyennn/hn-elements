@@ -51,10 +51,7 @@ export const Error: Story = {
   }
 }
 
-/**
- * Sử dụng thuộc tính `indeterminate` của `hn-checkbox` để hiển thị trạng thái
- * không xác định.
- */
+/** Sử dụng thuộc tính `indeterminate` của `hn-checkbox` để hiển thị trạng thái không xác định. */
 export const Indeterminate: Story = {
   args: {
     indeterminate: true

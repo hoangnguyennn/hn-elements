@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="hn-field"
-    :data-size="size"
-    :data-error="!!error"
-    :data-disabled="disabled"
-  >
+  <div class="hn-field" :data-size="size" :data-error="!!error" :data-disabled="disabled">
     <label v-if="label" class="hn-field--label">{{ label }}</label>
 
     <slot></slot>

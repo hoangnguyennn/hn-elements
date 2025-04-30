@@ -15,7 +15,4 @@ export type TextareaProps = FieldProps & {
   maxLength?: number
   /** Hiển thị số ký tự đã nhập. */
   showCounter?: boolean
-} & /** @vue-ignore */ Omit<
-    TextareaHTMLAttributes,
-    'rows' | 'cols' | 'maxlength'
-  >
+} & /** @vue-ignore */ Omit<TextareaHTMLAttributes, 'rows' | 'cols' | 'maxlength'>

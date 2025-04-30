@@ -23,10 +23,7 @@ export const Cover: Story = {
   }
 }
 
-/**
- * Sử dụng thuộc tính `clearable` của `hn-rate` để cho phép xóa giá trị. Click
- * vào ngôi sao hiện tại để xoá giá trị.
- */
+/** Sử dụng thuộc tính `clearable` của `hn-rate` để cho phép xóa giá trị. Click vào ngôi sao hiện tại để xoá giá trị. */
 export const Clearable: Story = {
   args: {
     modelValue: 3,

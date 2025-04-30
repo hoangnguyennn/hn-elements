@@ -12,19 +12,14 @@ type ReturnValue = {
   radioGroup?: RadioGroupContext
 }
 
-export const useRadio = (
-  props: RadioProps,
-  { emit }: UseRadioOptions
-): ReturnValue => {
+export const useRadio = (props: RadioProps, { emit }: UseRadioOptions): ReturnValue => {
   const radioGroupContext = inject<RadioGroupContext>(RADIO_GROUP_KEY)
 
   const isGroup = computed(() => radioGroupContext !== undefined)
 
   const modelValue = computed({
     get() {
-      return isGroup.value
-        ? radioGroupContext!.modelValue.value
-        : props.modelValue
+      return isGroup.value ? radioGroupContext!.modelValue.value : props.modelValue
     },
     set(value) {
       if (isGroup.value) {

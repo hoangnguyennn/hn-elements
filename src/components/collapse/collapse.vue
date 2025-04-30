@@ -7,12 +7,7 @@
 <script setup lang="ts">
 import { useList } from '@hn/composables/useList'
 import { provide } from 'vue'
-import {
-  type CollapseContext,
-  type CollapseProps,
-  type CollapseValue,
-  COLLAPSE_KEY
-} from './collapse'
+import { type CollapseContext, type CollapseProps, type CollapseValue, COLLAPSE_KEY } from './collapse'
 
 defineOptions({ name: 'HnCollapse' })
 

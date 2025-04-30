@@ -7,12 +7,7 @@
 <script setup lang="ts">
 import { useList } from '@hn/composables/useList'
 import { provide, watch } from 'vue'
-import {
-  TAB_GROUP_KEY,
-  type TabGroupContext,
-  type TabGroupEmits,
-  type TabGroupProps
-} from './tab-group'
+import { TAB_GROUP_KEY, type TabGroupContext, type TabGroupEmits, type TabGroupProps } from './tab-group'
 
 defineOptions({ name: 'HnTabGroup' })
 

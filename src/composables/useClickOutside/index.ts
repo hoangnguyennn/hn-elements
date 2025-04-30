@@ -8,14 +8,8 @@ type UseClickOutsideArgs = {
   callback: (event: MouseEvent) => void
 }
 
-export const useClickOutside = ({
-  refs,
-  callback
-}: UseClickOutsideArgs): void => {
-  const isClickOutside = (
-    element: HTMLElement | null,
-    target: Node
-  ): boolean => {
+export const useClickOutside = ({ refs, callback }: UseClickOutsideArgs): void => {
+  const isClickOutside = (element: HTMLElement | null, target: Node): boolean => {
     if (!element) return false
     return !element.contains(target)
   }

@@ -1,17 +1,7 @@
 <template>
-  <div
-    class="hn-switch"
-    :data-on="modelValue"
-    :data-disabled="disabled"
-    :data-show-label="showLabel"
-  >
+  <div class="hn-switch" :data-on="modelValue" :data-disabled="disabled" :data-show-label="showLabel">
     <span v-if="showLabel" class="hn-switch--label">{{ label }}</span>
-    <input
-      v-model="modelValue"
-      type="checkbox"
-      class="hn-switch--input"
-      :disabled="disabled"
-    />
+    <input v-model="modelValue" type="checkbox" class="hn-switch--input" :disabled="disabled" />
   </div>
 </template>
 

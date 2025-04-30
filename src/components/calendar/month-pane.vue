@@ -28,9 +28,7 @@ const activeDate = defineModel<dayjs.Dayjs>('activeDate')
 const emit = defineEmits<MonthPaneEmits>()
 
 /** Danh sách cấc tháng trong năm */
-const months = Array.from({ length: 12 }, (_, index) =>
-  dayjs().month(index).format('MMMM')
-)
+const months = Array.from({ length: 12 }, (_, index) => dayjs().month(index).format('MMMM'))
 
 const isSameYear = computed(() => {
   if (!modelValue.value) return false

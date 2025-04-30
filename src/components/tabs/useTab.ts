@@ -16,11 +16,7 @@ export const useTab = (): ReturnValue => {
 
   const currentElement = ref<HTMLElement | null>(null)
 
-  const index = computed(() =>
-    currentElement.value
-      ? tabGroupContext.elements.value.get(currentElement.value)
-      : -1
-  )
+  const index = computed(() => (currentElement.value ? tabGroupContext.elements.value.get(currentElement.value) : -1))
 
   const elementRef = (element: HTMLElement | null): void => {
     currentElement.value = element
