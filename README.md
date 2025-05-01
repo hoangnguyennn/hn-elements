@@ -2,6 +2,10 @@
 
 Các element của Hn
 
+## Mục tiêu
+
+Dự án được xây dựng với mục tiêu chứng minh năng lực xây dựng component hệ thống và khả năng tái sử dụng UI, không tập trung vào thiết kế nguyên bản. Trong tương lai, thư viện có thể hỗ trợ nhiều giao diện hơn hoặc tích hợp với design system do chính tôi ([Hn](https://github.com/hoangnguyennn)) cung cấp.
+
 ### Tạo component mới
 
 ```bash
