@@ -4,7 +4,10 @@ Các element của Hn
 
 ## Mục tiêu
 
-Dự án được xây dựng với mục tiêu chứng minh năng lực xây dựng component hệ thống và khả năng tái sử dụng UI, không tập trung vào thiết kế nguyên bản. Trong tương lai, thư viện có thể hỗ trợ nhiều giao diện hơn hoặc tích hợp với design system do chính tôi ([Hn](https://github.com/hoangnguyennn)) cung cấp.
+Dự án được xây dựng với mục tiêu chứng minh năng lực xây dựng component hệ thống và khả năng tái sử dụng UI, không tập trung vào thiết kế nguyên bản.
+Hiện tại design sử dụng được lấy từ https://www.figma.com/community/file/1067847732339602315.
+
+Trong tương lai, thư viện có thể hỗ trợ nhiều giao diện hơn và tích hợp với design system của riêng mình.
 
 ### Tạo component mới
 
