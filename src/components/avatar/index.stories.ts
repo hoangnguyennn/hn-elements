@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { HnAvatar } from '.'
 import { HnStack } from '../_stack'
-import type { AvatarSize } from './avatar'
 
 const meta: Meta<typeof HnAvatar> = {
   title: 'HnAvatar',
@@ -21,18 +20,21 @@ export const Cover: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<hn-avatar name="hn" src="https://picsum.photos/200/200" />`
+        code: `<hn-avatar name="hn" src="https://picsum.photos/200/200" size="medium" />`
       }
     }
   }
 }
 
-const ALL_SIZES: AvatarSize[] = ['small', 'medium', 'large']
-
 /** Sử dụng thuộc tính `size` của `hn-avatar` để thay đổi kích thước của nó. */
 export const Size: Story = {
   args: {
     src: undefined
+  },
+  argTypes: {
+    size: {
+      control: false
+    }
   },
   render: args => ({
     components: { HnAvatar, HnStack },
@@ -41,7 +43,9 @@ export const Size: Story = {
     },
     template: `
       <hn-stack direction="horizontal">
-        ${ALL_SIZES.map(size => `<hn-avatar v-bind="args" size="${size}" />`).join('\n')}
+        <hn-avatar v-bind="args" size="small" />
+        <hn-avatar v-bind="args" size="medium" />
+        <hn-avatar v-bind="args" size="large" />
       </hn-stack>
     `
   }),

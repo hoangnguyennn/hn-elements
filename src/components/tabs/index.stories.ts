@@ -16,11 +16,13 @@ export const Cover: Story = {
     setup() {
       return { args }
     },
-    template: `<hn-tab-group v-bind="args">
-  <hn-tab>Tab 1</hn-tab>
-  <hn-tab>Tab 2</hn-tab>
-  <hn-tab>Tab 3</hn-tab>
-</hn-tab-group>`
+    template: `
+      <hn-tab-group v-bind="args">
+        <hn-tab>Tab 1</hn-tab>
+        <hn-tab>Tab 2</hn-tab>
+        <hn-tab>Tab 3</hn-tab>
+      </hn-tab-group>
+    `
   }),
   parameters: {
     docs: {
@@ -45,11 +47,13 @@ export const Direction: Story = {
     setup() {
       return { args }
     },
-    template: `<hn-tab-group v-bind="args">
-  <hn-tab>Tab 1</hn-tab>
-  <hn-tab>Tab 2</hn-tab>
-  <hn-tab>Tab 3</hn-tab>
-</hn-tab-group>`
+    template: `
+      <hn-tab-group v-bind="args">
+        <hn-tab>Tab 1</hn-tab>
+        <hn-tab>Tab 2</hn-tab>
+        <hn-tab>Tab 3</hn-tab>
+      </hn-tab-group>
+    `
   }),
   parameters: {
     docs: {
