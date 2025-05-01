@@ -34,3 +34,29 @@ export const Cover: Story = {
     }
   }
 }
+
+/** Sử dụng thuộc tính accordion của `hn-collapse` để tạo accordion. */
+export const Accordion: Story = {
+  render: args => ({
+    components: { HnCollapse, HnCollapseItem },
+    setup() {
+      return { args }
+    },
+    template: `<hn-collapse accordion>
+  <hn-collapse-item title="Title 1">Content 1</hn-collapse-item>
+  <hn-collapse-item title="Title 2">Content 2</hn-collapse-item>
+  <hn-collapse-item title="Title 3">Content 3</hn-collapse-item>
+</hn-collapse>`
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-collapse accordion>
+  <hn-collapse-item title="Title 1">Content 1</hn-collapse-item>
+  <hn-collapse-item title="Title 2">Content 2</hn-collapse-item>
+  <hn-collapse-item title="Title 3">Content 3</hn-collapse-item>
+</hn-collapse>`
+      }
+    }
+  }
+}
