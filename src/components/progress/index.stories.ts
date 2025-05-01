@@ -26,12 +26,20 @@ export const Cover: Story = {
 
 /** Sử dụng thuộc tính `size` của `hn-progress` để thay đổi kích thước của nó. */
 export const Size: Story = {
-  render: () => ({
+  argTypes: {
+    size: { control: false }
+  },
+  render: args => ({
     components: { HnProgress, HnStack },
-    template: `<hn-stack>
-  <hn-progress :percentage="67" size="small" />
-  <hn-progress :percentage="67" size="normal" />
-</hn-stack>`
+    setup() {
+      return { args }
+    },
+    template: `
+      <hn-stack>
+        <hn-progress v-bind="args" size="small" />
+        <hn-progress v-bind="args" size="normal" />
+      </hn-stack>
+    `
   }),
   parameters: {
     docs: {

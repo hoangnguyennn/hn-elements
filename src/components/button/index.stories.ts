@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { HnButton } from '.'
 import { HnStack } from '../_stack'
 import { HnIcon } from '../icon'
-import type { ButtonSize, ButtonVariant } from './button'
 
 const meta: Meta<typeof HnButton> = {
   title: 'HnButton',
@@ -31,8 +30,6 @@ export const Cover: Story = {
   }
 }
 
-const ALL_VARIANTS: ButtonVariant[] = ['primary', 'secondary', 'text']
-
 /** Sử dụng thuộc tính `variant` của `hn-button` để thay đổi màu sắc của nó. */
 export const Variant: Story = {
   argTypes: {
@@ -45,7 +42,9 @@ export const Variant: Story = {
     },
     template: `
       <hn-stack direction="horizontal">
-        ${ALL_VARIANTS.map(variant => `<hn-button v-bind="args" variant="${variant}">Button</hn-button>`).join('\n')}
+        <hn-button v-bind="args" variant="primary">Button</hn-button>
+        <hn-button v-bind="args" variant="secondary">Button</hn-button>
+        <hn-button v-bind="args" variant="text">Button</hn-button>
       </hn-stack>
     `
   }),
@@ -62,10 +61,11 @@ export const Variant: Story = {
   }
 }
 
-const ALL_SIZES: ButtonSize[] = ['small', 'medium', 'large']
-
 /** Sử dụng thuộc tính `size` của `hn-button` để thay đổi kích thước của nó. */
 export const Size: Story = {
+  argTypes: {
+    size: { control: false }
+  },
   render: args => ({
     components: { HnButton, HnStack },
     setup() {
@@ -73,7 +73,9 @@ export const Size: Story = {
     },
     template: `
       <hn-stack direction="horizontal">
-        ${ALL_SIZES.map(size => `<hn-button v-bind="args" size="${size}">Button</hn-button>`).join('\n')}
+        <hn-button v-bind="args" size="small">Button</hn-button>
+        <hn-button v-bind="args" size="medium">Button</hn-button>
+        <hn-button v-bind="args" size="large">Button</hn-button>
       </hn-stack>
     `
   }),
@@ -103,7 +105,9 @@ export const Disabled: Story = {
     },
     template: `
       <hn-stack direction="horizontal">
-        ${ALL_VARIANTS.map(variant => `<hn-button v-bind="args" variant="${variant}" disabled>Button</hn-button>`).join('\n')}
+        <hn-button v-bind="args" variant="primary" disabled>Button</hn-button>
+        <hn-button v-bind="args" variant="secondary" disabled>Button</hn-button>
+        <hn-button v-bind="args" variant="text" disabled>Button</hn-button>
       </hn-stack>
     `
   }),
@@ -122,6 +126,12 @@ export const Disabled: Story = {
 
 /** Sử dụng slot `leading` trong `hn-button`. */
 export const Leading: Story = {
+  args: {
+    variant: 'primary'
+  },
+  argTypes: {
+    variant: { control: false }
+  },
   render: args => ({
     components: { HnButton, HnStack, HnIcon },
     setup() {
@@ -129,7 +139,7 @@ export const Leading: Story = {
     },
     template: `
       <hn-stack direction="horizontal">
-        <hn-button v-bind="args" variant="primary">
+        <hn-button v-bind="args">
           <template #leading>
             <hn-icon :as="IcoSave" />
           </template>
@@ -156,6 +166,12 @@ export const Leading: Story = {
 
 /** Sử dụng slot `trailing` trong `hn-button`. */
 export const Trailing: Story = {
+  args: {
+    variant: 'primary'
+  },
+  argTypes: {
+    variant: { control: false }
+  },
   render: args => ({
     components: { HnButton, HnStack, HnIcon },
     setup() {
@@ -163,7 +179,7 @@ export const Trailing: Story = {
     },
     template: `
       <hn-stack direction="horizontal">
-        <hn-button v-bind="args" variant="primary">
+        <hn-button v-bind="args">
           Button
           <template #trailing>
             <hn-icon :as="IcoSave" />

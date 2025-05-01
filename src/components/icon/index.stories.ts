@@ -15,13 +15,6 @@ export const Cover: Story = {
   args: {
     as: IcoCheck
   },
-  render: args => ({
-    components: { HnIcon },
-    setup() {
-      return { args }
-    },
-    template: '<HnIcon v-bind="args" />'
-  }),
   parameters: {
     docs: {
       source: {

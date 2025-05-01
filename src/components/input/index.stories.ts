@@ -12,13 +12,6 @@ export default meta
 type Story = StoryObj<typeof HnInput>
 
 export const Cover: Story = {
-  render: args => ({
-    components: { HnInput },
-    setup() {
-      return { args }
-    },
-    template: '<HnInput v-bind="args" />'
-  }),
   parameters: {
     docs: {
       source: {
@@ -30,15 +23,22 @@ export const Cover: Story = {
 
 /** Sử dụng thuộc tính `size` của `hn-input` để thay đổi kích thước của nó. */
 export const Size: Story = {
+  argTypes: {
+    size: { control: false },
+    label: { control: false },
+    placeholder: { control: false }
+  },
   render: args => ({
     components: { HnInput, HnStack },
     setup() {
       return { args }
     },
-    template: `<hn-stack direction="vertical">
-  <hn-input v-bind="args" size="small" label="Small" placeholder="Small" />
-  <hn-input v-bind="args" size="normal" label="Normal" placeholder="Normal" />
-</hn-stack>`
+    template: `
+      <hn-stack direction="vertical">
+        <hn-input v-bind="args" size="small" label="Small" placeholder="Small" />
+        <hn-input v-bind="args" size="normal" label="Normal" placeholder="Normal" />
+      </hn-stack>
+    `
   }),
   parameters: {
     docs: {
@@ -58,13 +58,6 @@ export const Label: Story = {
     label: 'Label',
     placeholder: 'Label'
   },
-  render: args => ({
-    components: { HnInput, HnStack },
-    setup() {
-      return { args }
-    },
-    template: `<hn-input v-bind="args" />`
-  }),
   parameters: {
     docs: {
       source: {
@@ -80,13 +73,6 @@ export const Hint: Story = {
     hint: 'Hint',
     placeholder: 'Hint'
   },
-  render: args => ({
-    components: { HnInput },
-    setup() {
-      return { args }
-    },
-    template: `<hn-input v-bind="args" />`
-  }),
   parameters: {
     docs: {
       source: {
@@ -102,13 +88,6 @@ export const Error: Story = {
     error: 'Error',
     placeholder: 'Error'
   },
-  render: args => ({
-    components: { HnInput },
-    setup() {
-      return { args }
-    },
-    template: `<hn-input v-bind="args" />`
-  }),
   parameters: {
     docs: {
       source: {
@@ -124,13 +103,6 @@ export const Disabled: Story = {
     disabled: true,
     placeholder: 'Disabled'
   },
-  render: args => ({
-    components: { HnInput },
-    setup() {
-      return { args }
-    },
-    template: `<hn-input v-bind="args" />`
-  }),
   parameters: {
     docs: {
       source: {
@@ -146,13 +118,6 @@ export const Clearable: Story = {
     clearable: true,
     placeholder: 'Clearable'
   },
-  render: args => ({
-    components: { HnInput },
-    setup() {
-      return { args }
-    },
-    template: `<hn-input v-bind="args" />`
-  }),
   parameters: {
     docs: {
       source: {
@@ -168,13 +133,6 @@ export const Password: Story = {
     password: true,
     placeholder: 'Password'
   },
-  render: args => ({
-    components: { HnInput },
-    setup() {
-      return { args }
-    },
-    template: `<hn-input v-bind="args" />`
-  }),
   parameters: {
     docs: {
       source: {

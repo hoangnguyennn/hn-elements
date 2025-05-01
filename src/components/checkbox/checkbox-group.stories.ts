@@ -41,12 +41,15 @@ export const Cover: Story = {
 
 /** Sử dụng thuộc tính `direction` của `hn-checkbox-group` để thay đổi hướng của nó. */
 export const Direction: Story = {
+  args: {
+    direction: 'horizontal'
+  },
   render: args => ({
     components: { HnCheckboxGroup, HnCheckbox },
     setup() {
       return { args }
     },
-    template: `<hn-checkbox-group v-bind="args" direction="horizontal">
+    template: `<hn-checkbox-group v-bind="args">
   <hn-checkbox label="Option 1" value="1" />
   <hn-checkbox label="Option 2" value="2" />
   <hn-checkbox label="Option 3" value="3" />
