@@ -19,7 +19,7 @@ export type ButtonProps = {
    * @default 'medium'
    */
   size?: ButtonSize
-} & /** @vue-ignore */ ButtonHTMLAttributes
+} & /** @vue-ignore */ Pick<ButtonHTMLAttributes, 'type' | 'onClick' | 'form'>
 
 export type ButtonSlots = {
   /** Nội dung của button. */

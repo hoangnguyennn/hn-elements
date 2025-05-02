@@ -1,5 +1,4 @@
 import type { FieldProps } from '@hn/components/field'
-import type { TextareaHTMLAttributes } from 'vue'
 
 export type TextareaEmits = {
   /** Kích hoạt khi giá trị textarea thay đổi. */
@@ -15,4 +14,6 @@ export type TextareaProps = FieldProps & {
   maxLength?: number
   /** Hiển thị số ký tự đã nhập. */
   showCounter?: boolean
-} & /** @vue-ignore */ Omit<TextareaHTMLAttributes, 'rows' | 'cols' | 'maxlength'>
+  /** Chỉ ra nội dung placeholder của textarea. */
+  placeholder?: string
+}

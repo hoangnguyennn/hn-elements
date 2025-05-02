@@ -1,12 +1,13 @@
 import type { FieldProps } from '@hn/components/field'
-import type { InputHTMLAttributes } from 'vue'
 
 export type InputProps = FieldProps & {
   /** Chỉ ra rằng input có chức năng clear hay không. */
   clearable?: boolean
   /** Chỉ ra rằng có phải là input password hay không. */
   password?: boolean
-} & /** @vue-ignore */ Omit<InputHTMLAttributes, 'type'>
+  /** Nội dung placeholder của input. */
+  placeholder?: string
+}
 
 export type InputEmits = {
   /** Kích hoạt khi button clear được click. */
