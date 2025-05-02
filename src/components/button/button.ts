@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, VNode } from 'vue'
+import type { VNode } from 'vue'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'text'
 
@@ -19,7 +19,16 @@ export type ButtonProps = {
    * @default 'medium'
    */
   size?: ButtonSize
-} & /** @vue-ignore */ ButtonHTMLAttributes
+  /** Loại button. */
+  type?: 'button' | 'submit' | 'reset'
+  /** Id của form mà button này liên kết tới. */
+  form?: string
+}
+
+export type ButtonEmits = {
+  /** Sự kiện khi button được click. */
+  click: [MouseEvent]
+}
 
 export type ButtonSlots = {
   /** Nội dung của button. */

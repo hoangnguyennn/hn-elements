@@ -1,5 +1,3 @@
-import type { InputHTMLAttributes } from 'vue'
-
 export type CheckboxValue = string | number | boolean | undefined
 
 export type CheckboxEmits = {
@@ -28,4 +26,4 @@ export type CheckboxProps = {
   error?: boolean
   /** Chỉ ra rằng field có bị disable hay không. */
   disabled?: boolean
-} & /** @vue-ignore */ Omit<InputHTMLAttributes, 'onChange'>
+}

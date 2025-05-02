@@ -1,5 +1,3 @@
-import type { InputHTMLAttributes } from 'vue'
-
 export type RadioValue = string | number | boolean | undefined
 
 export type RadioEmits = {
@@ -22,4 +20,4 @@ export type RadioProps = {
   disabled?: boolean
   /** Chỉ ra rằng radio có bị lỗi không. */
   error?: boolean
-} & /** @vue-ignore */ InputHTMLAttributes
+}
