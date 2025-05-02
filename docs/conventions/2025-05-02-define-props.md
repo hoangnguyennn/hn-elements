@@ -4,10 +4,11 @@
 
 ## Bối cảnh
 
-- Trong quá trình phát triển thư viện UI, đôi khi các prop như `type`, `value`, `disabled`, ... đã tồn tại trong các type có sẵn như `HTMLAttributes` hoặc `ButtonHTMLAttributes`. Tuy nhiên, **việc lấy các type trực tiếp từ các định nghĩa này có thể tiềm ẩn rủi ro**:
-  - Có thể bị ảnh hưởng bởi thay đổi từ package `vue`, hoặc các package khác (nếu có) gây ra các bug ngầm.
-  - Không thể mô tả rõ ràng ý nghĩa, phạm vi sử dụng, hay là giá trị mặc định của prop đó.
-  - Khó bảo trì và gây khó hiểu khi đọc code.
+Trong quá trình phát triển thư viện UI, đôi khi các prop như `type`, `value`, `disabled`, ... đã tồn tại trong các type có sẵn như `HTMLAttributes` hoặc `ButtonHTMLAttributes`. Tuy nhiên, **việc lấy các type trực tiếp từ các định nghĩa này có thể tiềm ẩn rủi ro**:
+
+- Có thể bị ảnh hưởng bởi thay đổi từ package `vue`, hoặc các package khác (nếu có) gây ra các bug ngầm.
+- Không thể mô tả rõ ràng ý nghĩa, phạm vi sử dụng, hay là giá trị mặc định của prop đó.
+- Khó bảo trì và gây khó hiểu khi đọc code.
 
 Vì vậy, ta cần định nghĩa lại rõ ràng từng prop để:
 
