@@ -11,9 +11,11 @@
       <slot name="anchor"></slot>
     </hn-popper-anchor>
 
-    <div v-if="open" ref="contentRef" class="hn-popper--content" :style="floatingStyles">
-      <slot name="content"></slot>
-    </div>
+    <teleport to="body">
+      <div v-if="open" ref="contentRef" class="hn-popper--content" :style="floatingStyles">
+        <slot name="content"></slot>
+      </div>
+    </teleport>
   </div>
 </template>
 
