@@ -18,7 +18,7 @@ export const Cover: Story = {
   parameters: {
     docs: {
       source: {
-        code: '<HnIconButton as={IcoCheck} />'
+        code: '<hn-icon-button as={IcoCheck} />'
       }
     }
   }

@@ -17,13 +17,13 @@
 <script setup lang="ts">
 import { IcoStarEmpty, IcoStarFull } from '@hn/assets/icons'
 import { ref } from 'vue'
-import type { HnRateProps } from './rate'
+import type { RateProps } from './rate'
 
 defineOptions({ name: 'HnRate' })
 
 const modelValue = defineModel<number>({ default: 0 })
 
-const props = withDefaults(defineProps<HnRateProps>(), {
+const props = withDefaults(defineProps<RateProps>(), {
   clearable: false
 })
 
