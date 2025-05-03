@@ -8,7 +8,7 @@ export type RadioEmits = {
 }
 
 export type RadioProps = {
-  /** Tiêu đề của radio. */
+  /** Nhãn của của radio. */
   label?: string
   /** Tên của radio. */
   name?: string

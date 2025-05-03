@@ -13,9 +13,11 @@ defineOptions({ name: 'HnSwitch' })
 
 const modelValue = defineModel<boolean>()
 
-withDefaults(defineProps<HnSwitchProps>(), {
-  showLabel: false
+const props = withDefaults(defineProps<HnSwitchProps>(), {
+  showLabel: false,
+  labelOn: 'On',
+  labelOff: 'Off'
 })
 
-const label = computed(() => (modelValue.value ? 'On' : 'Off'))
+const label = computed(() => (modelValue.value ? props.labelOn : props.labelOff))
 </script>
