@@ -4,19 +4,21 @@
 .hn-switch {
   display: flex;
   align-items: center;
-  width: 51px;
+  width: fit-content;
+  min-width: 51px;
   height: 32px;
   cursor: pointer;
   background-color: rgba(#17171f, 0.04);
   border-radius: 47px;
   transition: all 0.3s ease;
+  position: relative;
 
   .hn-switch--input {
     appearance: none;
     width: 100%;
     height: 100%;
     background-color: transparent;
-    position: relative;
+    position: absolute;
     cursor: pointer;
 
     &::after {
@@ -39,11 +41,19 @@
     }
   }
 
+  .hn-switch--label {
+    white-space: nowrap;
+    padding-left: calc(28px + 8px);
+    padding-right: 8px;
+    transition: all 0.3s ease;
+  }
+
   &[data-on='true'] {
     background-color: $color-purple;
 
     .hn-switch--label {
-      text-align: left;
+      padding-left: 8px;
+      padding-right: calc(28px + 8px);
       color: $color-white;
     }
   }
@@ -61,18 +71,6 @@
 
     .hn-switch--label {
       color: $color-border;
-    }
-  }
-
-  &:where([data-show-label='true']) {
-    position: relative;
-    width: 65px;
-
-    .hn-switch--label {
-      position: absolute;
-      left: 8px;
-      right: 8px;
-      text-align: right;
     }
   }
 }

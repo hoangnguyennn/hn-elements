@@ -47,3 +47,18 @@ export const Disabled: Story = {
     }
   }
 }
+
+export const CustomLabel: Story = {
+  args: {
+    showLabel: true,
+    labelOn: 'Bật',
+    labelOff: 'Tắt'
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-switch show-label label-on="Bật" label-off="Tắt" />`
+      }
+    }
+  }
+}

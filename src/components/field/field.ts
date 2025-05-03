@@ -3,7 +3,7 @@ import type { VNode } from 'vue'
 export type FieldSize = 'normal' | 'small'
 
 export type FieldProps = {
-  /** Tiêu đề của field. */
+  /** Nhãn của của field. */
   label?: string
   /** Kích thước của field. */
   size?: FieldSize
