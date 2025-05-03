@@ -7,13 +7,13 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { HnSwitchProps } from './switch'
+import type { SwitchProps } from './switch'
 
 defineOptions({ name: 'HnSwitch' })
 
 const modelValue = defineModel<boolean>()
 
-const props = withDefaults(defineProps<HnSwitchProps>(), {
+const props = withDefaults(defineProps<SwitchProps>(), {
   showLabel: false,
   labelOn: 'On',
   labelOff: 'Off'
