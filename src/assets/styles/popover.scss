@@ -1,0 +1,19 @@
+@use 'shadow' as *;
+@use 'radius' as *;
+@use 'spacing' as *;
+@use 'color' as *;
+
+.hn-popover--content {
+  padding: $space-large;
+  box-shadow: $shadow-large;
+  background-color: $color-white;
+  border-radius: $radius-medium;
+
+  .hn-popover--arrow {
+    width: 15px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

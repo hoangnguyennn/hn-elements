@@ -7,19 +7,13 @@
 <script setup lang="ts">
 import { OnlyChild } from '@hn/components/slot/only-child'
 import { useForwardRef } from '@hn/composables/useForwardRef'
-import { inject } from 'vue'
-import { POPPER_KEY, type PopperContext } from './popper'
 import type { PopperAnchor } from './popper-anchor'
+import { usePopper } from './usePopper'
 
 defineOptions({ name: 'HnPopperAnchor' })
 
-defineProps<PopperAnchor>()
+withDefaults(defineProps<PopperAnchor>(), {})
 
-const popper = inject<PopperContext>(POPPER_KEY)
-
-if (!popper) {
-  throw new Error('hn-popper-anchor phải được sử dụng bên trong hn-popper')
-}
-
-useForwardRef(popper.anchorRef)
+const { anchorRef } = usePopper()
+useForwardRef(anchorRef)
 </script>
