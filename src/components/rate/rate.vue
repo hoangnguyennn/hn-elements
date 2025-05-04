@@ -1,6 +1,6 @@
 <template>
   <div class="hn-rate" :data-hover-value="hoverValue">
-    <span
+    <button
       v-for="i in 5"
       :key="`star-${i}`"
       class="hn-rate--star"
@@ -10,7 +10,7 @@
     >
       <ico-star-full v-if="modelValue >= i || hoverValue >= i" />
       <ico-star-empty v-else />
-    </span>
+    </button>
   </div>
 </template>
 
