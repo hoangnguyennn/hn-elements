@@ -25,6 +25,11 @@ const props = withDefaults(defineProps<ProgressCircleProps>(), {
   showPercentage: false
 })
 
+const clampedPercentage = computed(() => {
+  const value = props.percentage
+  return value < 0 ? 0 : value > 100 ? 100 : value
+})
+
 /** Kích thước progress */
 const width = computed(() => (props.size === 'small' ? 84 : 140))
 /** Tâm vòng tròn */
@@ -35,6 +40,6 @@ const radius = computed(() => (props.size === 'small' ? 37.8 : 63))
 const perimeter = computed(() => 2 * Math.PI * radius.value)
 /** Phần tô màu */
 const strokeDashoffset = computed(() => {
-  return perimeter.value * (1 - props.percentage / 100)
+  return perimeter.value * (1 - clampedPercentage.value / 100)
 })
 </script>
