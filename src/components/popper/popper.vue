@@ -20,9 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import { autoUpdate, flip, shift, useFloating } from '@floating-ui/vue'
+import { arrow, autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/vue'
 import { useClickOutside } from '@hn/composables/useClickOutside'
-import { provide, ref } from 'vue'
+import { computed, provide, ref } from 'vue'
 import { POPPER_KEY, type PopperContext, type PopperProps, type PopperTrigger } from './popper'
 import HnPopperAnchor from './popper-anchor.vue'
 
@@ -37,6 +37,7 @@ const props = withDefaults(defineProps<PopperProps>(), {
 
 const anchorRef = ref<HTMLElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
+const arrowRef = ref<HTMLElement | null>(null)
 
 const onTrigger = (event: PopperTrigger, value = true): void => {
   if (event === props.trigger) open.value = value
@@ -46,17 +47,22 @@ const onClose = (): void => {
   open.value = false
 }
 
-const { floatingStyles } = useFloating(anchorRef, contentRef, {
+const middleware = computed(() => [flip(), shift(), arrow({ element: arrowRef }), offset(props.offset)])
+
+const { floatingStyles, middlewareData } = useFloating(anchorRef, contentRef, {
   open,
   strategy: 'fixed',
-  placement: props.placement,
-  middleware: [flip(), shift()],
+  placement: computed(() => props.placement),
+  middleware,
   whileElementsMounted: autoUpdate
 })
 
 useClickOutside({ refs: [anchorRef, contentRef], callback: onClose })
 
 provide<PopperContext>(POPPER_KEY, {
-  anchorRef
+  anchorRef,
+  arrowRef,
+  middlewareData,
+  placement: computed(() => props.placement)
 })
 </script>
