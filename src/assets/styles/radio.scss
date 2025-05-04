@@ -5,6 +5,7 @@
 .hn-radio {
   display: flex;
   align-items: center;
+  width: fit-content;
 
   .hn-radio--wrapper {
     display: inline-block;
@@ -75,7 +76,8 @@
 
 .hn-radio-group {
   display: flex;
-  gap: $space-medium;
+  gap: $space-large;
+  width: fit-content;
 
   &:where([data-direction='vertical']) {
     flex-direction: column;
