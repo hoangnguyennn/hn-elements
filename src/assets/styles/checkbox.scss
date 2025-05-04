@@ -6,6 +6,7 @@
 .hn-checkbox {
   display: flex;
   align-items: center;
+  width: fit-content;
 
   .hn-checkbox--wrapper {
     display: inline-block;
@@ -84,7 +85,8 @@
 
 .hn-checkbox-group {
   display: flex;
-  gap: $space-medium;
+  gap: $space-large;
+  width: fit-content;
 
   &:where([data-direction='vertical']) {
     flex-direction: column;
