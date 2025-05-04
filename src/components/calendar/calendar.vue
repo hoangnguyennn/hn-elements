@@ -51,7 +51,7 @@ const today = dayjs().startOf('day')
 
 const modelValue = ref(props.modelValue && dayjs(props.modelValue).startOf('day'))
 
-watch(modelValue, value => emit('update:modelValue', value?.toDate()))
+watch(modelValue, value => emit('update:modelValue', value?.toDate()), { flush: 'sync' })
 
 const internalMinDate = computed(() => props.minDate && dayjs(props.minDate).startOf('day'))
 const internalMaxDate = computed(() => props.maxDate && dayjs(props.maxDate).startOf('day'))
