@@ -52,9 +52,17 @@ node tools/create-component/index.js -n COMPONENT_NAME
 - [ ] badge
 - [ ] breadcrumb
 - [ ] combobox
+- [ ] empty-state
+- [ ] input-number
 - [ ] modal
 - [ ] notification
 - [ ] pagination
+- [ ] range-slider
 - [ ] select
+- [ ] searchbox
+- [ ] step
 - [ ] table
+- [ ] tag
+- [ ] timeline
 - [ ] tooltip
+- [ ] upload
