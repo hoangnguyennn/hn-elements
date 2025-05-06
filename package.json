@@ -21,6 +21,7 @@
   "dependencies": {
     "@floating-ui/vue": "1.1.6",
     "dayjs": "1.11.13",
+    "lodash.debounce": "4.0.8",
     "vue": "3.5.13"
   },
   "devDependencies": {
@@ -33,6 +34,9 @@
     "@storybook/test": "8.6.12",
     "@storybook/vue3": "8.6.12",
     "@storybook/vue3-vite": "8.6.12",
+    "@testing-library/user-event": "14.6.1",
+    "@testing-library/vue": "8.1.0",
+    "@types/lodash.debounce": "4.0.9",
     "@types/node": "22.15.3",
     "@vitejs/plugin-vue": "5.2.3",
     "@vitest/browser": "3.1.2",
