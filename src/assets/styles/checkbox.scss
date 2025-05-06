@@ -42,12 +42,11 @@
     cursor: pointer;
   }
 
-  &:where([data-disabled='true']) {
+  &[data-disabled='true'] {
     .hn-checkbox--wrapper {
       .hn-checkbox--input {
         background-color: $color-disabled;
         border-color: $color-border;
-        cursor: not-allowed;
       }
 
       .hn-checkbox--mark {

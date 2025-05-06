@@ -49,7 +49,6 @@
   &[data-disabled='true'] {
     .hn-field--wrapper {
       background-color: $color-disabled;
-      cursor: not-allowed;
     }
 
     .hn-field--input {
