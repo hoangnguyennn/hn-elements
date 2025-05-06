@@ -63,7 +63,7 @@ export type ModalSlots = {
 
 export const MODAL_KEY = Symbol('modal')
 
-export type ModalContext = ToRefs<ModalProps> & {
+export type ModalContext = ToRefs<Required<ModalProps>> & {
   /** Handler khi click vào button submit. */
   onSubmit: () => void
   /** Handler khi click vào button cancel. */
