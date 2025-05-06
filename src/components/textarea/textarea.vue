@@ -5,6 +5,7 @@
         v-bind="$attrs"
         v-model="modelValue"
         class="hn-field--input hn-textarea--input"
+        :placeholder="placeholder"
         :disabled="disabled"
         :maxlength="maxLength"
         :style="{
