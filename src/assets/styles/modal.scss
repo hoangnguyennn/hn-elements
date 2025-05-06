@@ -73,21 +73,21 @@
   }
 }
 
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s ease;
 
-.modal-enter-from,
-.modal-leave-to {
   .hn-modal--content {
-    transform: translateY(50px);
-    opacity: 1;
+    transition: all 0.3s ease;
   }
 }
 
-.modal-enter-from .modal-container,
-.modal-leave-to .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+
+  .hn-modal--content {
+    transform: translateY(50px);
+    opacity: 0;
+  }
 }
