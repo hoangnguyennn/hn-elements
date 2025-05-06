@@ -8,3 +8,8 @@
 body {
   font-family: 'Poppins', serif;
 }
+
+[data-disabled='true'],
+[disabled] {
+  pointer-events: none;
+}

@@ -42,11 +42,10 @@
     cursor: pointer;
   }
 
-  &:where([data-disabled='true']) {
+  &[data-disabled='true'] {
     .hn-radio--wrapper {
       .hn-radio--input {
         background-color: $color-disabled;
-        cursor: not-allowed;
 
         &:checked:after {
           background-color: $color-border;

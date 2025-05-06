@@ -1,3 +1,4 @@
-import type { CalendarProps } from '@hn/components/calendar'
+import type { CalendarProps } from '../calendar'
+import type { FieldProps } from '../field'
 
-export type DatePickerProps = Pick<CalendarProps, 'minDate' | 'maxDate'>
+export type DatePickerProps = FieldProps & Pick<CalendarProps, 'minDate' | 'maxDate'>

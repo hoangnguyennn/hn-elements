@@ -3,7 +3,10 @@ import { HnDatePicker } from '.'
 
 const meta: Meta<typeof HnDatePicker> = {
   title: 'HnDatePicker',
-  component: HnDatePicker
+  component: HnDatePicker,
+  args: {
+    size: 'normal'
+  }
 }
 
 export default meta
