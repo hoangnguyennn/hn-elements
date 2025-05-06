@@ -39,6 +39,17 @@ export const useCheckbox = (props: CheckboxProps, { emit }: UseCheckboxOptions):
     emit('update:indeterminate', value)
   })
 
+  watch(
+    [isGroup, () => checkboxGroupContext, () => props.modelValue],
+    ([isGroup, checkboxGroupContext, modelValueProp]) => {
+      if (isGroup) {
+        modelValue.value = checkboxGroupContext!.modelValue.value
+      } else {
+        modelValue.value = modelValueProp
+      }
+    }
+  )
+
   return {
     modelValue,
     indeterminate,
