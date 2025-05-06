@@ -36,6 +36,7 @@ node tools/create-component/index.js -n COMPONENT_NAME
 - [x] icon
 - [x] icon-button
 - [x] input
+- [x] modal
 - [x] popover
 - [x] progress
 - [x] radio
@@ -54,7 +55,6 @@ node tools/create-component/index.js -n COMPONENT_NAME
 - [ ] combobox
 - [ ] empty-state
 - [ ] input-number
-- [ ] modal
 - [ ] notification
 - [ ] pagination
 - [ ] range-slider
