@@ -1,98 +1,82 @@
-import { mount } from '@vue/test-utils'
-import { HnButton } from '.'
+import { userEvent } from '@testing-library/user-event'
+import { render, screen } from '@testing-library/vue'
+import { type ButtonSize, type ButtonVariant, HnButton } from '.'
 
 describe('button', () => {
   it('component render thành công', () => {
-    const wrapper = mount(HnButton)
-    expect(wrapper.classes()).toContain('hn-button')
-    expect(wrapper.exists()).toBe(true)
+    render(HnButton)
+    expect(screen.getByRole('button')).toBeInTheDocument()
+    expect(screen.getByRole('button')).toHaveClass('hn-button')
   })
 
   describe('truyền props', () => {
     describe('size', () => {
       it('button hiển thị với kích thước mặc định là medium', () => {
-        const wrapper = mount(HnButton)
-        expect(wrapper.attributes('data-size')).toBe('medium')
+        render(HnButton)
+        expect(screen.getByRole('button')).toHaveAttribute('data-size', 'medium')
       })
 
-      it('button hiển thị với kích thước small khi truyền size là small', () => {
-        const wrapper = mount(HnButton, { props: { size: 'small' } })
-        expect(wrapper.attributes('data-size')).toBe('small')
-      })
-
-      it('button hiển thị với kích thước medium khi truyền size là medium', () => {
-        const wrapper = mount(HnButton, { props: { size: 'medium' } })
-        expect(wrapper.attributes('data-size')).toBe('medium')
-      })
-
-      it('button hiển thị với kích thước large khi truyền size là large', () => {
-        const wrapper = mount(HnButton, { props: { size: 'large' } })
-        expect(wrapper.attributes('data-size')).toBe('large')
-      })
+      it.each<{ size: ButtonSize }>([{ size: 'small' }, { size: 'medium' }, { size: 'large' }])(
+        'button hiển thị với kích thước $size khi truyền size là $size',
+        ({ size }) => {
+          render(HnButton, { props: { size } })
+          expect(screen.getByRole('button')).toHaveAttribute('data-size', size)
+        }
+      )
     })
 
     describe('variant', () => {
       it('button hiển thị với mẫu sắc mặc định là primary', () => {
-        const wrapper = mount(HnButton)
-        expect(wrapper.attributes('data-variant')).toBe('primary')
+        render(HnButton)
+        expect(screen.getByRole('button')).toHaveAttribute('data-variant', 'primary')
       })
 
-      it('button hiển thị với mẫu sắc primary khi truyền variant là primary', () => {
-        const wrapper = mount(HnButton, { props: { variant: 'primary' } })
-        expect(wrapper.attributes('data-variant')).toBe('primary')
-      })
-
-      it('button hiển thị với mẫu sắc secondary khi truyền variant là secondary', () => {
-        const wrapper = mount(HnButton, { props: { variant: 'secondary' } })
-        expect(wrapper.attributes('data-variant')).toBe('secondary')
-      })
-
-      it('button hiển thị với mẫu sắc text khi truyền variant là text', () => {
-        const wrapper = mount(HnButton, { props: { variant: 'text' } })
-        expect(wrapper.attributes('data-variant')).toBe('text')
-      })
+      it.each<{ variant: ButtonVariant }>([{ variant: 'primary' }, { variant: 'secondary' }, { variant: 'text' }])(
+        'button hiển thị với mẫu sắc $variant khi truyền variant là $variant',
+        ({ variant }) => {
+          render(HnButton, { props: { variant } })
+          expect(screen.getByRole('button')).toHaveAttribute('data-variant', variant)
+        }
+      )
     })
 
     describe('disabled', () => {
       it('button bi disable khi truyền disabled', () => {
-        const wrapper = mount(HnButton, { props: { disabled: true } })
-        expect(wrapper.attributes('disabled')).toBe('')
+        render(HnButton, { props: { disabled: true } })
+        expect(screen.getByRole('button')).toHaveAttribute('disabled')
+        expect(screen.getByRole('button')).toHaveAttribute('data-disabled', 'true')
       })
     })
   })
 
   describe('truyền slot', () => {
     it('nội dung truyền vào slot default được hiển thị', () => {
-      const wrapper = mount(HnButton, { slots: { default: () => 'Button' } })
-      expect(wrapper.text()).contains('Button')
+      render(HnButton, { slots: { default: () => 'Button' } })
+      expect(screen.getByRole('button')).toHaveTextContent('Button')
     })
 
     it('nội dung truyền vào slot leading được hiển thị', () => {
-      const wrapper = mount(HnButton, {
-        slots: { leading: () => 'Leading Slot' }
-      })
-      expect(wrapper.text()).contains('Leading Slot')
+      render(HnButton, { slots: { leading: () => 'Leading Slot' } })
+      expect(screen.getByRole('button')).toHaveTextContent('Leading Slot')
     })
 
     it('nội dung truyền vào slot trailing được hiển thị', () => {
-      const wrapper = mount(HnButton, {
-        slots: { trailing: () => 'Trailing Slot' }
-      })
-      expect(wrapper.text()).contains('Trailing Slot')
+      render(HnButton, { slots: { trailing: () => 'Trailing Slot' } })
+      expect(screen.getByRole('button')).toHaveTextContent('Trailing Slot')
     })
   })
 
   describe('thao tác', () => {
-    it('click vào button thì emit click', () => {
-      const wrapper = mount(HnButton)
-      wrapper.find('button').trigger('click')
-      expect(wrapper.emitted('click')).toBeTruthy()
+    it('click vào button thì emit click', async () => {
+      const { emitted } = render(HnButton)
+      await userEvent.click(screen.getByRole('button'))
+      expect(emitted('click')).toBeTruthy()
     })
 
-    it('click vào button sẽ không emit click nếu button bị disabled', () => {
-      const wrapper = mount(HnButton, { props: { disabled: true } })
-      wrapper.find('button').trigger('click')
-      expect(wrapper.emitted('click')).toBeUndefined()
+    it('click vào button sẽ không emit click nếu button bị disabled', async () => {
+      const { emitted } = render(HnButton, { props: { disabled: true } })
+      await userEvent.click(screen.getByRole('button'))
+      expect(emitted('click')).toBeUndefined()
     })
   })
 })

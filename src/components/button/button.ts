@@ -1,4 +1,4 @@
-import type { VNode } from 'vue'
+import type { VNodeChild } from 'vue'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'text'
 
@@ -32,9 +32,9 @@ export type ButtonEmits = {
 
 export type ButtonSlots = {
   /** Nội dung của button. */
-  default?(): VNode
+  default?(): VNodeChild
   /** Slot ở phía trước nội dung của button. */
-  leading?(): VNode
+  leading?(): VNodeChild
   /** Slot ở phía sau nội dung của button. */
-  trailing?(): VNode
+  trailing?(): VNodeChild
 }
