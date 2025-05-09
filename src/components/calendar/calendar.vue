@@ -1,13 +1,13 @@
 <template>
   <div class="hn-calendar">
     <div class="hn-calendar--header">
-      <button class="hn-calendar--header-action left" @click.prevent="handlePrevClick">
+      <button class="hn-calendar--header-action left" aria-label="Prev" @click.prevent="handlePrevClick">
         <ico-arrow-left />
       </button>
       <button class="hn-calendar--header-content" @click="handleTitleClick">
         <span class="hn-calendar--header-title">{{ activePaneTitle }}</span>
       </button>
-      <button class="hn-calendar--header-action right" @click.prevent="handleNextClick">
+      <button class="hn-calendar--header-action right" aria-label="Next" @click.prevent="handleNextClick">
         <ico-arrow-right />
       </button>
     </div>
@@ -39,6 +39,7 @@ import { computed, ref, watch } from 'vue'
 import type { CalendarEmits, CalendarPane, CalendarProps } from './calendar'
 import HnDatePane from './date-pane.vue'
 import HnMonthPane from './month-pane.vue'
+import { getDecadeLabel } from './utils'
 import HnYearPane from './year-pane.vue'
 
 defineOptions({ name: 'HnCalendar' })
@@ -72,14 +73,7 @@ const activePaneTitle = computed(() => {
     return activeDate.value.format('YYYY')
   }
 
-  const int = Math.floor(activeDate.value.year() / 10)
-  const modulo = activeDate.value.year() % 10
-
-  if (modulo === 0) return `${(int - 1) * 10 + 1} - ${int * 10}`
-
-  const prev = int * 10 + 1
-  const next = prev + 9
-  return `${prev} - ${next}`
+  return getDecadeLabel(activeDate.value.toDate())
 })
 
 const handlePrevClick = (): void => {
