@@ -71,7 +71,7 @@ export const Arrow: Story = {
 /** Sử dụng thuộc tính `placement` của `hn-popover` để thay đổi hướng của `hn-popover-content`. */
 export const Placement: Story = {
   args: {
-    placement: 'top'
+    placement: 'bottom-end'
   },
   parameters: {
     docs: {
@@ -95,23 +95,6 @@ export const Trigger: Story = {
   args: {
     trigger: 'click'
   },
-  render: args => ({
-    components: { HnPopover, HnButton },
-    setup() {
-      return {
-        args
-      }
-    },
-    template: `<hn-popover v-bind="args">
-      <template #anchor>
-        <hn-button>Click me</hn-button>
-      </template>
-      <template #content>
-        <p>This is a popover content</p>
-        <p>This is a popover content</p>
-      </template>
-    </hn-popover>`
-  }),
   parameters: {
     docs: {
       source: {
