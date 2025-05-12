@@ -12,9 +12,9 @@
     </hn-popper-anchor>
 
     <teleport to="body">
-      <div v-if="open" ref="contentRef" class="hn-popper--content" :style="floatingStyles">
+      <hn-popper-content v-if="open" :style="floatingStyles">
         <slot name="content"></slot>
-      </div>
+      </hn-popper-content>
     </teleport>
   </div>
 </template>
@@ -25,6 +25,7 @@ import { useClickOutside } from '@hn/composables/useClickOutside'
 import { computed, provide, ref } from 'vue'
 import { POPPER_KEY, type PopperContext, type PopperProps, type PopperTrigger } from './popper'
 import HnPopperAnchor from './popper-anchor.vue'
+import HnPopperContent from './popper-content.vue'
 
 defineOptions({ name: 'HnPopper' })
 
@@ -61,6 +62,7 @@ useClickOutside({ refs: [anchorRef, contentRef], callback: onClose })
 
 provide<PopperContext>(POPPER_KEY, {
   anchorRef,
+  contentRef,
   arrowRef,
   middlewareData,
   placement: computed(() => props.placement)

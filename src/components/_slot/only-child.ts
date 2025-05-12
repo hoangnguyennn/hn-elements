@@ -6,7 +6,7 @@ export const OnlyChild = defineComponent({
   name: 'HnOnlyChild',
   setup(_, { slots, attrs }) {
     return () => {
-      const forwardRefContext = inject<ForwardRefContext>(FORWARD_REF_KEY)
+      const forwardRefContext = inject<ForwardRefContext | undefined>(FORWARD_REF_KEY, undefined)
       const forwardRefDireactive = useForwardRefDireactive(forwardRefContext?.setForwardRef ?? NOOP)
 
       const defaultSlot = slots.default?.(attrs)
