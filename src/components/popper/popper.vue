@@ -54,7 +54,7 @@ const { floatingStyles, middlewareData } = useFloating(anchorRef, contentRef, {
   strategy: 'fixed',
   placement: computed(() => props.placement),
   middleware,
-  whileElementsMounted: autoUpdate
+  whileElementsMounted: (...args) => autoUpdate(...args, { animationFrame: true })
 })
 
 useClickOutside({ refs: [anchorRef, contentRef], callback: onClose })
