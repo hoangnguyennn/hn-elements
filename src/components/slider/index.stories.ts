@@ -36,3 +36,17 @@ export const WithLabel: Story = {
     }
   }
 }
+
+/** Sử dụng thuộc tính `tooltip` của `hn-slider` để hiển thị tooltip. */
+export const WithTooltip: Story = {
+  args: {
+    tooltip: true
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<hn-slider tooltip />`
+      }
+    }
+  }
+}

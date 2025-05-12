@@ -54,3 +54,11 @@
     color: $color-hint-text;
   }
 }
+
+.hn-slider--tooltip-text {
+  min-width: 28px;
+  min-height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

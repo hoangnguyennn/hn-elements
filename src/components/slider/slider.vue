@@ -3,7 +3,23 @@
     <div ref="trackRef" class="hn-slider--wrapper" @click="onTrackClick">
       <div class="hn-slider--track" :style="{ width: `${modelValue}%` }"></div>
 
+      <hn-popover v-if="tooltip" placement="top" arrow>
+        <template #anchor>
+          <input
+            ref="controlRef"
+            v-model="modelValue"
+            type="range"
+            class="hn-slider--control"
+            :style="{ left: `${modelValue}%` }"
+          />
+        </template>
+        <template #content>
+          <div class="hn-slider--tooltip-text">{{ modelValue }}</div>
+        </template>
+      </hn-popover>
+
       <input
+        v-else
         ref="controlRef"
         v-model="modelValue"
         type="range"
@@ -22,6 +38,7 @@
 <script setup lang="ts">
 import { useDrag } from '@hn/composables/useDrag'
 import { useTemplateRef, watch } from 'vue'
+import { HnPopover } from '../popover'
 import type { SliderProps } from './slider'
 import { useSliderValue } from './useSliderValue'
 
@@ -29,7 +46,9 @@ defineOptions({ name: 'HnSlider' })
 
 const modelValue = defineModel<number>({ default: 0 })
 
-withDefaults(defineProps<SliderProps>(), {})
+withDefaults(defineProps<SliderProps>(), {
+  tooltip: true
+})
 
 const trackRef = useTemplateRef('trackRef')
 const controlRef = useTemplateRef('controlRef')
