@@ -9,8 +9,8 @@ import { OnlyChild } from '@hn/components/_slot/only-child'
 import { useForwardRef } from '@hn/composables/useForwardRef'
 import { usePopper } from './usePopper'
 
-defineOptions({ name: 'HnPopperAnchor' })
+defineOptions({ name: 'HnPopperContent' })
 
-const { anchorRef } = usePopper()
-useForwardRef(anchorRef)
+const { contentRef } = usePopper()
+useForwardRef(contentRef)
 </script>

@@ -6,6 +6,8 @@ export const POPPER_KEY = Symbol('popper')
 export type PopperContext = {
   /** The anchor element. */
   anchorRef: Ref<HTMLElement | null>
+  /** The content element. */
+  contentRef: Ref<HTMLElement | null>
   /** The arrow element. */
   arrowRef: Ref<HTMLElement | null>
   /** The middleware data. */
