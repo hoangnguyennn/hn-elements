@@ -1,0 +1,31 @@
+@use 'color' as *;
+@use 'radius' as *;
+@use 'spacing' as *;
+
+.hn-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  background-color: $color-light-grey;
+  border-radius: $radius-xSmall;
+
+  &[data-size='small'] {
+    padding: $space-small $space-medium;
+    gap: $space-small;
+  }
+
+  &[data-size='medium'] {
+    padding: $space-medium $space-large;
+    gap: $space-small;
+  }
+
+  &[data-size='large'] {
+    padding: $space-medium 16px;
+    gap: $space-small;
+  }
+
+  .hn-tag--close {
+    padding: 0;
+  }
+}
