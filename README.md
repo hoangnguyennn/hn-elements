@@ -48,6 +48,8 @@ node tools/create-component/index.js -n COMPONENT_NAME
 
 **Đang phát triển**
 
+- [ ] tag
+
 **Todo**
 
 - [ ] badge
@@ -62,7 +64,6 @@ node tools/create-component/index.js -n COMPONENT_NAME
 - [ ] searchbox
 - [ ] step
 - [ ] table
-- [ ] tag
 - [ ] timeline
 - [ ] tooltip
 - [ ] upload
