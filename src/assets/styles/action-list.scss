@@ -1,0 +1,39 @@
+@use 'mixins' as *;
+@use 'color' as *;
+@use 'spacing' as *;
+
+.hn-action-list {
+  .hn-action-list-item {
+    width: 100%;
+    padding: 12px 11px;
+    @include body-xs;
+    background-color: $color-white;
+    color: $color-black;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    border-top: 1px solid $color-spacer-light;
+
+    &[data-selected='true'],
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+
+  &[data-multiple='true'] {
+    .hn-action-list-item {
+      display: flex;
+      gap: $space-large;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}

@@ -48,6 +48,7 @@ node tools/create-component/index.js -n COMPONENT_NAME
 
 **Đang phát triển**
 
+- [ ] action-list
 - [ ] tag
 
 **Todo**
