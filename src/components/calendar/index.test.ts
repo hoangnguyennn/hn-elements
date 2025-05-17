@@ -140,7 +140,7 @@ describe('calendar', () => {
     })
   })
 
-  describe.todo('thao tác', () => {
+  describe('thao tác', () => {
     describe('di chuyển', () => {
       it('Nếu đang hiển thị bảng chọn ngày, click button prev sẽ hiển thị các ngày của tháng trước', async () => {
         const now = new Date()
@@ -214,8 +214,12 @@ describe('calendar', () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentDecadeLabel = getDecadeLabel(now)
-        await userEvent.click(screen.getByRole('button', { name: currentDecadeLabel }))
+        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        const currentYearLabel = dayjs(now).format('YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+
         await userEvent.click(screen.getByRole('button', { name: 'Prev' }))
         const previousDecadeLabel = getPreviousDecadeLabel(now)
         expect(screen.getByRole('button', { name: previousDecadeLabel })).toBeInTheDocument()
@@ -225,8 +229,12 @@ describe('calendar', () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentDecadeLabel = getDecadeLabel(now)
-        await userEvent.click(screen.getByRole('button', { name: currentDecadeLabel }))
+        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        const currentYearLabel = dayjs(now).format('YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+
         await userEvent.click(screen.getByRole('button', { name: 'Next' }))
         const nextDecadeLabel = getNextDecadeLabel(now)
         expect(screen.getByRole('button', { name: nextDecadeLabel })).toBeInTheDocument()
@@ -234,21 +242,109 @@ describe('calendar', () => {
     })
 
     describe('chọn ngày', () => {
-      it.todo('Nếu đang hiển thị bảng chọn ngày, chọn ngày bất kỳ sẽ emit event change')
+      it('Nếu đang hiển thị bảng chọn ngày, chọn ngày bất kỳ sẽ emit event change', async () => {
+        const now = new Date(2025, 0, 5) // 2025-01-05
+        const { emitted } = render(HnCalendar, { props: { minDate: now } })
 
-      it.todo('Nếu đang hiển thị bảng chọn ngày, chọn ngày bất kỳ sẽ thay đổi giá trị modelValue')
+        const currentDate = dayjs(now).format('DD-MM-YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentDate }))
 
-      it.todo(
-        'Nếu đang hiển thị bảng chọn tháng, chọn tháng bất kỳ sẽ chuyển sang bảng chọn ngày và modelValue sẽ bị reset'
-      )
+        expect(emitted('change')).toBeTruthy()
+        expect(emitted('change')[0]).toStrictEqual([now])
+      })
 
-      it.todo(
-        'Nếu đang hiển thị bảng chọn năm, chọn năm bất kỳ sẽ chuyển sang bảng chọn tháng và modelValue sẽ bị reset'
-      )
+      it('Nếu đang hiển thị bảng chọn ngày, chọn ngày bất kỳ sẽ thay đổi giá trị modelValue', async () => {
+        const mockFn = vi.fn()
+        const now = new Date(2025, 0, 5) // 2025-01-05
+        render(HnCalendar, { props: { minDate: now, 'onUpdate:modelValue': mockFn } })
 
-      it.todo('Nếu chọn tháng bằng tháng của modelValue thì giá trị modelValue không bị reset')
+        const currentDate = dayjs(now).format('DD-MM-YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentDate }))
 
-      it.todo('Nếu chọn năm bằng nằm của modelValue thì giá trị modelValue không bị reset')
+        expect(mockFn).toBeCalledWith(now)
+      })
+
+      it('Nếu đang hiển thị bảng chọn tháng, chọn tháng bất kỳ sẽ chuyển sang bảng chọn ngày và modelValue sẽ bị reset', async () => {
+        const mockFn = vi.fn()
+        const now = new Date(2025, 0, 5) // 2025-01-05
+        render(HnCalendar, {
+          props: {
+            minDate: now,
+            modelValue: now,
+            'onUpdate:modelValue': mockFn
+          }
+        })
+
+        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        await userEvent.click(screen.getByRole('button', { name: 'May' }))
+
+        expect(mockFn).toBeCalledWith(undefined)
+      })
+
+      it('Nếu đang hiển thị bảng chọn năm, chọn năm bất kỳ sẽ chuyển sang bảng chọn tháng và modelValue sẽ bị reset', async () => {
+        const mockFn = vi.fn()
+        const now = new Date(2025, 0, 5) // 2025-01-05
+        render(HnCalendar, {
+          props: {
+            minDate: now,
+            modelValue: now,
+            'onUpdate:modelValue': mockFn
+          }
+        })
+
+        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        const currentYearLabel = dayjs(now).format('YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+
+        await userEvent.click(screen.getByRole('button', { name: '2026' }))
+
+        expect(mockFn).toBeCalledWith(undefined)
+      })
+
+      it('Nếu chọn tháng bằng tháng của modelValue thì giá trị modelValue không bị reset', async () => {
+        const mockFn = vi.fn()
+        const now = new Date(2025, 0, 5) // 2025-01-05
+        render(HnCalendar, {
+          props: {
+            minDate: now,
+            modelValue: now,
+            'onUpdate:modelValue': mockFn
+          }
+        })
+
+        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        // chọn cùng tháng với modelValue
+        await userEvent.click(screen.getByRole('button', { name: 'January' }))
+        expect(mockFn).not.toBeCalled()
+      })
+
+      it('Nếu chọn năm bằng nằm của modelValue thì giá trị modelValue không bị reset', async () => {
+        const mockFn = vi.fn()
+        const now = new Date(2025, 0, 5) // 2025-01-05
+        render(HnCalendar, {
+          props: {
+            minDate: now,
+            modelValue: now,
+            'onUpdate:modelValue': mockFn
+          }
+        })
+
+        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        const currentYearLabel = dayjs(now).format('YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+
+        // chọn cùng năm với modelValue
+        await userEvent.click(screen.getByRole('button', { name: '2025' }))
+        expect(mockFn).not.toBeCalled()
+      })
     })
   })
 })
