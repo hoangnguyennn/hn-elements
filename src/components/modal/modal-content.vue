@@ -18,11 +18,11 @@
 </template>
 
 <script setup lang="ts">
+import { HnButton } from '@hn/components/button'
 import { useClickOutside } from '@hn/composables/useClickOutside'
 import { usePressEsc } from '@hn/composables/usePressEsc'
 import { NOOP } from '@hn/utils'
 import { useTemplateRef } from 'vue'
-import { HnButton } from '../button'
 import { useModal } from './useModal'
 
 defineOptions({ name: 'HnModalContent' })

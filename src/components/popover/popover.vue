@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
+import { HnPopper } from '@hn/components/popper'
 import { computed, provide } from 'vue'
-import { HnPopper } from '../popper'
 import { POPOVER_KEY, type PopoverContext, type PopoverProps } from './popover'
 import HnPopoverContent from './popover-content.vue'
 

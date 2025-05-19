@@ -1,7 +1,7 @@
+import { HnButton } from '@hn/components/button'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
 import { HnModal } from '.'
-import { HnButton } from '../button'
 
 const meta: Meta<typeof HnModal> = {
   title: 'HnModal',

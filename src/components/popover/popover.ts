@@ -1,6 +1,6 @@
 import type { Placement } from '@floating-ui/vue'
+import type { PopperProps } from '@hn/components/popper'
 import type { Ref } from 'vue'
-import type { PopperProps } from '../popper'
 
 export const POPOVER_KEY = Symbol('popover')
 
