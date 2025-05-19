@@ -36,9 +36,9 @@
 </template>
 
 <script setup lang="ts">
+import { HnPopover } from '@hn/components/popover'
 import { useDrag } from '@hn/composables/useDrag'
 import { useTemplateRef, watch } from 'vue'
-import { HnPopover } from '../popover'
 import type { SliderProps } from './slider'
 import { useSliderValue } from './useSliderValue'
 

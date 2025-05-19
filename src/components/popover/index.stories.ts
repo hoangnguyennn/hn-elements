@@ -1,6 +1,6 @@
+import { HnButton } from '@hn/components/button'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { HnPopover } from '.'
-import { HnButton } from '../button'
 
 const meta: Meta<typeof HnPopover> = {
   title: 'HnPopover',

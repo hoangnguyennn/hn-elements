@@ -21,8 +21,8 @@
 <script setup lang="ts">
 import { IcoCaret } from '@hn/assets/icons'
 import { HnIcon } from '@hn/components/icon'
+import { usePopper } from '@hn/components/popper'
 import { computed } from 'vue'
-import { usePopper } from '../popper'
 import { usePopover } from './usePopover'
 
 defineOptions({ name: 'HnPopoverContent' })

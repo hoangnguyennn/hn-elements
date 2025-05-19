@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { HnCheckbox } from '../checkbox'
+import { HnCheckbox } from '@hn/components/checkbox'
 import type { ActionListItemEmits, ActionListItemProps } from './action-list-item'
 import { useActionList } from './useActionList'
 

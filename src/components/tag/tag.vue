@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { IcoClose } from '@hn/assets/icons'
-import { HnIconButton } from '../icon-button'
+import { HnIconButton } from '@hn/components/icon-button'
 import type { TagEmits, TagProps } from './tag'
 
 defineOptions({ name: 'HnTag' })

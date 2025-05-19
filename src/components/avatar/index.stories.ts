@@ -1,6 +1,6 @@
+import { HnStack } from '@hn/components/_stack'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { HnAvatar } from '.'
-import { HnStack } from '../_stack'
 
 const meta: Meta<typeof HnAvatar> = {
   title: 'HnAvatar',
