@@ -1,5 +1,11 @@
 <template>
-  <label class="hn-checkbox" :data-inderminate="indeterminate" :data-disabled="disabled" :data-error="error">
+  <label
+    class="hn-checkbox"
+    :data-inderminate="indeterminate"
+    :data-disabled="disabled"
+    :data-error="error"
+    :aria-labeledby="id"
+  >
     <span class="hn-checkbox--wrapper">
       <input
         v-if="trueValue || falseValue"
@@ -29,13 +35,13 @@
         <ico-indeterminate v-else-if="indeterminate" />
       </i>
     </span>
-    <span class="hn-checkbox--label" v-if="label">{{ label }}</span>
+    <span v-if="label" :id="id" class="hn-checkbox--label">{{ label }}</span>
   </label>
 </template>
 
 <script setup lang="ts">
 import { IcoCheck, IcoIndeterminate } from '@hn/assets/icons'
-import { computed } from 'vue'
+import { computed, useId } from 'vue'
 import { type CheckboxEmits, type CheckboxProps } from './checkbox'
 import { useCheckbox } from './useCheckbox'
 
@@ -44,15 +50,15 @@ defineOptions({ name: 'HnCheckbox', inheritAttrs: false })
 const emit = defineEmits<CheckboxEmits>()
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
-  trueValue: undefined,
-  falseValue: undefined,
+  trueValue: true,
+  falseValue: false,
   value: true,
-  indeterminate: undefined,
-  error: undefined,
-  disabled: undefined
+  disabled: false
 })
 
 const { modelValue, indeterminate } = useCheckbox(props, { emit })
+
+const id = `hn-checkbox-${useId()}`
 
 const checked = computed(() => {
   if (modelValue.value instanceof Array) {
