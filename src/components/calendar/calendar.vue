@@ -1,13 +1,23 @@
 <template>
   <div class="hn-calendar">
     <div class="hn-calendar--header">
-      <button class="hn-calendar--header-action left" aria-label="Prev" @click.prevent="handlePrevClick">
+      <button
+        class="hn-calendar--header-action left"
+        aria-label="Prev"
+        :disabled="isPrevDisabled"
+        @click.prevent="handlePrevClick"
+      >
         <ico-arrow-left />
       </button>
       <button class="hn-calendar--header-content" @click="handleTitleClick">
         <span class="hn-calendar--header-title">{{ activePaneTitle }}</span>
       </button>
-      <button class="hn-calendar--header-action right" aria-label="Next" @click.prevent="handleNextClick">
+      <button
+        class="hn-calendar--header-action right"
+        aria-label="Next"
+        :disabled="isNextDisabled"
+        @click.prevent="handleNextClick"
+      >
         <ico-arrow-right />
       </button>
     </div>
@@ -76,7 +86,49 @@ const activePaneTitle = computed(() => {
   return getDecadeLabel(activeDate.value.toDate())
 })
 
+/** Kiểm tra button prev có bị vô hiệu hóa không */
+const isPrevDisabled = computed(() => {
+  if (activePane.value === 'day') {
+    const prevMonth = activeDate.value.subtract(1, 'month')
+    return internalMinDate.value && prevMonth.isBefore(internalMinDate.value, 'month')
+  }
+
+  if (activePane.value === 'month') {
+    const prevYear = activeDate.value.subtract(1, 'year')
+    return internalMinDate.value && prevYear.isBefore(internalMinDate.value, 'year')
+  }
+
+  if (activePane.value === 'year') {
+    const prevDecade = activeDate.value.subtract(10, 'year')
+    return internalMinDate.value && prevDecade.isBefore(internalMinDate.value, 'year')
+  }
+
+  return false
+})
+
+/** Kiểm tra button next có bị vô hiệu hóa không */
+const isNextDisabled = computed(() => {
+  if (activePane.value === 'day') {
+    const nextMonth = activeDate.value.add(1, 'month')
+    return internalMaxDate.value && nextMonth.isAfter(internalMaxDate.value, 'month')
+  }
+
+  if (activePane.value === 'month') {
+    const nextYear = activeDate.value.add(1, 'year')
+    return internalMaxDate.value && nextYear.isAfter(internalMaxDate.value, 'year')
+  }
+
+  if (activePane.value === 'year') {
+    const nextDecade = activeDate.value.add(10, 'year')
+    return internalMaxDate.value && nextDecade.isAfter(internalMaxDate.value, 'year')
+  }
+
+  return false
+})
+
 const handlePrevClick = (): void => {
+  if (isPrevDisabled.value) return
+
   if (activePane.value === 'day') {
     activeDate.value = activeDate.value.subtract(1, 'month')
     return
@@ -93,6 +145,8 @@ const handlePrevClick = (): void => {
 }
 
 const handleNextClick = (): void => {
+  if (isNextDisabled.value) return
+
   if (activePane.value === 'day') {
     activeDate.value = activeDate.value.add(1, 'month')
     return
