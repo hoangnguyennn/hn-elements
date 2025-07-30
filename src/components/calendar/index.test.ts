@@ -239,6 +239,87 @@ describe('calendar', () => {
         const nextDecadeLabel = getNextDecadeLabel(now)
         expect(screen.getByRole('button', { name: nextDecadeLabel })).toBeInTheDocument()
       })
+
+      it('Khi đang hiển thị bảng chọn ngày và đạt tới minDate, button prev sẽ bị disabled', () => {
+        const minDate = new Date(2025, 0, 1) // 2025-01-01
+        render(HnCalendar, { props: { minDate } })
+
+        const prevButton = screen.getByRole('button', { name: 'Prev' })
+        expect(prevButton).toBeDisabled()
+      })
+
+      it('Khi đang hiển thị bảng chọn ngày và đạt tới maxDate, button next sẽ bị disabled', () => {
+        const maxDate = new Date(2025, 0, 31) // 2025-01-31
+        render(HnCalendar, { props: { maxDate } })
+
+        const nextButton = screen.getByRole('button', { name: 'Next' })
+        expect(nextButton).toBeDisabled()
+      })
+
+      it('Khi đang hiển thị bảng chọn tháng và đạt tới minDate, button prev sẽ bị disabled', async () => {
+        const minDate = new Date(2025, 0, 1) // 2025-01-01
+        render(HnCalendar, { props: { minDate } })
+
+        // Chuyển sang bảng chọn tháng
+        const currentMonthLabel = dayjs(minDate).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        const prevButton = screen.getByRole('button', { name: 'Prev' })
+        expect(prevButton).toBeDisabled()
+      })
+
+      it('Khi đang hiển thị bảng chọn tháng và đạt tới maxDate, button next sẽ bị disabled', async () => {
+        const maxDate = new Date(2025, 11, 31) // 2025-12-31
+        render(HnCalendar, { props: { maxDate } })
+
+        // Chuyển sang bảng chọn tháng
+        const currentMonthLabel = dayjs(maxDate).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+
+        const nextButton = screen.getByRole('button', { name: 'Next' })
+        expect(nextButton).toBeDisabled()
+      })
+
+      it('Khi đang hiển thị bảng chọn năm và đạt tới minDate, button prev sẽ bị disabled', async () => {
+        const minDate = new Date(2025, 0, 1) // 2025-01-01
+        render(HnCalendar, { props: { minDate } })
+
+        // Chuyển sang bảng chọn năm
+        const currentMonthLabel = dayjs(minDate).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+        const currentYearLabel = dayjs(minDate).format('YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+
+        const prevButton = screen.getByRole('button', { name: 'Prev' })
+        expect(prevButton).toBeDisabled()
+      })
+
+      it('Khi đang hiển thị bảng chọn năm và đạt tới maxDate, button next sẽ bị disabled', async () => {
+        const maxDate = new Date(2025, 11, 31) // 2025-12-31
+        render(HnCalendar, { props: { maxDate } })
+
+        // Chuyển sang bảng chọn năm
+        const currentMonthLabel = dayjs(maxDate).format('MMMM YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+        const currentYearLabel = dayjs(maxDate).format('YYYY')
+        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+
+        const nextButton = screen.getByRole('button', { name: 'Next' })
+        expect(nextButton).toBeDisabled()
+      })
+
+      it('Khi không đạt tới giới hạn, các button navigation không bị disabled', () => {
+        const minDate = new Date(2024, 0, 1) // 2024-01-01
+        const maxDate = new Date(2026, 11, 31) // 2026-12-31
+        const currentDate = new Date(2025, 5, 15) // 2025-06-15 (giữa khoảng)
+        render(HnCalendar, { props: { minDate, maxDate, modelValue: currentDate } })
+
+        const prevButton = screen.getByRole('button', { name: 'Prev' })
+        const nextButton = screen.getByRole('button', { name: 'Next' })
+
+        expect(prevButton).not.toBeDisabled()
+        expect(nextButton).not.toBeDisabled()
+      })
     })
 
     describe('chọn ngày', () => {
