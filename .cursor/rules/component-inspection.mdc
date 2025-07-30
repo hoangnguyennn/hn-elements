@@ -1,0 +1,44 @@
+---
+description: 'Rule kiểm tra UI và DOM của component bằng Storybook và Playwright MCP'
+globs:
+  - 'src/components/**/*.vue'
+  - 'src/components/**/*.ts'
+alwaysApply: false
+---
+
+# UI & DOM Inspection Rules
+
+## Ngôn ngữ
+
+- Sử dụng tiếng Việt khi trao đổi và ghi chú.
+
+## Mục đích
+
+- Hỗ trợ việc kiểm tra trực tiếp DOM của component để dễ dàng phát hiện và sửa bug.
+- Sử dụng Storybook để chạy component trong môi trường cô lập.
+- Sử dụng Playwright MCP để xem và thao tác với DOM thay vì chỉ đọc code.
+
+## Thực hiện kiểm tra
+
+1. Khởi chạy Storybook:
+
+```bash
+  pnpm storybook
+```
+
+- Storybook sẽ chạy ở địa chỉ: http://localhost:6006
+
+2. Mở Storybook và chọn component cần kiểm tra.
+
+3. Sử dụng Playwright MCP để:
+
+- Truy cập component trong Storybook.
+- Xem DOM và cấu trúc HTML/CSS.
+- Kiểm tra trạng thái, thuộc tính và class của các phần tử.
+- Thao tác thử (click, nhập, hover) để quan sát thay đổi trong DOM.
+
+## Lưu ý
+
+- Mục tiêu là kiểm tra trực tiếp DOM để hỗ trợ fix bug, cải tiến tính năng, không phải viết test tự động.
+- Chỉ tập trung vào UI structure và hành vi hiển thị, không cần dữ liệu cố định.
+- Sau khi kiểm tra xong, đóng browser để giải phóng tài nguyên.
