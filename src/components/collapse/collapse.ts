@@ -2,6 +2,7 @@ import type { ComputedRef, ModelRef } from 'vue'
 
 export const COLLAPSE_KEY = Symbol('collapse')
 
+/** Giá trị của v-model. Mảng các index của các collapse items đang mở. */
 export type CollapseValue = number[]
 
 export type CollapseContext = {
@@ -16,6 +17,6 @@ export type CollapseContext = {
 }
 
 export type CollapseProps = {
-  /** Hiệu ứng accordion. */
+  /** Hiệu ứng accordion. Khi true, chỉ có thể mở một item tại một thời điểm. */
   accordion?: boolean
 }

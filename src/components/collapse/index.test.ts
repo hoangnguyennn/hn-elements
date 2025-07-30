@@ -79,6 +79,50 @@ describe('collapse', () => {
         expect(item1Container).toHaveAttribute('data-open', 'true')
         expect(item2Container).toHaveAttribute('data-open', 'false')
       })
+
+      it('hiển thị nhiều collapse items đã mở khi truyền modelValue với nhiều index', async () => {
+        render(HnCollapse, {
+          props: { modelValue: [0, 2] },
+          slots: {
+            default: () => [
+              h(HnCollapseItem, { title: 'Item 1' }, { default: () => 'Content 1' }),
+              h(HnCollapseItem, { title: 'Item 2' }, { default: () => 'Content 2' }),
+              h(HnCollapseItem, { title: 'Item 3' }, { default: () => 'Content 3' })
+            ]
+          }
+        })
+
+        await nextTick()
+
+        const item1Container = screen.getByText('Content 1').closest('.hn-collapse--item')
+        const item2Container = screen.getByText('Content 2').closest('.hn-collapse--item')
+        const item3Container = screen.getByText('Content 3').closest('.hn-collapse--item')
+        expect(item1Container).toHaveAttribute('data-open', 'true')
+        expect(item2Container).toHaveAttribute('data-open', 'false')
+        expect(item3Container).toHaveAttribute('data-open', 'true')
+      })
+
+      it('hoạt động đúng với accordion mode khi truyền modelValue', async () => {
+        render(HnCollapse, {
+          props: { accordion: true, modelValue: [1] },
+          slots: {
+            default: () => [
+              h(HnCollapseItem, { title: 'Item 1' }, { default: () => 'Content 1' }),
+              h(HnCollapseItem, { title: 'Item 2' }, { default: () => 'Content 2' }),
+              h(HnCollapseItem, { title: 'Item 3' }, { default: () => 'Content 3' })
+            ]
+          }
+        })
+
+        await nextTick()
+
+        const item1Container = screen.getByText('Content 1').closest('.hn-collapse--item')
+        const item2Container = screen.getByText('Content 2').closest('.hn-collapse--item')
+        const item3Container = screen.getByText('Content 3').closest('.hn-collapse--item')
+        expect(item1Container).toHaveAttribute('data-open', 'false')
+        expect(item2Container).toHaveAttribute('data-open', 'true')
+        expect(item3Container).toHaveAttribute('data-open', 'false')
+      })
     })
   })
 
