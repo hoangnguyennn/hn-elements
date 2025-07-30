@@ -21,6 +21,7 @@
 <script setup lang="ts">
 import { IcoClose } from '@hn/assets/icons'
 import { HnIconButton } from '@hn/components/icon-button'
+import { computed } from 'vue'
 import type { TagEmits, TagProps } from './tag'
 
 defineOptions({ name: 'HnTag' })
@@ -32,5 +33,5 @@ const props = withDefaults(defineProps<TagProps>(), {
   closeable: false
 })
 
-const closeAriaLabel = props.closeAriaLabel || 'Xóa tag'
+const closeAriaLabel = computed(() => props.closeAriaLabel || 'Xóa tag')
 </script>

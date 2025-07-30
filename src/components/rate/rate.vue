@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import { IcoStarEmpty, IcoStarFull } from '@hn/assets/icons'
-import { ref, useId } from 'vue'
+import { computed, ref, useId } from 'vue'
 import type { RateProps } from './rate'
 
 defineOptions({ name: 'HnRate' })
@@ -44,8 +44,8 @@ const props = withDefaults(defineProps<RateProps>(), {
 const hoverValue = ref(0)
 const rateId = useId()
 
-const ariaLabel = props.ariaLabel || 'Đánh giá sao'
-const ariaDescribedby = props.hint ? `hn-rate-hint-${rateId}` : undefined
+const ariaLabel = computed(() => props.ariaLabel || 'Đánh giá sao')
+const ariaDescribedby = computed(() => (props.hint ? `hn-rate-hint-${rateId}` : undefined))
 
 const handleChange = (value: number): void => {
   if (props.clearable && value === modelValue.value) {

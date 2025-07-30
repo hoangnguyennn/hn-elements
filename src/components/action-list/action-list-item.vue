@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import { HnCheckbox } from '@hn/components/checkbox'
+import { computed } from 'vue'
 import type { ActionListItemEmits, ActionListItemProps } from './action-list-item'
 import { useActionList } from './useActionList'
 
@@ -36,8 +37,8 @@ const props = withDefaults(defineProps<ActionListItemProps>(), {})
 
 const { multiple } = useActionList()
 
-const ariaLabel = props.ariaLabel || 'Mục danh sách'
-const ariaDescribedby = props.ariaDescribedby
+const ariaLabel = computed(() => props.ariaLabel || 'Mục danh sách')
+const ariaDescribedby = computed(() => props.ariaDescribedby)
 
 const onClick = (): void => emit('click')
 </script>

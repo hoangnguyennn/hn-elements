@@ -3,12 +3,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { IconProps } from './icon'
 
 defineOptions({ name: 'HnIcon' })
 
 const props = withDefaults(defineProps<IconProps>(), {})
 
-const ariaHidden = props.ariaHidden ?? !props.ariaLabel
-const role = props.role || (props.ariaLabel ? 'img' : undefined)
+const ariaHidden = computed(() => props.ariaHidden ?? !props.ariaLabel)
+const role = computed(() => props.role || (props.ariaLabel ? 'img' : undefined))
 </script>
