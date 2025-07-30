@@ -1,4 +1,4 @@
-import{a as r,_ as h}from"./radio-lCFxHv3X.js";import"./vue.esm-bundler-IyFnVC7C.js";const v={title:"HnRadioGroup",component:r},o={render:a=>({components:{HnRadioGroup:r,HnRadio:h},setup(){return{args:a}},template:`
+import{a as r,_ as h}from"./radio-y6bVKCtt.js";import"./vue.esm-bundler-IyFnVC7C.js";const v={title:"HnRadioGroup",component:r},o={render:a=>({components:{HnRadioGroup:r,HnRadio:h},setup(){return{args:a}},template:`
       <hn-radio-group v-bind="args">
         <hn-radio label="Option 1" value="1" />
         <hn-radio label="Option 2" value="2" />

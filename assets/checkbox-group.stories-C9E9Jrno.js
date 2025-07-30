@@ -1,4 +1,4 @@
-import{_ as c}from"./checkbox-group-Gn-BveAZ.js";import{_ as i}from"./checkbox-BHgs8N_9.js";import"./vue.esm-bundler-IyFnVC7C.js";import"./ico_check-BbnliTxK.js";const g={title:"HnCheckboxGroup",component:c,args:{direction:"vertical"}},n={render:o=>({components:{HnCheckboxGroup:c,HnCheckbox:i},setup(){return{args:o}},template:`<hn-checkbox-group v-bind="args">
+import{_ as c}from"./checkbox-group-DEBGVB0g.js";import{_ as i}from"./checkbox-DelTC7l2.js";import"./vue.esm-bundler-IyFnVC7C.js";import"./ico_check-BbnliTxK.js";const g={title:"HnCheckboxGroup",component:c,args:{direction:"vertical"}},n={render:o=>({components:{HnCheckboxGroup:c,HnCheckbox:i},setup(){return{args:o}},template:`<hn-checkbox-group v-bind="args">
   <hn-checkbox label="Option 1" value="1" />
   <hn-checkbox label="Option 2" value="2" />
   <hn-checkbox label="Option 3" value="3" />
