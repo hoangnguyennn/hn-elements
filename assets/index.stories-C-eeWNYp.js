@@ -1,4 +1,4 @@
-import{_ as f}from"./button-BXr6NpJK.js";import{_ as p}from"./popover-DsepCiE6.js";import"./vue.esm-bundler-IyFnVC7C.js";import"./popper-BZVNQX7Y.js";import"./index-CKuMA6js.js";import"./index-BRohGxrE.js";import"./index-DOrznbbK.js";import"./index-qoFuZKhr.js";import"./icon-IotH_rmg.js";const j={title:"HnPopover",component:p,render:S=>({components:{HnPopover:p,HnButton:f},setup(){return{args:S}},template:`<hn-popover v-bind="args">
+import{_ as f}from"./button-Bl7_FiJK.js";import{_ as p}from"./popover--fLGKae4.js";import"./vue.esm-bundler-IyFnVC7C.js";import"./popper-BpmghQek.js";import"./index-CKuMA6js.js";import"./index-BRohGxrE.js";import"./index-DOrznbbK.js";import"./index-qoFuZKhr.js";import"./icon-IotH_rmg.js";const j={title:"HnPopover",component:p,render:S=>({components:{HnPopover:p,HnButton:f},setup(){return{args:S}},template:`<hn-popover v-bind="args">
       <template #anchor>
         <hn-button>Hover me</hn-button>
       </template>
