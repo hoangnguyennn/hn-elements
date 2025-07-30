@@ -1,5 +1,5 @@
 <template>
-  <div class="hn-popover--content">
+  <div class="hn-popover--content" role="tooltip" :aria-label="ariaLabel" :aria-describedby="ariaDescribedby">
     <div
       v-if="arrow"
       :ref="el => (arrowRef = el as HTMLDivElement)"
@@ -11,6 +11,7 @@
         transform: `rotate(${rotate}deg)`
       }"
       class="hn-popover--arrow"
+      aria-hidden="true"
     >
       <hn-icon :as="IcoCaret"></hn-icon>
     </div>
@@ -47,4 +48,7 @@ const rotateMap = {
 const side = computed(() => placement.value.split('-')[0])
 const oppositeSide = oppositeSideMap[side.value]
 const rotate = rotateMap[side.value]
+
+const ariaLabel = computed(() => 'Thông tin bổ sung')
+const ariaDescribedby = computed(() => undefined)
 </script>

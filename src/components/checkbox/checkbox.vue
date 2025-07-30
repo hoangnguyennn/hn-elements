@@ -1,11 +1,5 @@
 <template>
-  <label
-    class="hn-checkbox"
-    :data-inderminate="indeterminate"
-    :data-disabled="disabled"
-    :data-error="error"
-    :aria-labeledby="id"
-  >
+  <label class="hn-checkbox" :data-inderminate="indeterminate" :data-disabled="disabled" :data-error="error">
     <span class="hn-checkbox--wrapper">
       <input
         v-if="trueValue || falseValue"
@@ -13,10 +7,14 @@
         v-model="modelValue"
         type="checkbox"
         class="hn-checkbox--input"
+        :id="checkboxId"
         :indeterminate="indeterminate"
         :disabled="disabled"
         :true-value="trueValue ?? true"
         :false-value="falseValue ?? false"
+        :aria-describedby="ariaDescribedby"
+        :aria-invalid="!!error"
+        :aria-required="required"
         @change="handleChange"
       />
       <input
@@ -25,17 +23,21 @@
         v-model="modelValue"
         type="checkbox"
         class="hn-checkbox--input"
+        :id="checkboxId"
         :indeterminate="indeterminate"
         :disabled="disabled"
         :value="value"
+        :aria-describedby="ariaDescribedby"
+        :aria-invalid="!!error"
+        :aria-required="required"
         @change="handleChange"
       />
-      <i v-if="checked || indeterminate" class="hn-checkbox--mark">
+      <i v-if="checked || indeterminate" class="hn-checkbox--mark" aria-hidden="true">
         <ico-check v-if="checked" />
         <ico-indeterminate v-else-if="indeterminate" />
       </i>
     </span>
-    <span v-if="label" :id="id" class="hn-checkbox--label">{{ label }}</span>
+    <span v-if="label" :id="labelId" class="hn-checkbox--label">{{ label }}</span>
   </label>
 </template>
 
@@ -58,7 +60,8 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
 
 const { modelValue, indeterminate } = useCheckbox(props, { emit })
 
-const id = `hn-checkbox-${useId()}`
+const checkboxId = `hn-checkbox-${useId()}`
+const labelId = `hn-checkbox-label-${useId()}`
 
 const checked = computed(() => {
   if (modelValue.value instanceof Array) {
@@ -70,6 +73,13 @@ const checked = computed(() => {
   }
 
   return !!modelValue.value
+})
+
+const ariaDescribedby = computed(() => {
+  const ids = []
+  if (props.error) ids.push(`hn-checkbox-error-${checkboxId}`)
+  if (props.hint) ids.push(`hn-checkbox-hint-${checkboxId}`)
+  return ids.length > 0 ? ids.join(' ') : undefined
 })
 
 const handleChange = (event: Event): void => {

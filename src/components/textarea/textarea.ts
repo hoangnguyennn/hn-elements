@@ -16,4 +16,6 @@ export type TextareaProps = FieldProps & {
   showCounter?: boolean
   /** Chỉ ra nội dung placeholder của textarea. */
   placeholder?: string
+  /** Chỉ ra rằng textarea có bắt buộc hay không. */
+  required?: boolean
 }

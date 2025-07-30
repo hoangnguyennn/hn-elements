@@ -1,5 +1,12 @@
 <template>
-  <div class="hn-action-list" :data-multiple="multiple">
+  <div
+    class="hn-action-list"
+    :data-multiple="multiple"
+    role="listbox"
+    :aria-label="ariaLabel"
+    :aria-describedby="ariaDescribedby || undefined"
+    :aria-multiselectable="multiple"
+  >
     <slot></slot>
   </div>
 </template>

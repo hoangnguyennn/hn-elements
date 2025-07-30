@@ -9,6 +9,8 @@ export type TagProps = {
   size?: TagSize
   /** Chỉ ra rằng tag có thể đóng hay không. */
   closeable?: boolean
+  /** Nhãn aria cho button đóng tag. */
+  closeAriaLabel?: string
 }
 
 export type TagEmits = {

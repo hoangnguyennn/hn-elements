@@ -3,6 +3,10 @@ export type ActionListItemProps = {
   selected?: boolean
   /** Chỉ ra rằng `action-list-item` có đang bị disable hay không. */
   disabled?: boolean
+  /** Nhãn aria cho action list item. */
+  ariaLabel?: string
+  /** Id của phần tử mô tả thêm cho action list item. */
+  ariaDescribedby?: string
 }
 
 export type ActionListItemEmits = {

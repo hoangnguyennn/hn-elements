@@ -23,6 +23,18 @@ export type ButtonProps = {
   type?: 'button' | 'submit' | 'reset'
   /** Id của form mà button này liên kết tới. */
   form?: string
+  /** Nhãn mô tả cho screen reader. */
+  ariaLabel?: string
+  /** Id của phần tử mô tả thêm cho button. */
+  ariaDescribedby?: string
+  /** Chỉ ra trạng thái mở rộng của button (cho dropdown, expandable content). */
+  ariaExpanded?: boolean
+  /** Chỉ ra trạng thái được nhấn của button (cho toggle button). */
+  ariaPressed?: boolean
+  /** Chỉ ra rằng button có popup menu. */
+  ariaHasPopup?: boolean | 'dialog' | 'grid' | 'listbox' | 'menu' | 'tree'
+  /** Id của phần tử được điều khiển bởi button. */
+  ariaControls?: string
 }
 
 export type ButtonEmits = {

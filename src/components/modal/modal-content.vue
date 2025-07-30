@@ -1,5 +1,13 @@
 <template>
-  <div ref="modalContentRef" class="hn-modal--content">
+  <div
+    ref="modalContentRef"
+    class="hn-modal--content"
+    role="dialog"
+    :aria-modal="true"
+    :aria-labelledby="titleId"
+    :aria-describedby="descriptionId"
+    tabindex="-1"
+  >
     <div class="hn-modal--header">
       <slot name="header"></slot>
     </div>
@@ -22,7 +30,7 @@ import { HnButton } from '@hn/components/button'
 import { useClickOutside } from '@hn/composables/useClickOutside'
 import { usePressEsc } from '@hn/composables/usePressEsc'
 import { NOOP } from '@hn/utils'
-import { useTemplateRef } from 'vue'
+import { useId, useTemplateRef } from 'vue'
 import { useModal } from './useModal'
 
 defineOptions({ name: 'HnModalContent' })
@@ -30,6 +38,9 @@ defineOptions({ name: 'HnModalContent' })
 const modalContentRef = useTemplateRef('modalContentRef')
 
 const { cancelText, okText, showCancelButton, closeOnOutsidePress, closeOnEsc, onSubmit, onCancel } = useModal()
+
+const titleId = `hn-modal-title-${useId()}`
+const descriptionId = `hn-modal-description-${useId()}`
 
 useClickOutside({ refs: modalContentRef, callback: closeOnOutsidePress.value ? onCancel : NOOP })
 usePressEsc({ callback: closeOnEsc.value ? onCancel : NOOP })

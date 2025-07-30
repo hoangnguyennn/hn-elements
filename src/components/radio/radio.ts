@@ -20,4 +20,8 @@ export type RadioProps = {
   disabled?: boolean
   /** Chỉ ra rằng radio có bị lỗi không. */
   error?: boolean
+  /** Chỉ ra rằng radio có bắt buộc hay không. */
+  required?: boolean
+  /** Nội dung gợi ý cho radio. */
+  hint?: string
 }

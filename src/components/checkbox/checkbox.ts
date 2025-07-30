@@ -26,4 +26,8 @@ export type CheckboxProps = {
   error?: boolean
   /** Chỉ ra rằng field có bị disable hay không. */
   disabled?: boolean
+  /** Chỉ ra rằng checkbox có bắt buộc hay không. */
+  required?: boolean
+  /** Nội dung gợi ý cho checkbox. */
+  hint?: string
 }

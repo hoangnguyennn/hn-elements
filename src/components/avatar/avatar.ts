@@ -11,4 +11,6 @@ export type AvatarProps = {
   src?: string
   /** Tên người dùng. */
   name?: string
+  /** Nhãn aria cho avatar. */
+  ariaLabel?: string
 }

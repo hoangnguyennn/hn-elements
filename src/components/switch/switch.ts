@@ -15,4 +15,8 @@ export type SwitchProps = {
    * @default 'Off'
    */
   labelOff?: string
+  /** Nhãn aria cho switch. */
+  ariaLabel?: string
+  /** Nội dung gợi ý cho switch. */
+  hint?: string
 }

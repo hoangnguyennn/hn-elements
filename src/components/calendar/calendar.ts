@@ -9,6 +9,10 @@ export type CalendarProps = {
   minDate?: Date
   /** Giới hạn ngày lớn nhất. */
   maxDate?: Date
+  /** Nhãn aria cho calendar. */
+  ariaLabel?: string
+  /** Nội dung gợi ý cho calendar. */
+  hint?: string
 }
 
 export type CalendarEmits = {
