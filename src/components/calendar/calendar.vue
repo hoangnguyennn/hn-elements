@@ -106,7 +106,7 @@ const nextAriaLabel = computed(() => {
 })
 
 const titleAriaLabel = computed(() => {
-  if (activePane.value === 'day') return 'Chọn tháng và năm'
+  if (activePane.value === 'day') return 'Chọn tháng'
   if (activePane.value === 'month') return 'Chọn năm'
   return 'Chọn thập kỷ'
 })

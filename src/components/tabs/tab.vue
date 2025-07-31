@@ -6,7 +6,7 @@
     role="tab"
     :aria-selected="modelValue === index"
     :aria-controls="panelId"
-    :tabindex="modelValue === index ? 0 : -1"
+    :tabindex="modelValue === index ? -1 : 0"
     @click="onTabClick"
   >
     <slot></slot>

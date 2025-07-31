@@ -13,7 +13,7 @@
         v-bind="$attrs"
         v-model="modelValue"
         class="hn-field--input hn-textarea--input"
-        :id="textareaId"
+        :id="fieldId"
         :placeholder="placeholder"
         :disabled="disabled"
         :maxlength="maxLength"
@@ -32,7 +32,7 @@
     </div>
 
     <template #detailRight v-if="showCounter">
-      <p class="hn-textarea--counter" :id="counterId" aria-live="polite">
+      <p class="hn-textarea--counter" aria-live="polite">
         <span>{{ modelValue?.length ?? 0 }}</span>
         <span v-if="maxLength">{{ `/${maxLength}` }}</span>
       </p>
@@ -59,14 +59,19 @@ const props = withDefaults(defineProps<TextareaProps>(), {
 const focus = ref(false)
 
 const fieldId = useId()
-const textareaId = computed(() => `hn-textarea-${fieldId}`)
-const counterId = computed(() => `hn-textarea-counter-${fieldId}`)
 
 const ariaDescribedby = computed(() => {
-  const ids = []
-  if (props.error) ids.push(`hn-field-error-${fieldId}`)
-  else if (props.hint) ids.push(`hn-field-hint-${fieldId}`)
-  if (props.showCounter) ids.push(counterId.value)
+  const ids: string[] = []
+  if (props.error) {
+    ids.push(`hn-field-error-${fieldId}`)
+  } else if (props.hint) {
+    ids.push(`hn-field-hint-${fieldId}`)
+  }
+
+  if (props.showCounter) {
+    ids.push(fieldId)
+  }
+
   return ids.length > 0 ? ids.join(' ') : undefined
 })
 </script>

@@ -16,10 +16,11 @@ describe('calendar', () => {
       const now = new Date()
 
       render(HnCalendar)
-      expect(screen.getByRole('button', { name: dayjs(now).format('MMMM YYYY') })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Chọn tháng' })).toBeInTheDocument()
 
       const firstDateOfMonth = dayjs(now).startOf('month').format('DD-MM-YYYY')
       const lastDateOfMonth = dayjs(now).endOf('month').format('DD-MM-YYYY')
+
       expect(screen.getByRole('button', { name: firstDateOfMonth })).toBeInTheDocument()
       expect(screen.getByRole('button', { name: lastDateOfMonth })).toBeInTheDocument()
     })
@@ -59,7 +60,7 @@ describe('calendar', () => {
       const minDate = new Date(2025, 0, 5) // 2025-01-05
       render(HnCalendar, { props: { minDate } })
 
-      expect(screen.getByRole('button', { name: dayjs(minDate).format('MMMM YYYY') })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Chọn tháng' })).toBeInTheDocument()
 
       const daysInMonth = dayjs(minDate).daysInMonth()
       for (let day = 1; day <= daysInMonth; day++) {
@@ -80,7 +81,7 @@ describe('calendar', () => {
       const maxDate = new Date(2025, 0, 5) // 2025-01-05
       render(HnCalendar, { props: { maxDate } })
 
-      expect(screen.getByRole('button', { name: dayjs(maxDate).format('MMMM YYYY') })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Chọn tháng' })).toBeInTheDocument()
 
       const daysInMonth = dayjs(maxDate).daysInMonth()
       for (let day = 1; day <= daysInMonth; day++) {
@@ -146,114 +147,96 @@ describe('calendar', () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        expect(screen.getByRole('button', { name: currentMonthLabel })).toBeInTheDocument()
-
-        await userEvent.click(screen.getByRole('button', { name: 'Prev' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Tháng trước' }))
         const previousMonthLabel = dayjs(now).subtract(1, 'month').format('MMMM YYYY')
-        expect(screen.getByRole('button', { name: previousMonthLabel })).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Chọn tháng' })).toHaveTextContent(previousMonthLabel)
       })
 
       it('Nếu đang hiển thị bảng chọn ngày, click button next sẽ hiển thị các ngày của tháng sau', async () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        expect(screen.getByRole('button', { name: currentMonthLabel })).toBeInTheDocument()
-
-        await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Tháng sau' }))
         const nextMonthLabel = dayjs(now).add(1, 'month').format('MMMM YYYY')
-        expect(screen.getByRole('button', { name: nextMonthLabel })).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Chọn tháng' })).toHaveTextContent(nextMonthLabel)
       })
 
       it('Nếu đang hiển thị bảng chọn ngày, click vào header sẽ chuyển sang bảng chọn tháng', async () => {
-        const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-        const currentYearLabel = dayjs(now).format('YYYY')
-        expect(screen.getByRole('button', { name: currentYearLabel })).toBeInTheDocument()
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        expect(screen.getByRole('button', { name: 'Chọn năm' })).toBeInTheDocument()
       })
 
       it('Nếu đang hiển thị bảng chọn tháng, click button prev sẽ hiển thị các tháng của năm trước', async () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-        await userEvent.click(screen.getByRole('button', { name: 'Prev' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Năm trước' }))
+
         const previousYearLabel = dayjs(now).subtract(1, 'year').format('YYYY')
-        expect(screen.getByRole('button', { name: previousYearLabel })).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Chọn năm' })).toHaveTextContent(previousYearLabel)
       })
 
       it('Nếu đang hiển thị bảng chọn tháng, click button next sẽ hiển thị các tháng của năm sau', async () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-        await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Năm sau' }))
+
         const nextYearLabel = dayjs(now).add(1, 'year').format('YYYY')
-        expect(screen.getByRole('button', { name: nextYearLabel })).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Chọn năm' })).toHaveTextContent(nextYearLabel)
       })
 
       it('Nếu đang hiển thị bảng chọn tháng, click vào header sẽ chuyển sang bảng chọn năm', async () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-        const currentYearLabel = dayjs(now).format('YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn năm' }))
+
         const currentDecadeLabel = getDecadeLabel(now)
-        expect(screen.getByRole('button', { name: currentDecadeLabel })).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Chọn thập kỷ' })).toHaveTextContent(currentDecadeLabel)
       })
 
       it('Nếu đang hiển thị bảng chọn năm, click vào button prev sẽ hiển thị các năm trong thập kỷ trước', async () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn năm' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Thập kỷ trước' }))
 
-        const currentYearLabel = dayjs(now).format('YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
-
-        await userEvent.click(screen.getByRole('button', { name: 'Prev' }))
         const previousDecadeLabel = getPreviousDecadeLabel(now)
-        expect(screen.getByRole('button', { name: previousDecadeLabel })).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Chọn thập kỷ' })).toHaveTextContent(previousDecadeLabel)
       })
 
       it('Nếu đang hiển thị bảng chọn năm, click vào button next sẽ hiển thị các năm trong thập kỷ sau', async () => {
         const now = new Date()
         render(HnCalendar)
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn năm' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Thập kỷ sau' }))
 
-        const currentYearLabel = dayjs(now).format('YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
-
-        await userEvent.click(screen.getByRole('button', { name: 'Next' }))
         const nextDecadeLabel = getNextDecadeLabel(now)
-        expect(screen.getByRole('button', { name: nextDecadeLabel })).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Chọn thập kỷ' })).toHaveTextContent(nextDecadeLabel)
       })
 
       it('Khi đang hiển thị bảng chọn ngày và đạt tới minDate, button prev sẽ bị disabled', () => {
         const minDate = new Date(2025, 0, 1) // 2025-01-01
         render(HnCalendar, { props: { minDate } })
 
-        const prevButton = screen.getByRole('button', { name: 'Prev' })
-        expect(prevButton).toBeDisabled()
+        expect(screen.getByRole('button', { name: 'Tháng trước' })).toBeDisabled()
       })
 
       it('Khi đang hiển thị bảng chọn ngày và đạt tới maxDate, button next sẽ bị disabled', () => {
         const maxDate = new Date(2025, 0, 31) // 2025-01-31
         render(HnCalendar, { props: { maxDate } })
 
-        const nextButton = screen.getByRole('button', { name: 'Next' })
-        expect(nextButton).toBeDisabled()
+        expect(screen.getByRole('button', { name: 'Tháng sau' })).toBeDisabled()
       })
 
       it('Khi đang hiển thị bảng chọn tháng và đạt tới minDate, button prev sẽ bị disabled', async () => {
@@ -261,11 +244,8 @@ describe('calendar', () => {
         render(HnCalendar, { props: { minDate } })
 
         // Chuyển sang bảng chọn tháng
-        const currentMonthLabel = dayjs(minDate).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-
-        const prevButton = screen.getByRole('button', { name: 'Prev' })
-        expect(prevButton).toBeDisabled()
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        expect(screen.getByRole('button', { name: 'Năm trước' })).toBeDisabled()
       })
 
       it('Khi đang hiển thị bảng chọn tháng và đạt tới maxDate, button next sẽ bị disabled', async () => {
@@ -273,11 +253,8 @@ describe('calendar', () => {
         render(HnCalendar, { props: { maxDate } })
 
         // Chuyển sang bảng chọn tháng
-        const currentMonthLabel = dayjs(maxDate).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-
-        const nextButton = screen.getByRole('button', { name: 'Next' })
-        expect(nextButton).toBeDisabled()
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        expect(screen.getByRole('button', { name: 'Năm sau' })).toBeDisabled()
       })
 
       it('Khi đang hiển thị bảng chọn năm và đạt tới minDate, button prev sẽ bị disabled', async () => {
@@ -285,13 +262,9 @@ describe('calendar', () => {
         render(HnCalendar, { props: { minDate } })
 
         // Chuyển sang bảng chọn năm
-        const currentMonthLabel = dayjs(minDate).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-        const currentYearLabel = dayjs(minDate).format('YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
-
-        const prevButton = screen.getByRole('button', { name: 'Prev' })
-        expect(prevButton).toBeDisabled()
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn năm' }))
+        expect(screen.getByRole('button', { name: 'Thập kỷ trước' })).toBeDisabled()
       })
 
       it('Khi đang hiển thị bảng chọn năm và đạt tới maxDate, button next sẽ bị disabled', async () => {
@@ -299,13 +272,9 @@ describe('calendar', () => {
         render(HnCalendar, { props: { maxDate } })
 
         // Chuyển sang bảng chọn năm
-        const currentMonthLabel = dayjs(maxDate).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-        const currentYearLabel = dayjs(maxDate).format('YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
-
-        const nextButton = screen.getByRole('button', { name: 'Next' })
-        expect(nextButton).toBeDisabled()
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn năm' }))
+        expect(screen.getByRole('button', { name: 'Thập kỷ sau' })).toBeDisabled()
       })
 
       it('Khi không đạt tới giới hạn, các button navigation không bị disabled', () => {
@@ -314,11 +283,8 @@ describe('calendar', () => {
         const currentDate = new Date(2025, 5, 15) // 2025-06-15 (giữa khoảng)
         render(HnCalendar, { props: { minDate, maxDate, modelValue: currentDate } })
 
-        const prevButton = screen.getByRole('button', { name: 'Prev' })
-        const nextButton = screen.getByRole('button', { name: 'Next' })
-
-        expect(prevButton).not.toBeDisabled()
-        expect(nextButton).not.toBeDisabled()
+        expect(screen.getByRole('button', { name: 'Tháng trước' })).not.toBeDisabled()
+        expect(screen.getByRole('button', { name: 'Tháng sau' })).not.toBeDisabled()
       })
     })
 
@@ -356,9 +322,7 @@ describe('calendar', () => {
           }
         })
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
         await userEvent.click(screen.getByRole('button', { name: 'May' }))
 
         expect(mockFn).toBeCalledWith(undefined)
@@ -375,12 +339,8 @@ describe('calendar', () => {
           }
         })
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-
-        const currentYearLabel = dayjs(now).format('YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
-
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn năm' }))
         await userEvent.click(screen.getByRole('button', { name: '2026' }))
 
         expect(mockFn).toBeCalledWith(undefined)
@@ -397,8 +357,7 @@ describe('calendar', () => {
           }
         })
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
 
         // chọn cùng tháng với modelValue
         await userEvent.click(screen.getByRole('button', { name: 'January' }))
@@ -416,11 +375,8 @@ describe('calendar', () => {
           }
         })
 
-        const currentMonthLabel = dayjs(now).format('MMMM YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentMonthLabel }))
-
-        const currentYearLabel = dayjs(now).format('YYYY')
-        await userEvent.click(screen.getByRole('button', { name: currentYearLabel }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn tháng' }))
+        await userEvent.click(screen.getByRole('button', { name: 'Chọn năm' }))
 
         // chọn cùng năm với modelValue
         await userEvent.click(screen.getByRole('button', { name: '2025' }))
