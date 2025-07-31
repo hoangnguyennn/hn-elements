@@ -27,7 +27,7 @@
         v-if="clearable && !disabled && (hover || focus) && modelValue"
         :as="IcoClear"
         class="hn-input--clear"
-        :aria-label="clearAriaLabel"
+        :ariaLabel="clearAriaLabel"
         @click="handleClear"
         @mousedown.prevent="NOOP"
       />
@@ -35,7 +35,7 @@
       <hn-icon-button
         v-if="password"
         :as="passwordIcon"
-        :aria-label="passwordAriaLabel"
+        :ariaLabel="passwordAriaLabel"
         @click="showPassword = !showPassword"
         @mousedown.prevent="NOOP"
       />

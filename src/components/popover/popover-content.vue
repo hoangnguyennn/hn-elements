@@ -13,7 +13,7 @@
       class="hn-popover--arrow"
       aria-hidden
     >
-      <hn-icon :as="IcoCaret"></hn-icon>
+      <hn-icon :as="IcoCaret" ariaLabel="Caret"></hn-icon>
     </div>
     <slot></slot>
   </div>

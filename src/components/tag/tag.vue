@@ -12,7 +12,7 @@
       v-if="closeable"
       :as="IcoClose"
       class="hn-tag--close"
-      :aria-label="closeAriaLabel"
+      :ariaLabel="closeAriaLabel"
       @click="$emit('close')"
     ></hn-icon-button>
   </div>
