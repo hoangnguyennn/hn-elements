@@ -6,9 +6,9 @@ export type TextareaEmits = {
 }
 
 export type TextareaProps = FieldProps & {
-  /** Kích thước tối đa của textarea. */
+  /** Số hàng tối đa của textarea. */
   maxRows?: number
-  /** Kích thước tối thiểu của textarea. */
+  /** Số hàng tối thiểu của textarea. */
   minRows?: number
   /** Số ký tự tối đa. */
   maxLength?: number
