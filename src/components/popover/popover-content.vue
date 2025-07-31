@@ -11,7 +11,7 @@
         transform: `rotate(${rotate}deg)`
       }"
       class="hn-popover--arrow"
-      aria-hidden="true"
+      aria-hidden
     >
       <hn-icon :as="IcoCaret"></hn-icon>
     </div>

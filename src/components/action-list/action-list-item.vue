@@ -17,7 +17,7 @@
       :disabled="disabled"
       tabindex="-1"
       readonly
-      aria-hidden="true"
+      aria-hidden
     />
     <slot></slot>
   </button>

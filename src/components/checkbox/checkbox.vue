@@ -32,7 +32,7 @@
         :aria-required="required"
         @change="handleChange"
       />
-      <i v-if="checked || indeterminate" class="hn-checkbox--mark" aria-hidden="true">
+      <i v-if="checked || indeterminate" class="hn-checkbox--mark" aria-hidden>
         <ico-check v-if="checked" />
         <ico-indeterminate v-else-if="indeterminate" />
       </i>
