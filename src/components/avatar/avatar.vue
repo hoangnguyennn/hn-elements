@@ -1,7 +1,7 @@
 <template>
   <div class="hn-avatar" :data-size="size">
     <img v-if="src" :src="src" :alt="name" class="hn-avatar--image" />
-    <span v-else-if="name" class="hn-avatar--name">{{ displayName }}</span>
+    <span v-else-if="name" class="hn-avatar--name" aria-hidden>{{ displayName }}</span>
   </div>
 </template>
 

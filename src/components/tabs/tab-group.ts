@@ -20,6 +20,10 @@ export type TabGroupDirection = 'horizontal' | 'vertical'
 export type TabGroupProps = {
   /** Hướng của tab group. */
   direction?: TabGroupDirection
+  /** Nhãn aria cho tab group. */
+  ariaLabel?: string
+  /** Id của phần tử mô tả thêm cho tab group. */
+  ariaDescribedby?: string
 }
 
 export type TabGroupEmits = {

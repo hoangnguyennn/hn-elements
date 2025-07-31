@@ -22,8 +22,8 @@ describe('collapse', () => {
           }
         })
 
-        const item1 = screen.getByText('Item 1')
-        const item2 = screen.getByText('Item 2')
+        const item1 = screen.getByRole('button', { name: 'Item 1' })
+        const item2 = screen.getByRole('button', { name: 'Item 2' })
 
         // Mở cả 2 items
         await userEvent.click(item1)
@@ -44,8 +44,8 @@ describe('collapse', () => {
           }
         })
 
-        const item1 = screen.getByText('Item 1')
-        const item2 = screen.getByText('Item 2')
+        const item1 = screen.getByRole('button', { name: 'Item 1' })
+        const item2 = screen.getByRole('button', { name: 'Item 2' })
 
         // Mở item 1
         await userEvent.click(item1)
@@ -135,7 +135,7 @@ describe('collapse', () => {
           }
         })
 
-        expect(screen.getByText('Test Title')).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Test Title' })).toBeInTheDocument()
       })
     })
 
@@ -147,7 +147,7 @@ describe('collapse', () => {
           }
         })
 
-        await userEvent.click(screen.getByText('Item'))
+        await userEvent.click(screen.getByRole('button', { name: 'Item' }))
         expect(screen.getByText('Test Content')).toBeInTheDocument()
       })
 
@@ -166,7 +166,7 @@ describe('collapse', () => {
           }
         })
 
-        expect(screen.getByText('Custom Title')).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Custom Title' })).toBeInTheDocument()
       })
     })
   })
@@ -179,7 +179,7 @@ describe('collapse', () => {
         }
       })
 
-      const trigger = screen.getByText('Item')
+      const trigger = screen.getByRole('button', { name: 'Item' })
       const itemContainer = screen.getByText('Content').closest('.hn-collapse--item')
 
       // Nội dung ban đầu ẩn
@@ -201,7 +201,7 @@ describe('collapse', () => {
         }
       })
 
-      await userEvent.click(screen.getByText('Item'))
+      await userEvent.click(screen.getByRole('button', { name: 'Item' }))
       expect(emitted()['update:modelValue']).toBeTruthy()
       expect(emitted()['update:modelValue'][0]).toStrictEqual([[0]])
     })
@@ -218,18 +218,18 @@ describe('collapse', () => {
       })
 
       // Mở item 1
-      await userEvent.click(screen.getByText('Item 1'))
+      await userEvent.click(screen.getByRole('button', { name: 'Item 1' }))
       expect(screen.getByText('Content 1')).toBeInTheDocument()
 
       // Mở item 2
-      await userEvent.click(screen.getByText('Item 2'))
+      await userEvent.click(screen.getByRole('button', { name: 'Item 2' }))
       const item1Container = screen.getByText('Content 1').closest('.hn-collapse--item')
       const item2Container = screen.getByText('Content 2').closest('.hn-collapse--item')
       expect(item1Container).toHaveAttribute('data-open', 'false')
       expect(item2Container).toHaveAttribute('data-open', 'true')
 
       // Click lại item 2 để đóng
-      await userEvent.click(screen.getByText('Item 2'))
+      await userEvent.click(screen.getByRole('button', { name: 'Item 2' }))
       expect(item2Container).toHaveAttribute('data-open', 'false')
     })
 
@@ -245,9 +245,9 @@ describe('collapse', () => {
       })
 
       // Mở tất cả items
-      await userEvent.click(screen.getByText('Item 1'))
-      await userEvent.click(screen.getByText('Item 2'))
-      await userEvent.click(screen.getByText('Item 3'))
+      await userEvent.click(screen.getByRole('button', { name: 'Item 1' }))
+      await userEvent.click(screen.getByRole('button', { name: 'Item 2' }))
+      await userEvent.click(screen.getByRole('button', { name: 'Item 3' }))
 
       const item1Container = screen.getByText('Content 1').closest('.hn-collapse--item')
       const item2Container = screen.getByText('Content 2').closest('.hn-collapse--item')

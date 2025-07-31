@@ -5,6 +5,14 @@
     :data-variant="variant"
     :data-size="size"
     :data-disabled="disabled"
+    :type="type"
+    :form="form"
+    :aria-label="ariaLabel"
+    :aria-describedby="ariaDescribedby"
+    :aria-expanded="ariaExpanded"
+    :aria-pressed="ariaPressed"
+    :aria-haspopup="ariaHasPopup"
+    :aria-controls="ariaControls"
     @click="$emit('click', $event)"
   >
     <slot name="leading"></slot>

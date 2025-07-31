@@ -1,5 +1,15 @@
 <template>
-  <button class="hn-action-list-item" :data-selected="selected" :data-disabled="disabled" @click="onClick">
+  <button
+    class="hn-action-list-item"
+    :data-selected="selected"
+    :data-disabled="disabled"
+    role="option"
+    :aria-selected="selected"
+    :aria-disabled="disabled"
+    :aria-label="ariaLabel"
+    :aria-describedby="ariaDescribedby"
+    @click="onClick"
+  >
     <hn-checkbox
       v-if="multiple"
       class="hn-action-list-item--checkbox"
@@ -7,6 +17,7 @@
       :disabled="disabled"
       tabindex="-1"
       readonly
+      aria-hidden
     />
     <slot></slot>
   </button>
@@ -14,6 +25,7 @@
 
 <script setup lang="ts">
 import { HnCheckbox } from '@hn/components/checkbox'
+import { computed } from 'vue'
 import type { ActionListItemEmits, ActionListItemProps } from './action-list-item'
 import { useActionList } from './useActionList'
 
@@ -21,9 +33,12 @@ defineOptions({ name: 'HnActionListItem' })
 
 const emit = defineEmits<ActionListItemEmits>()
 
-withDefaults(defineProps<ActionListItemProps>(), {})
+const props = withDefaults(defineProps<ActionListItemProps>(), {})
 
 const { multiple } = useActionList()
+
+const ariaLabel = computed(() => props.ariaLabel || 'Mục danh sách')
+const ariaDescribedby = computed(() => props.ariaDescribedby)
 
 const onClick = (): void => emit('click')
 </script>

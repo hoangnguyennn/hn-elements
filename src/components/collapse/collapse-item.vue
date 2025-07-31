@@ -1,11 +1,20 @@
 <template>
   <div :ref="el => elementRef(el as HTMLDivElement)" class="hn-collapse--item" :data-open="isActive">
-    <div class="hn-collapse--trigger" @click.prevent="onTrigger(index)">
-      <div v-if="title" class="hn-collapse--title">{{ title }}</div>
+    <div
+      class="hn-collapse--trigger"
+      @click.prevent="onTrigger(index)"
+      role="button"
+      :aria-expanded="isActive"
+      :aria-controls="contentId"
+      :tabindex="0"
+      @keydown.enter.prevent="onTrigger(index)"
+      @keydown.space.prevent="onTrigger(index)"
+    >
+      <div v-if="title" :id="titleId" class="hn-collapse--title">{{ title }}</div>
       <slot v-else name="title"></slot>
-      <hn-icon-button :as="IcoArrowForward" class="hn-collapse--icon" />
+      <hn-icon :as="IcoArrowForward" class="hn-collapse--icon" ariaHidden ariaLabel="Mở" />
     </div>
-    <div class="hn-collapse--content">
+    <div :id="contentId" class="hn-collapse--content" :aria-labelledby="titleId" :aria-hidden="!isActive">
       <slot></slot>
     </div>
   </div>
@@ -13,7 +22,8 @@
 
 <script setup lang="ts">
 import { IcoArrowForward } from '@hn/assets/icons'
-import { HnIconButton } from '@hn/components/icon-button'
+import { HnIcon } from '@hn/components/icon'
+import { useId } from 'vue'
 import type { CollapseItemProps, CollapseItemSlots } from './collapse-item'
 import { useCollapseItem } from './useCollapseItem'
 
@@ -24,4 +34,7 @@ defineSlots<CollapseItemSlots>()
 withDefaults(defineProps<CollapseItemProps>(), {})
 
 const { isActive, index, elementRef, onTrigger } = useCollapseItem()
+
+const titleId = `hn-collapse-title-${useId()}`
+const contentId = `hn-collapse-content-${useId()}`
 </script>

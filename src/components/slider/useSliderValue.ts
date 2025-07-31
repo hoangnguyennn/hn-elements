@@ -14,8 +14,9 @@ export const useSliderValue = ({ trackRef }: Args): ReturnValue => {
     const trackElement = trackRef.value
     const trankRect = trackElement?.getBoundingClientRect()
 
-    const trackWidth = trankRect?.width ?? 0
-    const trackStart = trankRect?.left ?? 0
+    // NOTE: gán fallback value để tránh chia cho 0
+    const trackWidth = trankRect?.width || 1
+    const trackStart = trankRect?.left || 0
 
     const valueFromStart = x - trackStart
     const percent = (valueFromStart / trackWidth) * 100

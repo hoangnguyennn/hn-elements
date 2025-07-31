@@ -13,7 +13,7 @@ type ReturnValue = {
 }
 
 export const useRadio = (props: RadioProps, { emit }: UseRadioOptions): ReturnValue => {
-  const radioGroupContext = inject<RadioGroupContext>(RADIO_GROUP_KEY)
+  const radioGroupContext = inject<RadioGroupContext | undefined>(RADIO_GROUP_KEY, undefined)
 
   const isGroup = computed(() => radioGroupContext !== undefined)
 

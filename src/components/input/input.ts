@@ -7,6 +7,14 @@ export type InputProps = FieldProps & {
   password?: boolean
   /** Nội dung placeholder của input. */
   placeholder?: string
+  /** Chỉ ra rằng input có bắt buộc hay không. */
+  required?: boolean
+  /** Nhãn aria cho button clear. */
+  clearAriaLabel?: string
+  /** Nhãn aria cho button hiện mật khẩu. */
+  showPasswordAriaLabel?: string
+  /** Nhãn aria cho button ẩn mật khẩu. */
+  hidePasswordAriaLabel?: string
 }
 
 export type InputEmits = {

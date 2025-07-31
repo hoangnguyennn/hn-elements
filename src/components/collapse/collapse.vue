@@ -1,5 +1,5 @@
 <template>
-  <div class="hn-collapse">
+  <div class="hn-collapse" role="region" :aria-label="ariaLabel" :aria-describedby="ariaDescribedby">
     <slot></slot>
   </div>
 </template>

@@ -19,4 +19,8 @@ export type CollapseContext = {
 export type CollapseProps = {
   /** Hiệu ứng accordion. Khi true, chỉ có thể mở một item tại một thời điểm. */
   accordion?: boolean
+  /** Nhãn aria cho collapse. */
+  ariaLabel?: string
+  /** Id của phần tử mô tả thêm cho collapse. */
+  ariaDescribedby?: string
 }

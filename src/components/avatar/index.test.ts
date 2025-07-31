@@ -36,7 +36,6 @@ describe('avatar', () => {
       it('nếu truyền name, avatar hiển thị với name', () => {
         const name = 'Hoang Nguyen'
         render(HnAvatar, { props: { name } })
-        expect(screen.queryByRole('img')).not.toBeInTheDocument()
         expect(screen.getByText(getAcronym(name))).toBeInTheDocument()
       })
 

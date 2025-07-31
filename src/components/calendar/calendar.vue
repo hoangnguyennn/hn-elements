@@ -1,20 +1,20 @@
 <template>
-  <div class="hn-calendar">
+  <div class="hn-calendar" role="application" :aria-label="ariaLabel" :aria-describedby="ariaDescribedby">
     <div class="hn-calendar--header">
       <button
         class="hn-calendar--header-action left"
-        aria-label="Prev"
+        :aria-label="prevAriaLabel"
         :disabled="isPrevDisabled"
         @click.prevent="handlePrevClick"
       >
         <ico-arrow-left />
       </button>
-      <button class="hn-calendar--header-content" @click="handleTitleClick">
+      <button class="hn-calendar--header-content" :aria-label="titleAriaLabel" @click="handleTitleClick">
         <span class="hn-calendar--header-title">{{ activePaneTitle }}</span>
       </button>
       <button
         class="hn-calendar--header-action right"
-        aria-label="Next"
+        :aria-label="nextAriaLabel"
         :disabled="isNextDisabled"
         @click.prevent="handleNextClick"
       >
@@ -84,6 +84,31 @@ const activePaneTitle = computed(() => {
   }
 
   return getDecadeLabel(activeDate.value.toDate())
+})
+
+const ariaLabel = computed(() => props.ariaLabel || 'Lịch chọn ngày')
+const ariaDescribedby = computed(() => {
+  const ids = []
+  if (props.hint) ids.push(`hn-calendar-hint-${activeDate.value.format('YYYY-MM')}`)
+  return ids.length > 0 ? ids.join(' ') : undefined
+})
+
+const prevAriaLabel = computed(() => {
+  if (activePane.value === 'day') return 'Tháng trước'
+  if (activePane.value === 'month') return 'Năm trước'
+  return 'Thập kỷ trước'
+})
+
+const nextAriaLabel = computed(() => {
+  if (activePane.value === 'day') return 'Tháng sau'
+  if (activePane.value === 'month') return 'Năm sau'
+  return 'Thập kỷ sau'
+})
+
+const titleAriaLabel = computed(() => {
+  if (activePane.value === 'day') return 'Chọn tháng'
+  if (activePane.value === 'month') return 'Chọn năm'
+  return 'Chọn thập kỷ'
 })
 
 /** Kiểm tra button prev có bị vô hiệu hóa không */

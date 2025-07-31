@@ -1,5 +1,12 @@
 <template>
-  <div class="hn-tab-group" :data-direction="direction">
+  <div
+    class="hn-tab-group"
+    :data-direction="direction"
+    role="tablist"
+    :aria-label="ariaLabel"
+    :aria-describedby="ariaDescribedby"
+    :aria-orientation="direction"
+  >
     <slot></slot>
   </div>
 </template>
