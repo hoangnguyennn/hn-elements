@@ -5,25 +5,22 @@ import { HnAvatar, type AvatarSize } from '.'
 describe('avatar', () => {
   it('component render thành công', () => {
     const { container } = render(HnAvatar)
-    const avatarContainer = container.firstChild as HTMLElement
-    expect(avatarContainer).toBeInTheDocument()
-    expect(avatarContainer).toHaveClass('hn-avatar')
+    expect(container.firstChild).toBeInTheDocument()
+    expect(container.firstChild).toHaveClass('hn-avatar')
   })
 
   describe('truyền props', () => {
     describe('size', () => {
       it('avatar hiển thị với kích thước mặc định là medium', () => {
         const { container } = render(HnAvatar)
-        const avatarContainer = container.firstChild as HTMLElement
-        expect(avatarContainer).toHaveAttribute('data-size', 'medium')
+        expect(container.firstChild).toHaveAttribute('data-size', 'medium')
       })
 
       it.each<{ size: AvatarSize }>([{ size: 'small' }, { size: 'medium' }, { size: 'large' }])(
         'avatar hiển thị với kích thước $size khi truyền size là $size',
         ({ size }) => {
           const { container } = render(HnAvatar, { props: { size } })
-          const avatarContainer = container.firstChild as HTMLElement
-          expect(avatarContainer).toHaveAttribute('data-size', size)
+          expect(container.firstChild).toHaveAttribute('data-size', size)
         }
       )
     })
