@@ -2,7 +2,7 @@
   <hn-field class="hn-date-field" v-bind="fieldProps">
     <div class="hn-field--wrapper hn-date-field--wrapper" :data-focus="focus">
       <input :value="dateDisplay" class="hn-field--input hn-date--input" readonly />
-      <hn-icon-button :as="IcoCalendar" />
+      <hn-icon-button :as="IcoCalendar" ariaLabel="Chọn ngày" />
     </div>
   </hn-field>
 </template>

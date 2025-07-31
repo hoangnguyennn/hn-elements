@@ -141,7 +141,7 @@ export const Leading: Story = {
       <hn-stack direction="horizontal">
         <hn-button v-bind="args">
           <template #leading>
-            <hn-icon :as="IcoSave" />
+            <hn-icon :as="IcoSave" ariaLabel="Save" />
           </template>
           Button
         </hn-button>
@@ -154,7 +154,7 @@ export const Leading: Story = {
         code: `<hn-stack direction="horizontal">
   <hn-button variant="primary">
     <template #leading>
-      <hn-icon :as="IcoSave" />
+      <hn-icon :as="IcoSave" ariaLabel="Save" />
     </template>
     Button
   </hn-button>
@@ -182,7 +182,7 @@ export const Trailing: Story = {
         <hn-button v-bind="args">
           Button
           <template #trailing>
-            <hn-icon :as="IcoSave" />
+            <hn-icon :as="IcoSave" ariaLabel="Save" />
           </template>
         </hn-button>
       </hn-stack>
@@ -195,7 +195,7 @@ export const Trailing: Story = {
   <hn-button variant="primary">
     Button
     <template #trailing>
-      <hn-icon :as="IcoSave" />
+      <hn-icon :as="IcoSave" ariaLabel="Save" />
     </template>
   </hn-button>
 </hn-stack>`

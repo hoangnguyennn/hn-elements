@@ -10,17 +10,22 @@
     :aria-controls="ariaControls"
     @click="$emit('click', $event)"
   >
-    <hn-icon v-bind="$props" />
+    <hn-icon v-bind="iconProps" />
   </button>
 </template>
 
 <script setup lang="ts">
-import { HnIcon } from '@hn/components/icon'
+import { getIconProps, HnIcon } from '@hn/components/icon'
+import { computed } from 'vue'
 import type { IconButtonEmits, IconButtonProps } from './icon-button'
 
 defineOptions({ name: 'HnIconButton' })
 
 defineEmits<IconButtonEmits>()
 
-withDefaults(defineProps<IconButtonProps>(), {})
+const props = withDefaults(defineProps<IconButtonProps>(), {
+  ariaHidden: true
+})
+
+const iconProps = computed(() => getIconProps(props))
 </script>

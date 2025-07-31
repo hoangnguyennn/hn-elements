@@ -4,7 +4,7 @@ export type IconProps = {
   /** Chỉ định component được sử dụng trong icon. */
   as: VNode | string
   /** Nhãn aria cho icon. */
-  ariaLabel?: string
+  ariaLabel: string
   /** Chỉ ra rằng icon có ẩn khỏi screen reader hay không. */
   ariaHidden?: boolean
   /** Role của icon. */

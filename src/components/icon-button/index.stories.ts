@@ -13,12 +13,13 @@ type Story = StoryObj<typeof HnIconButton>
 
 export const Cover: Story = {
   args: {
-    as: IcoCheck
+    as: IcoCheck,
+    ariaLabel: 'Check'
   },
   parameters: {
     docs: {
       source: {
-        code: '<hn-icon-button as={IcoCheck} />'
+        code: '<hn-icon-button as={IcoCheck} ariaLabel="Check" />'
       }
     }
   }

@@ -12,7 +12,7 @@
     >
       <div v-if="title" :id="titleId" class="hn-collapse--title">{{ title }}</div>
       <slot v-else name="title"></slot>
-      <hn-icon :as="IcoArrowForward" class="hn-collapse--icon" aria-hidden />
+      <hn-icon :as="IcoArrowForward" class="hn-collapse--icon" ariaHidden ariaLabel="Mở" />
     </div>
     <div :id="contentId" class="hn-collapse--content" :aria-labelledby="titleId" :aria-hidden="!isActive">
       <slot></slot>

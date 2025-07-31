@@ -3,8 +3,6 @@ import type { IconProps } from '@hn/components/icon'
 export type IconButtonProps = IconProps & {
   /** Chỉ ra rằng button có bị disable hay không. */
   disabled?: boolean
-  /** Nhãn aria cho button. */
-  ariaLabel?: string
   /** Id của phần tử mô tả thêm cho button. */
   ariaDescribedby?: string
   /** Chỉ ra trạng thái được nhấn của button (cho toggle button). */
