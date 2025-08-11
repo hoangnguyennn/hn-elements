@@ -25,3 +25,5 @@ coverage
 *.sw?
 
 *storybook.log
+
+test-results
