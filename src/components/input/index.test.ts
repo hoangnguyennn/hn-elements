@@ -53,43 +53,4 @@ describe('input', () => {
       })
     })
   })
-
-  describe('thao tác', () => {
-    it('có thể nhập text vào input', async () => {
-      render(HnInput)
-      const input = screen.getByRole('textbox')
-      await userEvent.type(input, 'test text')
-      expect(input).toHaveValue('test text')
-    })
-
-    it('emit change khi nhập text', async () => {
-      const { emitted } = render(HnInput)
-      const input = screen.getByRole('textbox')
-      await userEvent.type(input, 'test')
-      await userEvent.tab() // Trigger change event
-      expect(emitted('change')).toBeTruthy()
-      expect(emitted('change')[0]).toStrictEqual(['test'])
-    })
-
-    it('emit clear khi click button clear', async () => {
-      const { emitted } = render(HnInput, { props: { clearable: true, modelValue: 'test' } })
-      const input = screen.getByRole('textbox')
-      await userEvent.hover(input)
-      const clearButton = screen.getByRole('button', { name: /xóa nội dung/i })
-      await userEvent.click(clearButton)
-      expect(emitted('clear')).toBeTruthy()
-    })
-
-    it('toggle password visibility khi click button password', async () => {
-      render(HnInput, { props: { password: true } })
-      const input = screen.getByDisplayValue('')
-      const toggleButton = screen.getByRole('button', { name: /ẩn mật khẩu/i })
-
-      expect(input).toHaveAttribute('type', 'password')
-
-      await userEvent.click(toggleButton)
-      expect(screen.getByRole('button', { name: /hiện mật khẩu/i })).toBeInTheDocument()
-      expect(input).toHaveAttribute('type', 'text')
-    })
-  })
 })

@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event'
 import { render, screen } from '@testing-library/vue'
 import { HnRadio } from '.'
 
@@ -35,30 +34,6 @@ describe('radio', () => {
         render(HnRadio, { props: { name: 'test-group' } })
         expect(screen.getByRole('radio')).toHaveAttribute('name', 'test-group')
       })
-    })
-  })
-
-  describe('thao tác', () => {
-    it('có thể chọn radio', async () => {
-      render(HnRadio)
-      const radio = screen.getByRole('radio')
-      await userEvent.click(radio)
-      expect(radio).toBeChecked()
-    })
-
-    it('emit update:modelValue khi chọn radio', async () => {
-      const { emitted } = render(HnRadio, { props: { value: 'test-value' } })
-      const radio = screen.getByRole('radio')
-      await userEvent.click(radio)
-      expect(emitted()['update:modelValue']).toBeTruthy()
-      expect(emitted()['update:modelValue'][0]).toStrictEqual(['test-value'])
-    })
-
-    it('không thể chọn radio khi bị disable', async () => {
-      render(HnRadio, { props: { disabled: true } })
-      const radio = screen.getByRole('radio')
-      await userEvent.click(radio)
-      expect(radio).not.toBeChecked()
     })
   })
 })

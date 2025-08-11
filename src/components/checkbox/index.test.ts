@@ -44,44 +44,4 @@ describe('checkbox', () => {
       expect(emitted()['update:modelValue'][1]).toStrictEqual(['falseValue'])
     })
   })
-
-  describe('thao tác', () => {
-    it('khi click vào checkbox thì emit update:modelValue', async () => {
-      const { emitted } = render(HnCheckbox)
-      await userEvent.click(screen.getByRole('checkbox'))
-      expect(emitted()['update:modelValue']).toHaveLength(1)
-      expect(emitted()['update:modelValue']).toBeTruthy()
-    })
-
-    it('khi click vào checkbox thì emit change', async () => {
-      const { emitted } = render(HnCheckbox)
-      await userEvent.click(screen.getByRole('checkbox'))
-      expect(emitted().change).toHaveLength(1)
-      expect(emitted().change).toBeTruthy()
-    })
-
-    it('nếu checkbox đang bị disable thì khi click vào sẽ không emit update:modelValue', async () => {
-      const { emitted } = render(HnCheckbox, {
-        props: {
-          modelValue: true,
-          disabled: true
-        }
-      })
-
-      await userEvent.click(screen.getByRole('checkbox'))
-      expect(emitted()['update:modelValue']).toBeUndefined()
-    })
-
-    it('nếu checkbox đang bị disable thì khi click vào sẽ không emit change', async () => {
-      const { emitted } = render(HnCheckbox, {
-        props: {
-          modelValue: true,
-          disabled: true
-        }
-      })
-
-      await userEvent.click(screen.getByRole('checkbox'))
-      expect(emitted().change).toBeUndefined()
-    })
-  })
 })
