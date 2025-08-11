@@ -17,7 +17,11 @@
     "verify": "pnpm run lint && pnpm run typecheck && pnpm run test",
     "storybook": "storybook dev -p 6006 --docs",
     "build-storybook": "storybook build --docs",
-    "clean": "rm -rf storybook-static"
+    "clean": "rm -rf storybook-static",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:headed": "playwright test --headed",
+    "e2e:ci": "playwright test --reporter=line,github"
   },
   "dependencies": {
     "@floating-ui/vue": "1.1.7",
@@ -28,6 +32,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.7",
     "@eslint/js": "9.31.0",
+    "@playwright/test": "1.54.1",
     "@storybook/addon-a11y": "8.6.14",
     "@storybook/addon-essentials": "8.6.14",
     "@storybook/blocks": "8.6.14",
