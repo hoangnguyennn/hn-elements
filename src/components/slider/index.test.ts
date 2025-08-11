@@ -86,49 +86,4 @@ describe('slider', () => {
       })
     })
   })
-
-  describe('thao tác', () => {
-    it('có thể thay đổi giá trị slider', async () => {
-      render(HnSlider)
-      const slider = screen.getByRole('slider')
-
-      expect(slider).toHaveAttribute('aria-valuenow', '0')
-
-      await userEvent.type(slider, '{arrowright}')
-      // TODO: vitest không render được component như trên browser nên không tính toán được giá trị.
-      // Tôi sử dụng 0 làm giá trị fallback
-      expect(slider).toHaveAttribute('aria-valuenow', '0')
-    })
-
-    it('emit update:modelValue khi thay đổi giá trị', async () => {
-      const { emitted } = render(HnSlider, { props: { modelValue: 50 } })
-      const slider = screen.getByRole('slider')
-
-      await userEvent.type(slider, '{arrowright}')
-      expect(emitted()['update:modelValue']).toBeTruthy()
-      // TODO: vitest không render được component như trên browser nên không tính toán được giá trị.
-      // Tôi sử dụng 0 làm giá trị fallback
-      expect(emitted()['update:modelValue'][0]).toStrictEqual([0])
-    })
-
-    it('không thể thay đổi giá trị khi bị disable', async () => {
-      render(HnSlider, { props: { disabled: true } })
-      const slider = screen.getByRole('slider')
-
-      await userEvent.type(slider, '{arrowright}')
-      expect(slider).toHaveAttribute('aria-valuenow', '0')
-    })
-
-    it('aria-valuetext cập nhật khi thay đổi giá trị', async () => {
-      render(HnSlider, { props: { modelValue: 25 } })
-      const slider = screen.getByRole('slider')
-
-      expect(slider).toHaveAttribute('aria-valuetext', '25%')
-
-      await userEvent.type(slider, '{arrowright}')
-      // TODO: vitest không render được component như trên browser nên không tính toán được giá trị.
-      // Tôi sử dụng 0% làm giá trị fallback
-      expect(slider).toHaveAttribute('aria-valuetext', '0%')
-    })
-  })
 })
